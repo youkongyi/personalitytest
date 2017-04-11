@@ -12,14 +12,14 @@ import com.personalitytest.entity.HR_CandiDateBO;
 import com.personalitytest.utils.JsonResult;
 
 /**
- * 消息接口
+ * 信息接口
  * @author gehanbiao
  * @version 2017年4月10日
  */
 public interface IFindMessageControllener {
     
     /**
-     * @description： 添加方法功能描述
+     * @description： 根据当前主管查询应试者信息
      * @param userName
      * @return
      * @author：gehanbiao

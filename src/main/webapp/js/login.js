@@ -43,6 +43,8 @@ function loginCheck(){
 			//返回值状态为0 则是正确返回,设置Cookie(保存UserId)并跳转页面 
 			if (result.state == 0) {
 				$('.error').hide();
+				var user = result.data;
+				setCookie('userId', user.id);
 				location.href='admin/menu.html';
 				return;
 				//返回值状态若为2 则返回帐号错误信息  直接return

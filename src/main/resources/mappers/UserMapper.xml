@@ -4,6 +4,18 @@
 
 <mapper namespace="com.personalitytest.user.dao.IUserDAO">
 
+				<!-- 测试分页工具:start -->
+	<select id="selectAll" resultType="com.personalitytest.entity.HR_DistrictBO"> 
+    	select 
+    		DISTRICT_ID as districtId,
+    		DISTRICT_NAME as districtName,
+    		LEVEL as level,
+    		PARENT_ID as parentId,
+    		LIST as list
+    	 from hr_district where district_id 
+	</select>
+				<!-- 测试分页工具:end -->
+				
 	<select id="findUserByName" parameterType="String" resultType="com.personalitytest.entity.HR_UserBO">
 	SELECT
 		USER_ID as userId,
@@ -19,17 +31,7 @@
 	WHERE
 		USER_NAME = #{userName }
 	</select>
-	
-	<select id="selectAll" resultType="com.personalitytest.entity.HR_DistrictBO"> 
-    	select 
-    		DISTRICT_ID as districtId,
-    		DISTRICT_NAME as districtName,
-    		LEVEL as level,
-    		PARENT_ID as parentId,
-    		LIST as list
-    	 from hr_district where district_id 
-	</select>
-	
+				
 	
 	
 	

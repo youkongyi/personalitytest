@@ -1,23 +1,25 @@
 package com.personalitytest.test;
 
+
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
 import javax.sql.DataSource;
 
-import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Before;
 import org.junit.Test;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.personalitytest.entity.HR_CandiDateBO;
 import com.personalitytest.entity.HR_DistrictBO;
 import com.personalitytest.entity.HR_UserBO;
+import com.personalitytest.user.dao.IMessageDAO;
 import com.personalitytest.user.dao.IUserDAO;
+import com.personalitytest.user.service.ICandiDateService;
 import com.personalitytest.user.service.IUserService;
 import com.personalitytest.utils.JsonResult;
 
@@ -27,6 +29,8 @@ public class MyBatisTestCase {
 	ClassPathXmlApplicationContext ctx;
 	@Before
 	public void init(){
+	    /* 只测试mybatis/SQL语句 */
+//	    ctx = new ClassPathXmlApplicationContext("spring-mybatis.xml");
 		ctx = new ClassPathXmlApplicationContext("spring-web.xml","spring-service.xml","spring-mybatis.xml");
 	}
 	
@@ -65,19 +69,33 @@ public class MyBatisTestCase {
 	}
 	@Test
 	public void test6(){
+	    /* 测试分页 */
 	    IUserDAO dao = ctx.getBean("IUserDAO",IUserDAO.class);
-            PageHelper.startPage(2, 16);
-            List<HR_DistrictBO> list = dao.selectAll();
-            for(HR_DistrictBO bo : list){
-                System.out.println(bo);
-            }
-          
+        PageHelper.startPage(2, 16);
+        List<HR_DistrictBO> list = dao.selectAll();
+        assertEquals("湖北省", list.get(0).getDistrictName());
+	}
+	@Test
+	public void test7(){
+	    /* 测试用Mapper接口写入 */
+	    IUserDAO dao = ctx.getBean("IUserDAO",IUserDAO.class);
+        HR_UserBO userbo = dao.findUserByNames(1);
+        System.out.println(userbo);
 	}
 	
+	@Test
+	public void test8(){
+	    IMessageDAO dao = ctx.getBean("IMessageDAO",IMessageDAO.class); 
+	    List<HR_CandiDateBO> list = dao.findCandiDateMessage("gehanbiao");
+	    System.out.println(list);
+	}
 	
-	
-	
-	
+	@Test
+	public void test9(){
+	    ICandiDateService service = ctx.getBean("candiDateService",ICandiDateService.class);
+	    List<HR_CandiDateBO> json = service.findCandiDateMessage("gehanbiao");
+	    System.out.println(json);
+	}
 	
 	
 	

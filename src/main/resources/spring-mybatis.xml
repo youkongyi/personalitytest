@@ -35,23 +35,29 @@
 		<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<!-- 指定连接资源 -->
 		<property name="dataSource" ref="dataSource"/>
-		<!-- 指定映射文件 -->
+		<!-- 指定Mapper.xml映射文件: 如使用Mapper接口则不需要 -->
 		<property name="mapperLocations" value="classpath:mappers/*.xml"/>
+		<!-- 挂在分页工具 -->
 		<property name="plugins">
         <array>
             <bean class="com.github.pagehelper.PageInterceptor">
-                <!-- 这里的几个配置主要演示如何使用，如果不理解，一定要去掉下面的配置 -->
                 <property name="properties"><value>helperDialect=mysql</value></property>
             </bean>
         </array>
     	</property>
 		</bean>	
 		
-		<!-- 添加Mapper接口扫描器配置 -->
+		<!-- 添加Mapper包扫描器配置 -->
 		<bean id="mapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 			<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
 			<property name="basePackage" value="com.personalitytest.user.dao"/>
 		</bean>
+		<!-- 添加Mapper接口扫描器配置 -->
+<!-- 		<bean id="IUserDAO" class="org.mybatis.spring.mapper.MapperFactoryBean"> -->
+<!--  			 <property name="mapperInterface" value="com.personalitytest.user.dao.IUserDAO" /> -->
+<!--   			 <property name="sqlSessionFactory" ref="sqlSessionFactory" /> -->
+<!-- 		</bean> -->
+		
 		<!-- 配置Spring JDBC 中的数据源事务管理 -->
 		<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 			<property name="dataSource" ref="dataSource"/>
