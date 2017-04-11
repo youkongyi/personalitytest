@@ -6,6 +6,7 @@
  */
 package com.personalitytest.user.controller;
 
+
 import com.personalitytest.entity.HR_UserBO;
 import com.personalitytest.utils.JsonResult;
 

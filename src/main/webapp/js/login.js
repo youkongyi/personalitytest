@@ -31,7 +31,7 @@ function loginCheck(){
 	};
 	$.ajax({
 		//请求页面
-		url : 'user/login.do',
+		url : '/personalitytest/user/login.do',
 		//请求参数
 		data : paramter,
 		//返回的数据类型
@@ -44,7 +44,7 @@ function loginCheck(){
 			if (result.state == 0) {
 				$('.error').hide();
 				var user = result.data;
-				setCookie('userId', user.id);
+				setCookie('userId', user.userId);
 				location.href='admin/menu.html';
 				return;
 				//返回值状态若为2 则返回帐号错误信息  直接return

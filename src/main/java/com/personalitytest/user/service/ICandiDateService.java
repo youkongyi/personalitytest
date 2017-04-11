@@ -23,6 +23,6 @@ public interface ICandiDateService {
      * @author：gehanbiao
      * @crateDate：2017年4月11日上午11:46:58
      */
-    List<HR_CandiDateBO> findCandiDateMessage(String userName);
+    List<HR_CandiDateBO> findCandiDateMessage(String userId);
     
 }

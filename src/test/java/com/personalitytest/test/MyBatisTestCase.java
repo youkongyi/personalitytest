@@ -86,14 +86,14 @@ public class MyBatisTestCase {
 	@Test
 	public void test8(){
 	    IMessageDAO dao = ctx.getBean("IMessageDAO",IMessageDAO.class); 
-	    List<HR_CandiDateBO> list = dao.findCandiDateMessage("gehanbiao");
-	    System.out.println(list);
+	    List<HR_CandiDateBO> list = dao.findCandiDateMessage("1");
+	    System.out.println(list.get(0).getEmail());
 	}
 	
 	@Test
 	public void test9(){
 	    ICandiDateService service = ctx.getBean("candiDateService",ICandiDateService.class);
-	    List<HR_CandiDateBO> json = service.findCandiDateMessage("gehanbiao");
+	    List<HR_CandiDateBO> json = service.findCandiDateMessage("1");
 	    System.out.println(json);
 	}
 	

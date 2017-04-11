@@ -34,8 +34,8 @@ public class CandiDateServiceImpl implements ICandiDateService {
      */
     @Override
     @Transactional
-    public List<HR_CandiDateBO> findCandiDateMessage(String userName) {
-        return messageDAO.findCandiDateMessage(userName);
+    public List<HR_CandiDateBO> findCandiDateMessage(String userId) {
+        return messageDAO.findCandiDateMessage(userId);
     }
 
 }

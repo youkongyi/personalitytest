@@ -26,7 +26,26 @@ public interface IMessageDAO {
      * @author：gehanbiao
      * @crateDate：2017年4月11日下午2:40:46
      */
-    @Select("SELECT T.NAME as NAME,T.GENDER as GENDER FROM HR_CANDIDATE T, (SELECT user_id FROM HR_user WHERE USER_NAME = #{userName } ) T2  where  T.user_id = T2.user_id")
-    List<HR_CandiDateBO> findCandiDateMessage(@Param("userName")String userName);
+    @Select(" SELECT "
+            + " T.CANDIDATE_ID AS candidateId,"
+            + " T.NAME AS name,"
+            + " T.GENDER AS gender,"
+            + " T.DAY_OF_BIRTH AS dayOfBirth,"
+            + " T.POSITION_ID AS positionId,"
+            + " T.MOBILE AS mobile,"
+            + " T.PHONE AS phone,"
+            + " T.EMAIL AS email,"
+            + " T.EDUCATION AS education,"
+            + " T.COLLAGE AS collage,"
+            + " T.SCHOOL AS school,"
+            + " T.MAJOR AS major,"
+            + " T.GRADUATION AS graduation,"
+            + " T.QQ AS qq,"
+            + " T.SOURCE_ID AS sourceId,"
+            + " T.STATE_ID AS stateId,"
+            + " T.USER_ID AS userId,"
+            + " T.CITY_ID AS cityId "
+          + " FROM HR_CANDIDATE T WHERE  T.USER_ID = #{userId }")
+    List<HR_CandiDateBO> findCandiDateMessage(@Param("userId")String userId);
     
 }

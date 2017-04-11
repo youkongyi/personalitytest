@@ -40,16 +40,15 @@ public class FindMessageControllenerImpl implements IFindMessageControllener {
     @Override
     @RequestMapping("/candiDate.do")
     @ResponseBody
-    public JsonResult<List<HR_CandiDateBO>> findCandiDateMessage(String userName) {
+    public JsonResult<List<HR_CandiDateBO>> findCandiDateMessage(String userId) {
         JsonResult<List<HR_CandiDateBO>> jsonResult = new JsonResult<List<HR_CandiDateBO>>();
-        if(StringUtils.isNull(userName)){
+        if(StringUtils.isNull(userId)){
             jsonResult.setState(StateInforMation.STATUS_PARAMETER_ERROR);
             jsonResult.setMessage(StateInforMation.STATUS_PARAMETER_ERROR_MESSAGE);
             return jsonResult;
         }
         try{
-            List<HR_CandiDateBO> candiDateList = candiDateService.findCandiDateMessage(userName);
-            System.out.println(candiDateList);
+            List<HR_CandiDateBO> candiDateList = candiDateService.findCandiDateMessage(userId);
             jsonResult.setData(candiDateList);
             jsonResult.setState(StateInforMation.STATUS_SUCCESS);
             jsonResult.setMessage(StateInforMation.STATUS_SUCCESS_MESSAGE);
