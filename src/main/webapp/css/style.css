@@ -1,0 +1,133 @@
+﻿@charset "utf-8";
+/* CSS Document */
+* {
+    margin: 0;
+    padding: 0;
+    font: 14px "微软雅黑";
+    color: #666;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+table, img {
+    border: 0;
+}
+
+ul, li {
+    list-style: none;
+}
+
+.L {
+    float: left;
+}
+
+.R {
+    float: right;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+a:hover, a.current {
+    color: #cd5050;
+}
+
+a:focus, input, textarea {
+    outline-style: none;
+}
+
+input[type="text"], input[type="password"], textarea {
+    outline-style: none;
+    -webkit-appearance: none;
+}
+
+textarea {
+    resize: none;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+i {
+    font-style: normal;
+}
+
+b {
+    font-weight: normal;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.light {
+    color: #999;
+}
+
+.prompt {
+    color: #f57200;
+}
+
+.tc {
+    text-align: center;
+}
+
+.tr {
+    text-align: right;
+}
+
+.clearfix:after {
+    clear: both;
+    content: " ";
+    display: block;
+    height: 0;
+    font-size: 0;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/*隐藏*/
+.hidn {
+    visibility: hidden;
+}
+
+.hidn_all {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    display: block;
+    overflow: hidden;
+    clear: both;
+    padding: 0;
+    margin: 0;
+    *display: none;
+}
+
+.dn {
+    display: none;
+}
+
+/*多出内容...*/
+.cutext {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+
+/*css写小三角——下拉图标*/
+.caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    vertical-align: middle;
+    border: 6px solid transparent;
+    border-top: 6px solid #cecbcb;
+    border-bottom: none;
+}
+
+

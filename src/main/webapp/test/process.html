@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <title>性格色彩测试系统</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="css/css.css" type="text/css"/>
+    <script src="js/jquery.js"></script>
+</head>
+<body class="bgcolor">
+<div class="process">
+    <div class="banner">
+        &nbsp;
+    </div>
+    <div class="part1">
+        <div class="pull-rigth"><span>1</span>/5</div>
+        <p>测试人：<span>胡婷</span></p>
+        <p>应聘岗位：<span>未知</span></p>
+    </div>
+    <div id="banner-box" class="test_cont">
+        <div class="item">
+            <div class="tit">下列对职业教育的理解，存在片面性的是1111?</div>
+            <div class="item_cont">
+                <ul>
+                    <li>
+                        <span class="choose">A</span>希望能提高技能
+                    </li>
+                    <li>
+                        <span class="choose">B</span>职业发展的需要
+                    </li>
+                    <li>
+                        <span class="choose">C</span>教育面向全体学生
+                    </li>
+                    <li>
+                        <span class="choose">D</span>引导学生协调发展
+                    </li>
+                </ul>
+                <input type="hidden" value="B">
+            </div>
+        </div>
+        <div class="item">
+            <div class="tit">下列对职业教育的理解，存在片面性的是222222?</div>
+            <div class="item_cont">
+                <ul>
+                    <li>
+                        <span class="choose">A</span>希望能提高技能
+                    </li>
+                    <li>
+                        <span class="choose">B</span>职业发展的需要
+                    </li>
+                    <li>
+                        <span class="choose">C</span>教育面向全体学生
+                    </li>
+                    <li>
+                        <span class="choose">D</span>引导学生协调发展
+                    </li>
+                </ul>
+                <input type="hidden" value="B">
+            </div>
+        </div>
+        <div class="item">
+            <div class="tit">下列对职业教育的理解，存在片面性的是333333?</div>
+            <div class="item_cont">
+                <ul>
+                    <li>
+                        <span class="choose">A</span>希望能提高技能
+                    </li>
+                    <li>
+                        <span class="choose">B</span>职业发展的需要
+                    </li>
+                    <li>
+                        <span class="choose">C</span>教育面向全体学生
+                    </li>
+                    <li>
+                        <span class="choose">D</span>引导学生协调发展
+                    </li>
+                </ul>
+                <input type="hidden" value="B">
+            </div>
+        </div>
+        <div class="item">
+            <div class="tit">下列对职业教育的理解，存在片面性的是4444?</div>
+            <div class="item_cont">
+                <ul>
+                    <li>
+                        <span class="choose">A</span>希望能提高技能
+                    </li>
+                    <li>
+                        <span class="choose">B</span>职业发展的需要
+                    </li>
+                    <li>
+                        <span class="choose">C</span>教育面向全体学生
+                    </li>
+                    <li>
+                        <span class="choose">D</span>引导学生协调发展
+                    </li>
+                </ul>
+                <input type="hidden" value="B">
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var daanList = [];//答案数组
+    var bannerBox = $('#banner-box'),
+            time = new Date(),
+            item = $('#banner-box>div'),
+            len = $('#banner-box>div').length,
+            index = 1;
+    var bodyWidth = $('body').width()
+    $('.item').width(bodyWidth)
+    $('.tit').css('max-width', bodyWidth)
+    $('#banner-box').width($('body').width() * len);
+    function play(i) {
+//        向左滑动
+        bannerBox.stop().animate({left: -i * bodyWidth}, 300)
+    }
+//    li点击
+    $('#banner-box>div li').click(function () {
+        $('#banner-box>div li').removeClass('cur');
+        $(this).addClass('cur');
+        var newTime = new Date();
+        if(newTime-time>500){
+            daanList.push($(this).children('span').text())//把答案放进数组
+            console.log(daanList)
+            index++;
+            $('.pull-rigth span').eq(0).text(index)
+            if (index > len) {
+                $('#banner-box>div li').unbind();
+                setTimeout(function(){
+                    location.href = 'end.html?'+daanList
+                },1000)
+                return false;
+            } else {
+                setTimeout(function(){
+                    play(index-1)
+                },500)
+            }
+            time = new Date()
+        }else{
+            return
+        }
+    })
+
+</script>
+</body>
+</html>

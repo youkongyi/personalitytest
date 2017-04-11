@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.personalitytest.user.dao.IUserDAO">
+
+	<select id="findUserByName" parameterType="String" resultType="com.personalitytest.entity.HR_UserBO">
+	SELECT
+		USER_ID as userId,
+		USER_NAME as userName,
+		USER_PASSWORD as userPassword,
+		USER_SURE_NAME as userSureName,
+		USER_MOBILE as userMobile,
+		USER_EMAIL as userEmail,
+		ROLE_ID as roleId,
+		"Column" as "column"
+	FROM
+		HR_USER
+	WHERE
+		USER_NAME = #{userName }
+	</select>
+	
+	<select id="selectAll" resultType="com.personalitytest.entity.HR_DistrictBO"> 
+    	select 
+    		DISTRICT_ID as districtId,
+    		DISTRICT_NAME as districtName,
+    		LEVEL as level,
+    		PARENT_ID as parentId,
+    		LIST as list
+    	 from hr_district where district_id 
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</mapper>

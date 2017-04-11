@@ -1,0 +1,138 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+    font-family: 'microsoft yahei';
+    word-break: break-all;
+    word-wrap: break-word;
+}
+@media screen and (min-width:480px){
+    *{
+        font-size: 1.1rem;
+    }
+}
+body{
+    height: 100%;
+}
+.bgcolor{
+    background: #f5f1e6;
+}
+.banner{
+    padding-top: 33.4%;
+    background: url("../images/banner.png") no-repeat;
+    background-size: 100% 100%;
+}
+/*开始*/
+.start dl{
+    padding: 3% 3% 9%;
+}
+.start dt{
+    color: #f84e4e;
+}
+.start dd span{
+    color: #f84e4e;
+    font-size:1.5em;
+}
+.start .tel{
+    padding: 0 6.25%;
+}
+.start .tel p{
+    padding-bottom: 8.75%;
+}
+.start .text-tel{
+    line-height: 1.7em;
+    padding: 0 1em;
+    background: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 50%;
+}
+.start .btn-start{
+    width: 100%;
+    padding: 0.3em 0;
+    background: #ff7d79;
+    border-radius: 5px;
+    color: #fff;
+    border: none;
+}
+/*结束*/
+.person{
+    padding: 0.2em;
+    background: #fff;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+    margin-top: 8%;
+}
+.person .cont{
+    border: 1px dashed #824216;
+    border-radius: 5px;
+    padding: 0.7em;
+    color: #f84e4e;
+}
+.end p{
+    color: #f84e4e;
+    margin-top:1em;
+}
+/*过程*/
+.process .part1{
+    padding: 3%;
+    background: #fff;
+    border-bottom: 1px solid #e9e8e5;
+}
+.process .part1 .pull-rigth{
+    font-size: 1.16rem;
+}
+.process .part1 .pull-rigth span{
+    font-size: 2rem;
+    color: #f84e4e;
+}
+.process .test_cont img{
+    max-width: 100%;
+}
+.process .item_cont{
+    padding: 6% 2% 0%;
+}
+.process .item_cont li{
+    padding-left: 1.8em;
+    margin-bottom: 1em;
+}
+.process .item_cont li span.choose{
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    text-align: center;
+    border: 1px solid #ff7d79;
+    border-radius: 50%;
+    color: #ff7d79;
+    margin: 0 0.5em 0 -1.8em;
+}
+.process .item_cont li.cur span{
+    background: #ff7d79;
+    color: #fff;
+}
+
+#banner-box {
+    overflow: hidden;
+    position: relative;
+}
+
+#banner-box > div {
+    float: left;
+}
+
+.process {
+    overflow-x: hidden;
+}
+
+#banner-box > div ul {
+    width: 90%;
+    margin: 0 auto;
+}
+
+#banner-box > div .tit {
+    width: 93%;
+    margin: 1em auto 0;
+}
+
+
+

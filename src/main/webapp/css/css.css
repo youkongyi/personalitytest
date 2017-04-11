@@ -1,0 +1,430 @@
+﻿@charset "utf-8";
+/* CSS Document */
+*{
+    font-family: Microsoft Yahei;
+    color: #888b9f;
+}
+a {
+    color: #888b9f;
+}
+a:hover,
+a:visited{
+    text-decoration: none;
+}
+ul,li{
+    list-style: none;
+}
+i{
+    font-style:normal;
+}
+label{
+    font-weight: normal;
+}
+p,.word-break{
+    word-break:break-all;
+    word-wrap:break-word;
+}
+.pull-left{ float: left;}
+.pull-rigth{ float: right;}
+.jedatebox em{
+    color: #fff;
+}
+
+.page-left {
+    width: 220px;
+}
+.page-left .logo {
+    text-align: center;
+    padding: 15px 0;
+    background: #d5494a;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.menu dt{
+    margin: 20px 0 14px;
+    padding-left: 17px;
+    color: #d5494a;
+    font-size: 16px;
+}
+.menu dt i{
+    display: inline-block;
+    width: 21px;
+    margin-right:11px;
+}
+.menu dt.title-1 i{
+    background: url(../images/icon_1.gif) 0 3px no-repeat;
+}
+.menu dt.title-2 i{
+    background: url(../images/icon_2.gif) no-repeat;
+}
+.menu dd{
+    padding-left: 60px;
+    position: relative;
+    margin-bottom: 4px;
+}
+.menu dd span{
+    position: absolute;
+    left: 0;
+    top: 4px;
+    background: #d5494a;
+    width: 5px;
+    height: 24px;
+    display: none;
+}
+.menu dd a{
+    font-size: 16px;
+    line-height: 34px;
+}
+.menu dd:hover{
+    background: #f3eded;
+}
+.menu dd.cur span{
+    display: block;
+}
+.menu dd.cur:hover{
+    background: none;
+}
+
+.page-right{
+    margin-left: 220px;
+    background: #edf1f2;
+    padding-bottom: 30px;
+    min-height: 640px;
+}
+.page-top{
+    height: 75px;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+}
+.page-top span.name{
+    margin-right: 80px;
+    line-height: 75px;
+    cursor: pointer;
+}
+.page-top .down-cont{
+    position: absolute;
+    background: #fff;
+    right: 80px;
+    top: 55px;
+    padding-top: 17px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    border-radius: 8px;
+    display: none;
+}
+.page-top.open .down-cont{
+    display: block;
+	z-index: 1000;
+}
+.page-top .down-cont p,.page-top .down-cont a{
+    font-size: 12px;
+}
+.page-top .down-cont p{
+    line-height: 22px;
+    padding: 0 20px 0 10px;
+    margin: 0;
+}
+.page-top .down-cont .foot{
+    margin-top: 10px;
+    background: #333;
+    line-height:32px;
+    padding: 0 13px;
+    overflow: hidden;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.page-top .down-cont .foot i{
+    display: inline-block;
+    width: 13px;
+    margin-right: 7px;
+    background: url(../images/icon_3.png) no-repeat;
+}
+.page-top .down-cont .foot a:hover{
+    color: #fff;
+}
+.page-top .down-cont .foot .center i{
+    background-position: 0 9px;
+}
+.page-top .down-cont .foot .center:hover i{
+    background-position: -14px 9px;
+}
+.page-top .down-cont .foot .out i{
+    background-position: 0 -23px;
+}
+.page-top .down-cont .foot .out:hover i{
+    background-position: -14px -23px;
+}
+
+.btn{
+    background: #d5494a;
+    height: 34px;
+    color: #fff;
+}
+.btn:hover,
+.btn:focus,
+.btn.focus {
+    color: #fff;
+}
+.btn-small{
+    height: 24px;
+    padding: 0 12px;
+}
+
+.page-cont{
+    margin: 0 20px;
+}
+.page-cont1{
+    padding-bottom: 20px;
+}
+.page-cont .operete{
+    padding: 13px 0;
+    overflow: hidden;
+}
+.page-cont .operete input[type='file']{
+    background: #fafafa;
+    margin-left:15px;
+}
+.page-cont .list-cont{
+    background: #fff;
+    border-radius: 8px;
+    padding-bottom: 50px;
+}
+.page-cont .list-title{
+    border-top: 4px solid #d5494a;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom: 1px solid #d5494a;
+    line-height: 34px;
+    text-align: center;
+    color: #313133;
+}
+.page-cont .list-cont .form-inline{
+    padding: 16px 20px 0;
+}
+.page-cont .list-cont .form-group{
+    margin-right: 27px;
+}
+.page-cont .list-cont .form-group input[type='text'],.page-cont .list-cont .form-group select{
+    width: 145px;
+}
+.page-cont .list-cont .text-center{
+    margin-top: 28px;
+}
+.page-cont .list-cont .text-center .tips-text{
+    padding-bottom: 12px;
+}
+
+/*信息查询*/
+.page-cont2 .list-cont{
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+.page-cont2 .list-cont .pull-right{
+    margin: 20px 20px 0 0;
+}
+.page-cont2 .list-cont .btn.bgno{
+    background: none;
+    color: #d5494a;
+}
+.page-cont2 .list-cont .btn:hover,
+.page-cont2 .list-cont .btn:focus,
+.page-cont2 .list-cont .btn.focus{
+    background: #d5494a;
+    color: #fff;
+}
+
+.page-cont2 .table-cont{
+    background: #fff;
+    border: 1px solid #ccc;
+    border-top: 1px solid #e4c3c3;
+    border-radius: 3px;
+    margin-top: 20px;
+    min-height: 300px;
+}
+.page-cont2 .table-cont th{
+    background: #f0f1f5;
+    height: 34px;
+    padding:0 10px;
+    font-weight: normal;
+    text-align: center;
+    border-top: 3px solid #f5d4d4;
+    border-bottom: 1px solid #f0bfbf;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.page-cont2 .table-cont td{
+    white-space: nowrap;
+    height: 32px;
+}
+.page-cont2 .table-cont p{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 32px;
+    margin: 0;
+}
+.page-cont2 .table-cont .email-num{
+    max-width: 150px;
+}
+.page-cont2 .table-cont .max-td1{
+    max-width: 150px;
+}
+.page-cont2 .table-cont td span{
+    width: 43px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    margin:1px 0;
+    color: #313133;
+}
+.page-cont2 .color1{
+    background: #ff6666;
+}
+.page-cont2 .color2{
+    background: #8edaf1;
+}
+.page-cont2 .color3{
+    background: #ffff66;
+}
+.page-cont2 .color4{
+    background: #66b366;
+}
+.page-cont2 .table-cont td a{
+    background: #d5494a;
+    height: 24px;
+    padding: 0 12px;
+    color: #fff;
+    border-radius: 4px;
+}
+.page-cont2 .table-cont .foot{
+    overflow: hidden;
+    text-align: right;
+    margin-right: 20px;
+}
+.page-cont2 .table-cont .foot p,.page-cont2 .table-cont .foot ul{
+    float: right;
+}
+.page-cont2 .table-cont .foot p{
+    margin: 20px 10px 20px 0;
+    line-height: 34px;
+}
+.page-cont2 .table-cont .foot ul li{
+    float: left;
+}
+.page-cont2 .table-cont .foot ul li.ellipsis{
+    width: 33px;
+    text-align: center;
+}
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+    z-index: 2;
+    color: #d6494b;
+    background-color: #eee;
+    border-color: #ddd;
+}
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus{
+    background-color: #d6494b;
+    border-color: #d6494b;
+}
+.pagination > .active > a{
+    color: #fff;
+}
+/*添加HR*/
+.open_tjhr .list-cont .form-inline{
+    margin: 10px 0 5px;
+}
+.open_tjhr .list-cont .form-group{
+    margin-right: 20px;
+}
+.open_tjhr .tips-text{
+    margin-right: 20px;
+}
+
+/*候选人信息详情*/
+.page-cont2 .table-cont1{
+    min-height: auto;
+    border-top: 4px solid #d5494a;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.page-cont2 .table-cont1 th{
+    border: none;
+    background: #fff;
+    border-bottom: 1px solid #d5494a;
+}
+.page-cont2 .table-cont1 .email-num{
+    max-width: 190px;
+}
+.ques-list{
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 3px;
+}
+.ques-list .title{
+    background: #f0f1f5;
+    line-height: 34px;
+    padding: 0 20px;
+    font-weight: normal;
+    border-top: 3px solid #f5d4d4;
+    border-bottom: 1px solid #f0bfbf;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    color: #d5494a;
+}
+.ques-cont{
+    padding-bottom: 50px;
+    background: #fff;
+}
+.ques-list dl{
+    padding: 24px 20px 0;
+    margin: 0;
+}
+.ques-list dt{
+    line-height: 23px;
+    font-weight: normal;
+}
+.ques-list dd p{
+    line-height: 20px;
+    padding: 12px 0 0 22px;
+    margin: 0;
+    background: url("../images/icon_4.png") 6px 18px no-repeat;
+}
+.ques-list dd p.cur{
+    color: #D91600;
+    background: url("../images/icon_5.png") 6px 18px no-repeat;
+}
+
+/*提示类*/
+.tips-text{
+    color: #D91600;
+}
+.empty{
+    padding: 100px 0;
+    text-align: center;
+}
+
+/*修改个人信息*/
+.change-info .list-title{
+    /*text-align: left;
+    padding-left: 50px;*/
+}
+.change-info .form-inline{
+    width: 700px;
+    margin: 0 auto;
+}
+.change-info label{
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+}
+.page-cont .change-info .form-group input[type="text"]{
+    width: 180px;
+}

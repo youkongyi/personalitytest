@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" partent="width=device-width, initial-scale=1.0">
+    <meta http-equiv="partent-type" partent="text/html; charset=UTF-8"/>
+    <title>性格测试后台管理系统-候选人信息录入</title>
+    <link rel="stylesheet" href="../css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="../css/css.css" type="text/css"/>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.js"></script>
+    <!--日历-->
+    <link rel="stylesheet" href="../js/date/skin/jedate.css" type="text/css"/>
+    <script type="text/javascript" src="../js/date/jedate.js"></script>
+    <script type="text/javascript" src="../js/candidate.js"></script>
+</head>
+<body>
+<div class="page-left pull-left">
+    <div class="logo"><img src="../images/logo_1.png" alt="" /></div>
+
+    <dl class="menu">
+        <dt class="title-1"><i>&nbsp;</i>候选人信息管理</dt>
+        <dd class="cur"><a href="xxlr.html"><span>&nbsp;</span>信息录入</a></dd>
+        <dd><a href="menu.html"><span>&nbsp;</span>信息查询</a></dd>
+
+        <dt class="title-2"><i>&nbsp;</i>HR信息管理</dt>
+        <dd><a href="tjhr.html"><span>&nbsp;</span>信息录入与查询</a></dd>
+    </dl>
+</div>
+
+<div class="page-right">
+    <div class="page-top">
+        <span id="name" class="name pull-rigth" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">陈杰(招聘总监)&nbsp;<i
+                class="caret"></i></span>
+        <div class="down-cont">
+            <p>登录时间：2016-09-20 14:25:25</p>
+            <p>登录IP：201.154.222.145</p>
+            <div class="foot">
+                <a href="../login.html" class="out pull-rigth" ><i>&nbsp;</i>退出</a>
+                <a href="grzx.html" class="center" ><i>&nbsp;</i>个人中心</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-cont page-cont1">
+        <div class="operete clearfix"><div class="form-inline pull-rigth">
+            <div class="form-group"><input type="button" value="批量导入" class="btn btn-small" onclick="javascrtpt:window.location.href=''"></div>
+            <div class="form-group"><input type="file" id="exampleInputFile"></div>
+        </div></div>
+
+        <div class="list-cont">
+            <div class="list-title">候选人详细信息录入</div>
+            <div class="form-inline">
+                <div class="form-group">
+                    <label>应试姓名：</label>
+                    <input type="text" class="form-control" placeholder="" name="f_Customer_Name" id="f_Customer_Name" maxlength="8" />
+                </div>
+                <div class="form-group">
+                    <label>应聘岗位：</label>
+                    <select class="form-control" name="f_Customer_Position" id="f_Customer_Position">
+                        <option value="0">未知</option>
+                        <option value="1">S类咨询顾问</option>
+                        <option value="2">Z类咨询顾问</option>
+                        <option value="3">高级咨询顾问</option>
+                        <option value="4">资深咨询顾问</option>
+                        <option value="5">咨询主管</option>
+                        <option value="6">咨询经理</option>
+                        <option value="7">宣讲专员</option>
+                        <option value="8">咨询助理</option>
+                        <option value="9">网络咨询</option>
+                        <option value="10">电话销售</option>
+                        <option value="11">竞价专员</option>
+                        <option value="12">市场经理</option>
+                        <option value="13">人才顾问</option>
+                        <option value="14">职业发展顾问</option>
+                        <option value="15">信审专员</option>
+                        <option value="16">会计</option>
+                        <option value="17">出纳</option>
+                        <option value="18">审计专员</option>
+                        <option value="19">薪酬绩效专员</option>
+                        <option value="20">招聘专员</option>
+                        <option value="21">招聘主管</option>
+                        <option value="22">MIS专员</option>
+                        <option value="23">实训讲师</option>
+                        <option value="24">渠道咨询</option>
+                        <option value="25">渠道经理</option>
+                        <option value="26">渠道总监</option>
+                        <option value="27">副中心主任</option>
+                        <option value="28">中心主任</option>
+                        <option value="29">大区副总经理</option>
+                        <option value="30">大区总经理</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>手机号码：</label>
+                    <input type="text" class="form-control" placeholder="" name="f_Customer_Tel1" id="f_Customer_Tel1" onkeyup="if(isNaN(value))execCommand('undo')" maxlength="11" />
+                </div>
+                <div class="form-group">
+                    <label>备用电话：</label>
+                    <input type="text" class="form-control" placeholder="" name="f_Customer_Tel2" id="f_Customer_Tel2" maxlength="16" />
+                </div>
+            </div>
+            <div class="form-inline">
+                <div class="form-group">
+                    <label>应试性别：</label>
+                    <select class="form-control" name="f_Customer_Gender">
+                        <option value="0">未知</option>
+                        <option value="1">男性</option>
+                        <option value="2">女性</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>出生年份：</label>
+                    <input type="text" class="form-control" placeholder="" name="f_Customer_Age" id="indate" />
+                </div>
+                <div class="form-group">
+                    <label>邮箱地址：</label>
+                    <input type="text" class="form-control" name="f_Customer_Email" placeholder="" maxlength="38" />
+                </div>
+                <div class="form-group">
+                    <label>最高学历：</label>
+                    <select class="form-control" name="f_Customer_Education">
+                        <option value="0">未知</option>
+                        <option value="1">初中</option>
+                        <option value="2">高中</option>
+                        <option value="3">专科</option>
+                        <option value="4">本科</option>
+                        <option value="5">硕士</option>
+                        <option value="6">博士</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-inline">
+                <div class="form-group">
+                    <label>毕业学校：</label>
+                    <input type="text" class="form-control" placeholder="" name="f_Customer_School" id="f_Customer_School" maxlength="20" />
+                </div>
+                <div class="form-group">
+                    <label>毕业学院：</label>
+                    <input type="text" class="form-control" placeholder="" name="f_Customer_College" id="f_Customer_College" maxlength="20" />
+                </div>
+                <div class="form-group">
+                    <label>所学专业：</label>
+                    <input type="text" class="form-control" placeholder="" name="f_Customer_Professional" id="f_Customer_Professional" maxlength="20" />
+                </div>
+                <div class="form-group">
+                    <label>毕业时间：</label>
+                    <select class="form-control" name="f_Customer_Grade">
+                        <option value="0">未知</option>
+                        <option value="2018">2018年</option>
+                        <option value="2017">2017年</option>
+                        <option value="2016">2016年</option>
+                        <option value="2015">2015年</option>
+                        <option value="2014">2014年</option>
+                        <option value="2013">2013年</option>
+                        <option value="2012">2012年</option>
+                        <option value="2011">2011年</option>
+                        <option value="2010">2010年</option>
+                        <option value="2009">2009年</option>
+                        <option value="2008">2008年</option>
+                        <option value="2007">2007年</option>
+                        <option value="2006">2006年</option>
+                        <option value="2005">2005年</option>
+                        <option value="2004">2004年</option>
+                        <option value="2003">2003年</option>
+                        <option value="2002">2002年</option>
+                        <option value="2001">2001年</option>
+                        <option value="2000">2000年</option>
+                        <option value="1999">1999年</option>
+                        <option value="1998">1998年</option>
+                        <option value="1997">1997年</option>
+                        <option value="1996">1996年</option>
+                        <option value="1995">1995年</option>
+                        <option value="1994">1994年</option>
+                        <option value="1993">1993年</option>
+                        <option value="1992">1992年</option>
+                        <option value="1991">1991年</option>
+                        <option value="1990">1990年</option>
+                        <option value="1989">1989年</option>
+                        <option value="1988">1988年</option>
+                        <option value="1987">1987年</option>
+                        <option value="1986">1986年</option>
+                        <option value="1985">1985年</option>
+                        <option value="1984">1984年</option>
+                        <option value="1983">1983年</option>
+                        <option value="1982">1982年</option>
+                        <option value="1981">1981年</option>
+                        <option value="1980">1980年</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-inline">
+                <div class="form-group">
+                    <label>Q Q号码：</label>
+                    <input type="text" class="form-control" name="f_Customer_QQ" placeholder="" maxlength="16" />
+                </div>
+                <div class="form-group">
+                    <label>信息来源：</label>
+                    <select class="form-control" name="f_Customer_Source">
+                        <option value="0">未知</option>
+                        <option value="1">智联招聘</option>
+                        <option value="2">前程无忧</option>
+                        <option value="3">58同城</option>
+                        <option value="4">赶集网</option>
+                        <option value="5">中华英才网</option>
+                        <option value="6">社交平台</option>
+                        <option value="7">员工推荐</option>
+                        <option value="8">自主上门</option>
+                        <option value="9">其它</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>所在城市：</label>
+                    <select class="form-control" name="f_Customer_City">
+                        <option value="0">未知</option>
+                        <option value="1">浙江杭州</option>
+                        <option value="2">浙江湖州</option>
+                        <option value="3">浙江嘉兴</option>
+                        <option value="4">浙江金华</option>
+                        <option value="5">浙江丽水</option>
+                        <option value="6">浙江宁波</option>
+                        <option value="7">浙江衢州</option>
+                        <option value="8">浙江绍兴</option>
+                        <option value="9">浙江台州</option>
+                        <option value="10">浙江温州</option>
+                        <option value="11">浙江舟山</option>
+                        <option value="12">福建福州</option>
+                        <option value="13">福建龙岩</option>
+                        <option value="14">福建南平</option>
+                        <option value="15">福建宁德</option>
+                        <option value="16">福建莆田</option>
+                        <option value="17">福建泉州</option>
+                        <option value="18">福建三明</option>
+                        <option value="19">福建厦门</option>
+                        <option value="20">福建漳州</option>
+                        <option value="21">安徽安庆</option>
+                        <option value="22">安徽蚌埠</option>
+                        <option value="23">安徽亳州</option>
+                        <option value="24">安徽巢湖</option>
+                        <option value="25">安徽池州</option>
+                        <option value="26">安徽滁州</option>
+                        <option value="27">安徽阜阳</option>
+                        <option value="28">安徽合肥</option>
+                        <option value="29">安徽淮北</option>
+                        <option value="30">安徽淮南</option>
+                        <option value="31">安徽黄山</option>
+                        <option value="32">安徽六安</option>
+                        <option value="33">安徽马鞍山</option>
+                        <option value="34">安徽铜陵</option>
+                        <option value="35">安徽芜湖</option>
+                        <option value="36">安徽宿州</option>
+                        <option value="37">安徽宣城</option>
+                        <option value="38">北京昌平区</option>
+                        <option value="39">北京朝阳区</option>
+                        <option value="40">北京崇文区</option>
+                        <option value="41">北京大兴区</option>
+                        <option value="42">北京东城区</option>
+                        <option value="43">北京房山区</option>
+                        <option value="44">北京丰台区</option>
+                        <option value="45">北京海淀区</option>
+                        <option value="46">北京怀柔区</option>
+                        <option value="47">北京门头沟区</option>
+                        <option value="48">北京密云县</option>
+                        <option value="49">北京平谷区</option>
+                        <option value="50">北京石景山区</option>
+                        <option value="51">北京顺义区</option>
+                        <option value="52">北京通州区</option>
+                        <option value="53">北京西城区</option>
+                        <option value="54">北京宣武区</option>
+                        <option value="55">北京延庆县</option>
+                        <option value="56">甘肃白银</option>
+                        <option value="57">甘肃定西</option>
+                        <option value="58">甘肃甘南</option>
+                        <option value="59">甘肃嘉峪关</option>
+                        <option value="60">甘肃金昌</option>
+                        <option value="61">甘肃酒泉</option>
+                        <option value="62">甘肃兰州</option>
+                        <option value="63">甘肃临夏</option>
+                        <option value="64">甘肃陇南</option>
+                        <option value="65">甘肃平凉</option>
+                        <option value="66">甘肃庆阳</option>
+                        <option value="67">甘肃天水</option>
+                        <option value="68">甘肃武威</option>
+                        <option value="69">甘肃张掖</option>
+                        <option value=" 70">广东潮州</option>
+                        <option value="71">广东东莞</option>
+                        <option value="72">广东佛山</option>
+                        <option value="73">广东广州</option>
+                        <option value="74">广东河源</option>
+                        <option value="75">广东惠州</option>
+                        <option value="76">广东江门</option>
+                        <option value="77">广东揭阳</option>
+                        <option value="78">广东茂名</option>
+                        <option value="79">广东梅州</option>
+                        <option value="80">广东清远</option>
+                        <option value="81">广东汕头</option>
+                        <option value="82">广东汕尾</option>
+                        <option value="83">广东韶关</option>
+                        <option value="84">广东深圳</option>
+                        <option value="85">广东阳江</option>
+                        <option value="86">广东云浮</option>
+                        <option value="87">广东湛江</option>
+                        <option value="88">广东肇庆</option>
+                        <option value="89">广东中山</option>
+                        <option value="90">广东珠海</option>
+                        <option value="91">广西百色</option>
+                        <option value="92">广西北海</option>
+                        <option value="93">广西崇左</option>
+                        <option value="94">广西防城港</option>
+                        <option value="95">广西贵港</option>
+                        <option value="96">广西桂林</option>
+                        <option value="97">广西河池</option>
+                        <option value="98">广西贺州</option>
+                        <option value="99">广西来宾</option>
+                        <option value="100">广西柳州</option>
+                        <option value="101">广西南宁</option>
+                        <option value="102">广西钦州</option>
+                        <option value="103">广西梧州</option>
+                        <option value="104">广西玉林</option>
+                        <option value="105">贵州安顺</option>
+                        <option value="106">贵州毕节</option>
+                        <option value="107">贵州贵阳</option>
+                        <option value="108">贵州六盘水</option>
+                        <option value="109">贵州黔东南</option>
+                        <option value="110">贵州黔南</option>
+                        <option value="111">贵州黔西南</option>
+                        <option value="112">贵州铜仁</option>
+                        <option value="113">贵州遵义</option>
+                        <option value="114">海南海口</option>
+                        <option value="115">海南三亚</option>
+                        <option value="116">海南直辖县</option>
+                        <option value="117">河北保定</option>
+                        <option value="118">河北沧州</option>
+                        <option value="119">河北承德</option>
+                        <option value="120">河北邯郸</option>
+                        <option value="121">河北衡水</option>
+                        <option value="122">河北廊坊</option>
+                        <option value="123">河北秦皇岛</option>
+                        <option value="124">河北石家庄</option>
+                        <option value="125">河北唐山</option>
+                        <option value="126">河北邢台</option>
+                        <option value="127">河北张家口</option>
+                        <option value="128">河南安阳</option>
+                        <option value="129">河南鹤壁</option>
+                        <option value="130">河南焦作</option>
+                        <option value="131">河南开封</option>
+                        <option value="132">河南洛阳</option>
+                        <option value="133">河南漯河</option>
+                        <option value="134">河南南阳</option>
+                        <option value="135">河南平顶山</option>
+                        <option value="136">河南濮阳</option>
+                        <option value="137">河南三门峡</option>
+                        <option value="138">河南商丘</option>
+                        <option value="139">河南新乡</option>
+                        <option value="140">河南信阳</option>
+                        <option value="141">河南许昌</option>
+                        <option value="142">河南郑州</option>
+                        <option value="143">河南周口</option>
+                        <option value="144">河南驻马店</option>
+                        <option value="145">黑龙江大庆</option>
+                        <option value="146">黑龙江大兴安岭</option>
+                        <option value="147">黑龙江哈尔滨</option>
+                        <option value="148">黑龙江鹤岗</option>
+                        <option value="149">黑龙江黑河</option>
+                        <option value="150">黑龙江鸡西</option>
+                        <option value="151">黑龙江佳木斯</option>
+                        <option value="152">黑龙江牡丹江</option>
+                        <option value="153">黑龙江七台河</option>
+                        <option value="154">黑龙江齐齐哈尔</option>
+                        <option value="155">黑龙江双鸭山</option>
+                        <option value="156">黑龙江绥化</option>
+                        <option value="157">黑龙江伊春</option>
+                        <option value="158">湖北鄂州</option>
+                        <option value="159">湖北恩施</option>
+                        <option value="160">湖北黄冈</option>
+                        <option value="161">湖北黄石</option>
+                        <option value="162">湖北荆门</option>
+                        <option value="163">湖北荆州</option>
+                        <option value="164">湖北十堰</option>
+                        <option value="165">湖北随州</option>
+                        <option value="166">湖北武汉</option>
+                        <option value="167">湖北咸宁</option>
+                        <option value="168">湖北襄樊</option>
+                        <option value="169">湖北孝感</option>
+                        <option value="170">湖北宜昌</option>
+                        <option value="171">湖南常德</option>
+                        <option value="172">湖南郴州</option>
+                        <option value="173">湖南衡阳</option>
+                        <option value="174">湖南怀化</option>
+                        <option value="175">湖南娄底</option>
+                        <option value="176">湖南邵阳</option>
+                        <option value="177">湖南湘潭</option>
+                        <option value="178">湖南湘西</option>
+                        <option value="179">湖南益阳</option>
+                        <option value="180">湖南永州</option>
+                        <option value="181">湖南岳阳</option>
+                        <option value="182">湖南张家界</option>
+                        <option value="183">湖南长沙</option>
+                        <option value="184">湖南株洲</option>
+                        <option value="185">吉林白城</option>
+                        <option value="186">吉林白山</option>
+                        <option value="187">吉林吉林</option>
+                        <option value="188">吉林辽源</option>
+                        <option value="189">吉林四平</option>
+                        <option value="190">吉林松原</option>
+                        <option value="191">吉林通化</option>
+                        <option value="192">吉林延边</option>
+                        <option value="193">吉林长春</option>
+                        <option value="194">江苏常州</option>
+                        <option value="195">江苏淮安</option>
+                        <option value="196">江苏连云港</option>
+                        <option value="197">江苏南京</option>
+                        <option value="198">江苏南通</option>
+                        <option value="199">江苏苏州</option>
+                        <option value="200">江苏泰州</option>
+                        <option value="201">江苏无锡</option>
+                        <option value="202">江苏宿迁</option>
+                        <option value="203">江苏徐州</option>
+                        <option value="204">江苏盐城</option>
+                        <option value="205">江苏扬州</option>
+                        <option value="206">江苏镇江</option>
+                        <option value="207">江西抚州</option>
+                        <option value="208">江西赣州</option>
+                        <option value="209">江西吉安</option>
+                        <option value="210">江西景德镇</option>
+                        <option value="211">江西九江</option>
+                        <option value="212">江西南昌</option>
+                        <option value="213">江西萍乡</option>
+                        <option value="214">江西上饶</option>
+                        <option value="215">江西新余</option>
+                        <option value="216">江西宜春</option>
+                        <option value="217">江西鹰潭</option>
+                        <option value="218">辽宁鞍山</option>
+                        <option value="219">辽宁本溪</option>
+                        <option value="220">辽宁朝阳</option>
+                        <option value="221">辽宁大连</option>
+                        <option value="222">辽宁丹东</option>
+                        <option value="223">辽宁抚顺</option>
+                        <option value="224">辽宁阜新</option>
+                        <option value="225">辽宁葫芦岛</option>
+                        <option value="226">辽宁锦州</option>
+                        <option value="227">辽宁辽阳</option>
+                        <option value="228">辽宁盘锦</option>
+                        <option value="229">辽宁沈阳</option>
+                        <option value="230">辽宁铁岭</option>
+                        <option value="231">辽宁营口</option>
+                        <option value="232">内蒙古阿拉善盟</option>
+                        <option value="233">内蒙古巴彦淖尔</option>
+                        <option value="234">内蒙古包头</option>
+                        <option value="235">内蒙古赤峰</option>
+                        <option value="236">内蒙古鄂尔多斯</option>
+                        <option value="237">内蒙古呼和浩特</option>
+                        <option value="238">内蒙古呼伦贝尔</option>
+                        <option value="239">内蒙古通辽</option>
+                        <option value="240">内蒙古乌海</option>
+                        <option value="241">内蒙古乌兰察布</option>
+                        <option value="242">内蒙古锡林郭勒盟</option>
+                        <option value="243">内蒙古兴安盟</option>
+                        <option value="244">宁夏固原</option>
+                        <option value="245">宁夏石嘴山</option>
+                        <option value="246">宁夏吴忠</option>
+                        <option value="247">宁夏银川</option>
+                        <option value="248">宁夏中卫</option>
+                        <option value="249">青海果洛</option>
+                        <option value="250">青海海北</option>
+                        <option value="251">青海海东</option>
+                        <option value="252">青海海南</option>
+                        <option value="253">青海海西</option>
+                        <option value="254">青海黄南</option>
+                        <option value="255">青海西宁</option>
+                        <option value="256">青海玉树</option>
+                        <option value="257">山东滨州</option>
+                        <option value="258">山东德州</option>
+                        <option value="259">山东东营</option>
+                        <option value="260">山东菏泽</option>
+                        <option value="261">山东济南</option>
+                        <option value="262">山东济宁</option>
+                        <option value="263">山东莱芜</option>
+                        <option value="264">山东聊城</option>
+                        <option value="265">山东临沂</option>
+                        <option value="266">山东青岛</option>
+                        <option value="267">山东日照</option>
+                        <option value="268">山东泰安</option>
+                        <option value="269">山东威海</option>
+                        <option value="270">山东潍坊</option>
+                        <option value="271">山东烟台</option>
+                        <option value="272">山东枣庄</option>
+                        <option value="273">山东淄博</option>
+                        <option value="274">山西大同</option>
+                        <option value="275">山西晋城</option>
+                        <option value="276">山西晋中</option>
+                        <option value="277">山西临汾</option>
+                        <option value="278">山西吕梁</option>
+                        <option value="279">山西朔州</option>
+                        <option value="280">山西太原</option>
+                        <option value="281">山西忻州</option>
+                        <option value="282">山西阳泉</option>
+                        <option value="283">山西运城</option>
+                        <option value="284">山西长治</option>
+                        <option value="285">陕西安康</option>
+                        <option value="286">陕西宝鸡</option>
+                        <option value="287">陕西汉中</option>
+                        <option value="288">陕西商洛</option>
+                        <option value="289">陕西铜川</option>
+                        <option value="290">陕西渭南</option>
+                        <option value="291">陕西西安</option>
+                        <option value="292">陕西咸阳</option>
+                        <option value="293">陕西延安</option>
+                        <option value="294">陕西榆林</option>
+                        <option value="295">上海宝山区</option>
+                        <option value="296">上海崇明县</option>
+                        <option value="297">上海奉贤区</option>
+                        <option value="298">上海虹口区</option>
+                        <option value="299">上海黄浦区</option>
+                        <option value="300">上海嘉定区</option>
+                        <option value="301">上海金山区</option>
+                        <option value="302">上海静安区</option>
+                        <option value="303">上海卢湾区</option>
+                        <option value="304">上海闵行区</option>
+                        <option value="305">上海南汇区</option>
+                        <option value="306">上海浦东新区</option>
+                        <option value="307">上海普陀区</option>
+                        <option value="308">上海青浦区</option>
+                        <option value="309">上海松江区</option>
+                        <option value="310">上海徐汇区</option>
+                        <option value="311">上海杨浦区</option>
+                        <option value="312">上海闸北区</option>
+                        <option value="313">上海长宁区</option>
+                        <option value="314">四川阿坝</option>
+                        <option value="315">四川巴中</option>
+                        <option value="316">四川成都</option>
+                        <option value="317">四川达州</option>
+                        <option value="318">四川德阳</option>
+                        <option value="319">四川甘孜</option>
+                        <option value="320">四川广安</option>
+                        <option value="321">四川广元</option>
+                        <option value="322">四川乐山</option>
+                        <option value="323">四川凉山</option>
+                        <option value="324">四川泸州</option>
+                        <option value="325">四川眉山</option>
+                        <option value="326">四川绵阳</option>
+                        <option value="327">四川南充</option>
+                        <option value="328">四川内江</option>
+                        <option value="329">四川攀枝花</option>
+                        <option value="330">四川遂宁</option>
+                        <option value="331">四川雅安</option>
+                        <option value="332">四川宜宾</option>
+                        <option value="333">四川资阳</option>
+                        <option value="334">四川自贡</option>
+                        <option value="335">天津宝坻</option>
+                        <option value="336">天津北辰区</option>
+                        <option value="337">天津大港</option>
+                        <option value="338">天津东丽区</option>
+                        <option value="339">天津汉沽</option>
+                        <option value="340">天津和平区</option>
+                        <option value="341">天津河北区</option>
+                        <option value="342">天津河东区</option>
+                        <option value="343">天津河西区</option>
+                        <option value="344">天津红桥区</option>
+                        <option value="345">天津蓟县</option>
+                        <option value="346">天津津南区</option>
+                        <option value="347">天津静海</option>
+                        <option value="348">天津南开区</option>
+                        <option value="349">天津宁河</option>
+                        <option value="350">天津塘沽</option>
+                        <option value="351">天津武清</option>
+                        <option value="352">天津西青区</option>
+                        <option value="353">西藏阿里</option>
+                        <option value="354">西藏昌都</option>
+                        <option value="355">西藏拉萨</option>
+                        <option value="356">西藏林芝</option>
+                        <option value="357">西藏那曲</option>
+                        <option value="358">西藏日喀则</option>
+                        <option value="359">西藏山南</option>
+                        <option value="360">新疆阿克苏</option>
+                        <option value="361">新疆阿勒泰</option>
+                        <option value="362">新疆巴州</option>
+                        <option value="363">新疆博州</option>
+                        <option value="364">新疆昌吉</option>
+                        <option value="365">新疆哈密</option>
+                        <option value="366">新疆和田</option>
+                        <option value="367">新疆喀什</option>
+                        <option value="368">新疆克拉玛依</option>
+                        <option value="369">新疆克州</option>
+                        <option value="370">新疆塔城</option>
+                        <option value="371">新疆吐鲁番</option>
+                        <option value="372">新疆乌鲁木齐</option>
+                        <option value="373">新疆伊犁</option>
+                        <option value="374">云南保山</option>
+                        <option value="375">云南楚雄</option>
+                        <option value="376">云南大理</option>
+                        <option value="377">云南德宏</option>
+                        <option value="378">云南迪庆</option>
+                        <option value="379">云南红河</option>
+                        <option value="380">云南昆明</option>
+                        <option value="381">云南丽江</option>
+                        <option value="382">云南临沧</option>
+                        <option value="383">云南怒江</option>
+                        <option value="384">云南普洱</option>
+                        <option value="385">云南曲靖</option>
+                        <option value="386">云南文山</option>
+                        <option value="387">云南西双版纳</option>
+                        <option value="388">云南玉溪</option>
+                        <option value="389">云南昭通</option>
+                        <option value="390">重庆巴南区</option>
+                        <option value="391">重庆北碚区</option>
+                        <option value="392">重庆大渡口区</option>
+                        <option value="393">重庆大足区</option>
+                        <option value="394">重庆涪陵区</option>
+                        <option value="395">重庆合川区</option>
+                        <option value="396">重庆江北区</option>
+                        <option value="397">重庆江津区</option>
+                        <option value="398">重庆九龙坡区</option>
+                        <option value="399">重庆南岸区</option>
+                        <option value="400">重庆南川区</option>
+                        <option value="401">重庆綦江区</option>
+                        <option value="402">重庆黔江区</option>
+                        <option value="403">重庆沙坪坝区</option>
+                        <option value="404">重庆双桥区</option>
+                        <option value="405">重庆万盛区</option>
+                        <option value="406">重庆万州区</option>
+                        <option value="407">重庆永川区</option>
+                        <option value="408">重庆渝北区</option>
+                        <option value="409">重庆渝中区</option>
+                        <option value="410">重庆长寿区</option>
+                        <option value="411">香港</option>
+                        <option value="412">澳门</option>
+                        <option value="413">台湾</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>目前状态：</label>
+                    <select class="form-control" name="f_Customer_State1">
+                        <option value="0">未知</option>
+                        <option value="1">在职</option>
+                        <option value="2">离职</option>
+                        <option value="3">应届</option>
+                        <option value="4">找寻更多机会</option>
+                    </select>
+                </div>
+            </div>
+            <div class="text-center">
+                <div class="tips-text"></div>
+                <input disabled="disabled" name="CustomerInfoAdd" id="CustomerInfoAdd" type="submit" value="提交信息 " class="btn">
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <p><br>达内性格测试－后台管理系统(华东基地) V1.0　Author：<a href="http://weibo.com/811016999" target="_blank">韩潇-Smile</a>
+            <br>管理员信箱：hzhanxiao@tarena.com.cn</p>
+    </div>
+</div>
+
+<script type="text/javascript">
+    //日历
+    jeDate({
+        dateCell: '#indate',
+        isinitVal: false,
+        festival: true,
+        format: 'YYYY-MM-DD'
+    });
+
+    //验证
+    function yanzheng(text, id) {
+        var nextNode = $(".tips-text");
+        var Val = $(text).val();
+        var text = $.trim($(text).val()) == "";
+        if (id == 'f_Customer_Name') {
+            if (text || Val == undefined) {
+                nextNode.html("客户姓名不能为空");
+                $('#CustomerInfoAdd').attr("disabled", "disabled");
+                return false;
+            } else {
+                nextNode.html("");
+            }
+        }
+        if (id == 'f_Customer_Tel1') {
+            if (text || !(/^1[3|4|5|7|8]\d{9}$/.test(Val))) {
+                nextNode.html("请输入正确的手机号码");
+                $('#CustomerInfoAdd').attr("disabled", "disabled");
+                return false;
+            } else {
+                nextNode.html("");
+            }
+        }
+        if (id == 'select') {
+            if (Val == 0) {
+                nextNode.html("请选择应聘岗位");
+                $('#CustomerInfoAdd').attr("disabled", "disabled");
+                return false;
+            } else {
+                nextNode.html("");
+            }
+        }
+        if (
+                (($.trim($("#f_Customer_Name").val()) != "") && ($("#f_Customer_Name").val() != undefined))
+                && ($.trim($("#f_Customer_Tel1").val()) != "" || !(/^1[3|4|5|7|8]\d{9}$/.test(Val)))
+                && ($("#f_Customer_Position option:selected").val() != 0)
+        ) {
+            $('#CustomerInfoAdd').removeAttr("disabled")
+        }
+    }
+    $('#f_Customer_Name,#f_Customer_Tel1').blur(function () {
+        var id_ = $(this).attr('id');
+        yanzheng($(this), id_);
+    }).keyup(function () {
+        var id_ = $(this).attr('id');
+        yanzheng($(this), id_)
+    });
+    $('#f_Customer_Position').change(function () {
+        yanzheng($(this), 'select');
+    }).blur(function () {
+        yanzheng($(this), 'select');
+    })
+</script>
+</body>
+</html>

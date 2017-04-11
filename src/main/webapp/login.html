@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>达内性格测试后台管理系统-登录页</title>
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="css/login.css" type="text/css"/>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/login.js">></script>
+</head>
+<body>
+<div class="login_body">
+    <div class="login">
+
+        <div class="content clearfix">
+            <ul class="bg-list pull-left">
+                <li class="bg1" style="display: block;">&nbsp;</li>
+                <li class="bg2">&nbsp;</li>
+            </ul>
+            <div class="cont pull-right">
+                <div class="title">性格测试后台管理系统</div>
+                <div class="form-group has-feedback">
+                    <input class="form-control" maxlength="16" type="text" name="f_UserName" id="f_UserName" tabindex="1" placeholder="用户名">
+                    <span class="icon_user"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input class="form-control" maxlength="16" type="password" name="f_UserPassword" id="f_UserPassword" tabindex="2" placeholder="密码">
+                    <span class="icon_pass"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input class="form-control text_w1" name="f_VerifyCode" id="f_VerifyCode" type="text"  maxlength="4" tabindex="3" placeholder="验证码">
+                    <span class="icon_code"></span>
+                    <i class="code"><img src="images/login_code.gif" alt="" /></i>
+                </div>
+                <div class="text-center">
+                    <p class="tips_text"></p>
+                    <div class="login_btn_bg"><input type="button" id="login_btn" class="login_btn" value="登录"></div>
+                </div>
+                <p class="down_link"><a href="###">下载二维码</a> <a href="test/index.html" target="_blank">手机端演示</a></p>
+            </div>
+        </div>
+
+        <!--<div class="foot">
+            Copyright © 2015 All Rights Reserved
+            <a href="" target="_blank">达内性格测试-后台管理系统</a>
+            管理员信箱：hzhanxiao@tarena.com.cn<br>
+            后台管理页面需要屏幕分辨率为 <strong>1280*768</strong> 或以上才能达到最佳浏览效果！<br>
+            需要浏览器为 <strong>IE5.5</strong> 或以上版本才能正常运行！！！
+        </div>-->
+    </div>
+</div>
+<script>
+    //获取窗口大小
+    var w_height = $(window).height();
+    $(".login_body").height(w_height);
+    //背景图片
+    var i = 0, //计数器
+    len = $(".bg-list li").length-1;//imgArray数组长度
+    setInterval(function(){
+        i++;
+        if(i>len){
+            i=0;
+            change(i)
+        }
+        change(i)
+    },5000)
+    function change(i){
+        $(".bg-list li").eq(i).fadeIn(300).siblings().fadeOut(300);
+    }
+
+    focus
+    $("input.form-control").focus(function () {
+      $(this).parent().addClass("cur");
+    }).blur(function () {
+        $(this).parent().removeClass("cur");
+    });
+</script>
+</body>
+</html>

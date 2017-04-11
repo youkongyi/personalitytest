@@ -1,0 +1,30 @@
+﻿@charset "utf-8";
+/* CSS Document */
+body, div, p, ul, ol, dl, dt, dd, li, form, input, table, img, h1, h2, h3, h4, h5, h6{ margin:0;padding:0;}
+body{background:#fff none;color:#111;font-size:12px;font-style:normal;font-family:"SimSun",sans-serif;}
+em, b, i{font-style:normal;}
+a{ text-decoration:none; color:#111;}
+a:hover{ text-decoration:underline; color:#111;}
+img, a img{border:0 none;}
+ul, ol{list-style:none}
+input,textarea {outline:0;resize:none;}
+
+.container{clear:both;margin:0 auto;text-align:left;width:1180px;}
+.container:after,.clearfix:after{clear:both;content:".";display:block;font-size:0;height:0;line-height:0;visibility:hidden;}
+.clearfix{*zoom:1;}
+.pull-left{ float: left;}
+.pull-rigth{ float: right;}
+.text-left { text-align: left;}
+.text-right { text-align: right;}
+.text-center { text-align: center;}
+.vspace{height:10px;font-size:0px;line-height:0px;width:99%;clear:both;}
+
+/*隐藏*/
+.hidn{ visibility:hidden;}
+.hidn_all{ visibility:hidden; width:0; height:0; display:block; overflow:hidden; clear:both; padding:0; margin:0; *display:none;}
+.dn{ display:none;}
+
+/*多出内容...*/
+.cutext{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; word-wrap:normal;}
+/*css写小三角——下拉图标*/
+.caret{display:inline-block;width: 0;height: 0;vertical-align: middle;border:6px solid transparent; border-top:6px solid #cecbcb; border-bottom:none;}

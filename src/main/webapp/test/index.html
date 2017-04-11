@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <title>性格色彩测试系统</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="css/css.css" type="text/css"/>
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+<div class="start">
+    <div class="banner">
+        &nbsp;
+    </div>
+    <dl>
+        <dt>测试说明：</dt>
+        <dd><span>·</span> 本测试是性格测试，性格没有好坏之分，请真实回答每项问题。</dd>
+        <dd><span>·</span> 测试结果将有助于我们对您的求职建议。</dd>
+        <dd><span>·</span> 测试时间为10分钟，点击“开始测试”后计时。</dd>
+        <dd><span>·</span> 正确输入您的手机号码才可进去测试系统。</dd>
+    </dl>
+    <div class="tel">
+        <p><label>手机号码：</label><input type="text" value="" class="text-tel" id="text_tel" pattern="^1[3-9]\d{9}$" required /></p>
+        <p><input type="submit" value="开始测试" class="btn-start" onclick="checkMobile(text_tel.value);" /></p>
+    </div>
+</div>
+<script>
+    function checkMobile(str) {
+        if(str==""){
+            alert("手机号不能为空！");
+        }
+        else{
+            var re = /^1\d{10}$/
+            if (re.test(str)) {
+                window.close(true);
+		window.open('process.html')
+            } else {
+                alert("手机号格式错误！");
+            }
+        }
+    }
+</script>
+</body>
+</html>

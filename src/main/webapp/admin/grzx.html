@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" partent="width=device-width, initial-scale=1.0">
+    <meta http-equiv="partent-type" partent="text/html; charset=UTF-8"/>
+    <title>达内性格测试后台管理系统-全部候选人信息查询</title>
+    <link rel="stylesheet" href="../css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="../css/css.css" type="text/css"/>
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.js"></script>
+</head>
+
+<div class="page-left pull-left">
+    <div class="logo"><img src="../images/logo_1.png" alt=""/></div>
+
+    <dl class="menu">
+        <dt class="title-1"><i>&nbsp;</i>候选人信息管理</dt>
+        <dd><a href="xxlr.html"><span>&nbsp;</span>信息录入</a></dd>
+        <dd><a href="xxcx.html"><span>&nbsp;</span>信息查询</a></dd>
+
+        <dt class="title-2"><i>&nbsp;</i>HR信息管理</dt>
+        <dd class="cur"><a href="tjhr.html"><span>&nbsp;</span>信息录入与查询</a></dd>
+    </dl>
+</div>
+
+<div class="page-right">
+    <div class="page-top">
+        <span id="name" class="name pull-rigth" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">陈杰(招聘总监)&nbsp;<i
+                class="caret"></i></span>
+        <div class="down-cont">
+            <p>登录时间：2016-09-20 14:25:25</p>
+            <p>登录IP：201.154.222.145</p>
+            <div class="foot">
+                <a href="../login.html" class="out pull-rigth" ><i>&nbsp;</i>退出</a>
+                <a href="grzx.html" class="center"  ><i>&nbsp;</i>个人中心</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-cont page-cont2">
+        <div class="list-cont change-info">
+            <div class="list-title">达内性格测试－后台管理系统－修改个人信息</div>
+            <div class="form-inline">
+                <div class="form-group">
+                    <label>姓名：</label>
+                    <input class="form-control" maxlength="8" type="text" name="f_Customer_Name" id="f_Customer_Name">
+                </div>
+                <div class="form-group">
+                    <label>电话：</label>
+                    <input class="form-control" type="text" name="f_Customer_Tel1" id="f_Customer_Tel1" onkeyup="if(isNaN(value))execCommand('undo')" maxlength="11">
+                </div>
+            </div>
+            <div class="form-inline">
+                <div class="form-group">
+                    <label>邮箱：</label>
+                    <input class="form-control" type="text" name="f_Customer_Email" id="f_Customer_Email" value="">
+                </div>
+                <div class="form-group">
+                    <label>城市：</label>
+                    <input class="form-control" type="text" value="">
+                </div>
+            </div>
+            <div class="form-inline">
+                <div class="form-group">
+                    <label>片区：</label>
+                    <input type="text" value="" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>中心：</label>
+                    <input type="text" value="" class="form-control">
+                </div>
+            </div>
+            <div class="form-inline">
+                <div class="form-group">
+                    <label>修改密码：</label>
+                    <input type="password" value="" class="form-control" id="f_Customer_pass1">
+                </div>
+                <div class="form-group">
+                    <label>确认密码：</label>
+                    <input type="password" value="" class="form-control" id="f_Customer_pass2">
+                </div>
+            </div>
+            <div class="text-center">
+                <div class="tips-text"></div>
+                <input name="CustomerInfoAdd" id="CustomerInfoAdd" type="submit" value="提交信息 " class="btn">
+            </div>
+        </div>
+
+        <div class="text-center">
+            <p><br>达内性格测试－后台管理系统(华东基地) V1.0　Author：<a href="http://weibo.com/811016999" target="_blank">韩潇-Smile</a>
+                <br>普通HR信箱：hzhanxiao@tarena.com.cn</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#CustomerInfoAdd").click(function () {
+        var customer_Name = $.trim($('#f_Customer_Name').val());
+        var customer_Tel1 = $.trim($('#f_Customer_Tel1').val());
+        var pemail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/i;
+        var customer_Email = $.trim($('#f_Customer_Email').val());
+        var customer_Pass1 = $.trim($('#f_Customer_pass1').val());
+        var customer_Pass2 = $.trim($('#f_Customer_pass2').val());
+
+        if (customer_Name == undefined || customer_Name == "") {
+            $('.tips-text').html("姓名不能为空");
+            return false;
+        } else {
+            $('.tips-text').html("");
+        }
+
+        if (customer_Tel1 == "") {
+            $('.tips-text').html("手机号码不能为空");
+            return false;
+        } else if (!(/^1[3|4|5|7|8]\d{9}$/.test(customer_Tel1))) {
+            $('.tips-text').html("请输入正确的手机号码");
+            return false;
+        } else {
+            $('.tips-text').html("");
+        }
+
+        if (customer_Email == "") {
+            $('.tips-text').html("请填写邮箱");
+            return false;
+        } else if (!pemail.test(customer_Email)) {
+            $('.tips-text').html("邮箱格式不正确");
+            return false;
+        } else {
+            $('.tips-text').html("");
+        }
+
+        if(customer_Pass1 == ""){
+            $('.tips-text').html("修改密码不能为空");
+            return false;
+        }
+        if(customer_Pass2 != customer_Pass1){
+            $('.tips-text').html("确认密码与修改密码不一致");
+            return false;
+        }
+    });
+</script>
+</body>
+</html>
