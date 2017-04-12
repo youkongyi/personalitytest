@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.personalitytest.user.dao.IMessageDAO">
+<!-- 	动态查询应试者信息				 -->
+	<select id="findCandiDateMessage" parameterType="hR_CandiDateBO" resultType="hR_CandiDateBO">
+	SELECT                                             
+	 T.CANDIDATE_ID AS candidateId,                   
+	 T.NAME AS name,                                  
+	 T.GENDER AS gender,                              
+	 T.DAY_OF_BIRTH AS dayOfBirth,                    
+	 T.POSITION_ID AS positionId,                     
+	 T.MOBILE AS mobile,                              
+	 T.PHONE AS phone,                                
+	 T.EMAIL AS email,                                
+	 T.EDUCATION AS education,                        
+	 T.COLLAGE AS collage,                            
+	 T.SCHOOL AS school,                              
+	 T.MAJOR AS major,                                
+	 T.GRADUATION AS graduation,                      
+	 T.QQ AS qq,                                      
+	 T.SOURCE_ID AS sourceId,                         
+	 T.STATE_ID AS stateId,                           
+	 T.USER_ID AS userId,                             
+	 T.CITY_ID AS cityId                              
+    FROM 
+     HR_CANDIDATE T 
+    WHERE 
+     T.USER_ID = #{userId }
+    <if test="name != null" >
+     AND T.NAME = #{name }	
+    </if> 
+    <if test="mobile != null" >
+     AND T.MOBILE = #{mobile }	
+    </if>
+    <if test="stateId != null" >
+     AND T.STATE_ID = #{stateId }	
+    </if>
+	</select>
+				
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</mapper>

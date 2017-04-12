@@ -38,9 +38,9 @@ public class FindMessageControllenerImpl implements IFindMessageControllener {
      * @crateDate：2017年4月10日下午1:57:12
      */
     @Override
-    @RequestMapping("/candiDate.do")
+    @RequestMapping("/userId.do")
     @ResponseBody
-    public JsonResult<List<HR_CandiDateBO>> findCandiDateMessage(String userId) {
+    public JsonResult<List<HR_CandiDateBO>> findUserIdMessage(String userId) {
         JsonResult<List<HR_CandiDateBO>> jsonResult = new JsonResult<List<HR_CandiDateBO>>();
         if(StringUtils.isNull(userId)){
             jsonResult.setState(StateInforMation.STATUS_PARAMETER_ERROR);
@@ -48,7 +48,46 @@ public class FindMessageControllenerImpl implements IFindMessageControllener {
             return jsonResult;
         }
         try{
-            List<HR_CandiDateBO> candiDateList = candiDateService.findCandiDateMessage(userId);
+            List<HR_CandiDateBO> candiDateList = candiDateService.findUserIdMessage(userId);
+            jsonResult.setData(candiDateList);
+            jsonResult.setState(StateInforMation.STATUS_SUCCESS);
+            jsonResult.setMessage(StateInforMation.STATUS_SUCCESS_MESSAGE);
+        } catch (Exception e){
+            e.printStackTrace();
+            jsonResult.setState(StateInforMation.STATUS_ERROR);
+            jsonResult.setMessage(StateInforMation.STATUS_ERROR_MESSAGE);
+        }
+        return jsonResult;
+    }
+    /**
+     * @description： 根据条件查找应试者信息
+     * @see com.personalitytest.user.controller.IFindMessageControllener#findCandiDateMessage(java.lang.String)
+     * @author：gehanbiao
+     * @crateDate：2017年4月12日上午9:59:08
+     */
+    @Override
+    @RequestMapping("/candiDate.do")
+    @ResponseBody
+    public JsonResult<List<HR_CandiDateBO>> findCandiDateMessage(String userId,String name,String stateId,String mobile) {
+        JsonResult<List<HR_CandiDateBO>> jsonResult = new JsonResult<List<HR_CandiDateBO>>();
+        if(StringUtils.isNull(userId)){
+            jsonResult.setState(StateInforMation.STATUS_PARAMETER_ERROR);
+            jsonResult.setMessage(StateInforMation.STATUS_PARAMETER_ERROR_MESSAGE);
+            return jsonResult;
+        }
+        try{
+            HR_CandiDateBO candiDateBO = new HR_CandiDateBO();
+            candiDateBO.setUserId(userId);
+            if(StringUtils.isNotNull(name)){
+                candiDateBO.setName(name);
+            }
+            if(StringUtils.isNotNull(stateId)){
+                candiDateBO.setStateId(stateId);
+            }
+            if(StringUtils.isNotNull(mobile)){
+                candiDateBO.setStateId(mobile);
+            }
+            List<HR_CandiDateBO> candiDateList = candiDateService.findCandiDateMessage(candiDateBO);
             jsonResult.setData(candiDateList);
             jsonResult.setState(StateInforMation.STATUS_SUCCESS);
             jsonResult.setMessage(StateInforMation.STATUS_SUCCESS_MESSAGE);

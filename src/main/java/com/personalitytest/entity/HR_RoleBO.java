@@ -15,15 +15,16 @@ public class HR_RoleBO {
     /**
      * 角色ID
      */
-    private int roleId;
+    private String roleId;
     /**
      * 角色名称
      */
     private String roleName;
-    public int getRoleId() {
+    
+    public String getRoleId() {
         return roleId;
     }
-    public void setRoleId(int roleId) {
+    public void setRoleId(String roleId) {
         this.roleId = roleId;
     }
     public String getRoleName() {

@@ -86,16 +86,59 @@ public class MyBatisTestCase {
 	@Test
 	public void test8(){
 	    IMessageDAO dao = ctx.getBean("IMessageDAO",IMessageDAO.class); 
-	    List<HR_CandiDateBO> list = dao.findCandiDateMessage("1");
+	    List<HR_CandiDateBO> list = dao.findUserIdMessage("1");
 	    System.out.println(list.get(0).getEmail());
 	}
 	
 	@Test
 	public void test9(){
 	    ICandiDateService service = ctx.getBean("candiDateService",ICandiDateService.class);
-	    List<HR_CandiDateBO> json = service.findCandiDateMessage("1");
+	    List<HR_CandiDateBO> json = service.findUserIdMessage("1");
 	    System.out.println(json);
 	}
+	
+	@Test
+	public void test10(){
+	    IMessageDAO dao = ctx.getBean("IMessageDAO",IMessageDAO.class); 
+	    HR_CandiDateBO candiDateBO = new HR_CandiDateBO();
+	    candiDateBO.setUserId("1");
+	    List<HR_CandiDateBO> list = dao.findCandiDateMessage(candiDateBO);
+	    System.out.println(list);
+	}
+	
+	@Test
+    public void test11(){
+        ICandiDateService service = ctx.getBean("candiDateService",ICandiDateService.class);
+        HR_CandiDateBO candiDateBO = new HR_CandiDateBO();
+        candiDateBO.setUserId("1");
+        candiDateBO.setStateId("1");
+        List<HR_CandiDateBO> json = service.findCandiDateMessage(candiDateBO);
+        System.out.println(json);
+    }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

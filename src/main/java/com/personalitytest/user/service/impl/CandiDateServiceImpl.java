@@ -34,8 +34,19 @@ public class CandiDateServiceImpl implements ICandiDateService {
      */
     @Override
     @Transactional
-    public List<HR_CandiDateBO> findCandiDateMessage(String userId) {
-        return messageDAO.findCandiDateMessage(userId);
+    public List<HR_CandiDateBO> findUserIdMessage(String userId) {
+        return messageDAO.findUserIdMessage(userId);
+    }
+    /**
+     * @description： 根据条件查找应试者信息
+     * @see com.personalitytest.user.service.ICandiDateService#findCandiDateMessage(com.personalitytest.entity.HR_CandiDateBO)
+     * @author：gehanbiao
+     * @crateDate：2017年4月12日上午10:40:57
+     */
+    @Override
+    @Transactional
+    public List<HR_CandiDateBO> findCandiDateMessage(HR_CandiDateBO candiDateBO) {
+        return messageDAO.findCandiDateMessage(candiDateBO);
     }
 
 }

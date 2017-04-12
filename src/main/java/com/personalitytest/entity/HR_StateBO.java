@@ -15,15 +15,15 @@ public class HR_StateBO {
     /**
      * 状态ID
      */
-    private int stateId;
+    private String stateId;
     /**
      * 状态信息
      */
     private String stateName;
-    public int getStateId() {
+    public String getStateId() {
         return stateId;
     }
-    public void setStateId(int stateId) {
+    public void setStateId(String stateId) {
         this.stateId = stateId;
     }
     public String getStateName() {

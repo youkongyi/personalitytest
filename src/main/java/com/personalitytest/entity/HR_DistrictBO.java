@@ -15,7 +15,7 @@ public class HR_DistrictBO {
     /**
      * 城市ID
      */
-    private int districtId;
+    private String districtId;
     /**
      * 城市名称
      */
@@ -23,20 +23,20 @@ public class HR_DistrictBO {
     /**
      * 地区分级
      */
-    private int level;
+    private String level;
     /**
      * 地区父级
      */
-    private int parentId;
+    private String parentId;
     /**
      * list
      */
-    private int list;
-    
-    public int getDistrictId() {
+    private String list;
+
+    public String getDistrictId() {
         return districtId;
     }
-    public void setDistrictId(int districtId) {
+    public void setDistrictId(String districtId) {
         this.districtId = districtId;
     }
     public String getDistrictName() {
@@ -45,34 +45,24 @@ public class HR_DistrictBO {
     public void setDistrictName(String districtName) {
         this.districtName = districtName;
     }
-    public int getLevel() {
+    public String getLevel() {
         return level;
     }
-    public void setLevel(int level) {
+    public void setLevel(String level) {
         this.level = level;
     }
-    public int getParentId() {
+    public String getParentId() {
         return parentId;
     }
-    public void setParentId(int parentId) {
+    public void setParentId(String parentId) {
         this.parentId = parentId;
     }
-    public int getList() {
+    public String getList() {
         return list;
     }
-    public void setList(int list) {
+    public void setList(String list) {
         this.list = list;
     }
-    /**
-     * @description： 添加方法功能描述
-     * @see java.lang.Object#toString()
-     * @author：gehanbiao
-     * @crateDate：2017年4月11日上午10:54:33
-     */
-    @Override
-    public String toString() {
-        return "HR_DistrictBO [districtId=" + districtId + ", districtName=" + districtName + ", level=" + level + ", parentId=" + parentId
-                + ", list=" + list + "]";
-    }
     
+   
 }

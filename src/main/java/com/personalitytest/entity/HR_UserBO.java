@@ -15,7 +15,7 @@ public class HR_UserBO {
     /**
      * 用户ID
      */
-    private int userId;
+    private String userId;
     /**
      * 用户名称
      */
@@ -39,105 +39,57 @@ public class HR_UserBO {
     /**
      * 角色ID
      */
-    private int roleId;
+    private String roleId;
     /**
      * 备注
      */
     private String column;
     
-    /**
-     * @return Returns the userId.
-     */
-    public int getUserId() {
-        return userId;
-    }
-    /**
-     * @param userId The userId to set.
-     */
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
-    /**
-     * @return Returns the userName.
-     */
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
+    }
     public String getUserName() {
         return userName;
     }
-    /**
-     * @param userName The userName to set.
-     */
     public void setUserName(String userName) {
         this.userName = userName;
     }
-    /**
-     * @return Returns the userPassword.
-     */
     public String getUserPassword() {
         return userPassword;
     }
-    /**
-     * @param userPassword The userPassword to set.
-     */
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
     }
-    /**
-     * @return Returns the userSureName.
-     */
     public String getUserSureName() {
         return userSureName;
     }
-    /**
-     * @param userSureName The userSureName to set.
-     */
     public void setUserSureName(String userSureName) {
         this.userSureName = userSureName;
     }
-    /**
-     * @return Returns the userMobile.
-     */
     public String getUserMobile() {
         return userMobile;
     }
-    /**
-     * @param userMobile The userMobile to set.
-     */
     public void setUserMobile(String userMobile) {
         this.userMobile = userMobile;
     }
-    /**
-     * @return Returns the userEmail.
-     */
     public String getUserEmail() {
         return userEmail;
     }
-    /**
-     * @param userEmail The userEmail to set.
-     */
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
     }
-    /**
-     * @return Returns the roleId.
-     */
-    public int getRoleId() {
-        return roleId;
-    }
-    /**
-     * @param roleId The roleId to set.
-     */
-    public void setRoleId(int roleId) {
-        this.roleId = roleId;
-    }
-    /**
-     * @return Returns the column.
-     */
     public String getColumn() {
         return column;
     }
-    /**
-     * @param column The column to set.
-     */
+    public String getUserId() {
+        return userId;
+    }
+    public String getRoleId() {
+        return roleId;
+    }
     public void setColumn(String column) {
         this.column = column;
     }

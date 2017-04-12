@@ -25,6 +25,14 @@ public interface IFindMessageControllener {
      * @author：gehanbiao
      * @crateDate：2017年4月10日下午1:58:34
      */
-    JsonResult<List<HR_CandiDateBO>> findCandiDateMessage(String userName);
-
+    JsonResult<List<HR_CandiDateBO>> findUserIdMessage(String userId);
+    
+    /**
+     * @description：  根据条件查找应试者信息
+     * @param userName
+     * @return
+     * @author：gehanbiao
+     * @crateDate：2017年4月12日上午9:58:59
+     */
+    JsonResult<List<HR_CandiDateBO>> findCandiDateMessage(String userId,String name,String stateId,String mobile);
 }

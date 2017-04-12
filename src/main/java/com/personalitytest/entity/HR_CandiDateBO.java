@@ -15,7 +15,7 @@ public class HR_CandiDateBO {
     /**
      * 应试者信息表id
      */
-    private int candidateId;
+    private String candidateId;
     /**
      * 姓名
      */
@@ -31,7 +31,7 @@ public class HR_CandiDateBO {
     /**
      * 职位id
      */
-    private int positionId;
+    private String positionId;
     /**
      * 手机号码
      */
@@ -71,130 +71,237 @@ public class HR_CandiDateBO {
     /**
      * 信息来源id
      */
-    private int sourceId;
+    private String sourceId;
     /**
      * 目前状态id
      */
-    private int stateId;
+    private String stateId;
     /**
      * 录入主管id
      */
-    private int userId;
+    private String userId;
     /**
      * 所在城市id
      */
-    private int cityId;
-    
-    
-    public int getCandidateId() {
+    private String cityId;
+    /**
+     * @return Returns the candidateId.
+     */
+    public String getCandidateId() {
         return candidateId;
     }
-    public void setCandidateId(int candidateId) {
+    /**
+     * @param candidateId The candidateId to set.
+     */
+    public void setCandidateId(String candidateId) {
         this.candidateId = candidateId;
     }
+    /**
+     * @return Returns the name.
+     */
     public String getName() {
         return name;
     }
+    /**
+     * @param name The name to set.
+     */
     public void setName(String name) {
         this.name = name;
     }
+    /**
+     * @return Returns the gender.
+     */
     public String getGender() {
         return gender;
     }
+    /**
+     * @param gender The gender to set.
+     */
     public void setGender(String gender) {
         this.gender = gender;
     }
+    /**
+     * @return Returns the dayOfBirth.
+     */
     public String getDayOfBirth() {
         return dayOfBirth;
     }
+    /**
+     * @param dayOfBirth The dayOfBirth to set.
+     */
     public void setDayOfBirth(String dayOfBirth) {
         this.dayOfBirth = dayOfBirth;
     }
-    public int getPositionId() {
+    /**
+     * @return Returns the positionId.
+     */
+    public String getPositionId() {
         return positionId;
     }
-    public void setPositionId(int positionId) {
+    /**
+     * @param positionId The positionId to set.
+     */
+    public void setPositionId(String positionId) {
         this.positionId = positionId;
     }
+    /**
+     * @return Returns the mobile.
+     */
     public String getMobile() {
         return mobile;
     }
+    /**
+     * @param mobile The mobile to set.
+     */
     public void setMobile(String mobile) {
         this.mobile = mobile;
     }
+    /**
+     * @return Returns the phone.
+     */
     public String getPhone() {
         return phone;
     }
+    /**
+     * @param phone The phone to set.
+     */
     public void setPhone(String phone) {
         this.phone = phone;
     }
+    /**
+     * @return Returns the email.
+     */
     public String getEmail() {
         return email;
     }
+    /**
+     * @param email The email to set.
+     */
     public void setEmail(String email) {
         this.email = email;
     }
+    /**
+     * @return Returns the education.
+     */
     public String getEducation() {
         return education;
     }
+    /**
+     * @param education The education to set.
+     */
     public void setEducation(String education) {
         this.education = education;
     }
+    /**
+     * @return Returns the collage.
+     */
     public String getCollage() {
         return collage;
     }
+    /**
+     * @param collage The collage to set.
+     */
     public void setCollage(String collage) {
         this.collage = collage;
     }
+    /**
+     * @return Returns the school.
+     */
     public String getSchool() {
         return school;
     }
+    /**
+     * @param school The school to set.
+     */
     public void setSchool(String school) {
         this.school = school;
     }
+    /**
+     * @return Returns the major.
+     */
     public String getMajor() {
         return major;
     }
+    /**
+     * @param major The major to set.
+     */
     public void setMajor(String major) {
         this.major = major;
     }
+    /**
+     * @return Returns the graduation.
+     */
     public String getGraduation() {
         return graduation;
     }
+    /**
+     * @param graduation The graduation to set.
+     */
     public void setGraduation(String graduation) {
         this.graduation = graduation;
     }
+    /**
+     * @return Returns the qq.
+     */
     public String getQq() {
         return qq;
     }
+    /**
+     * @param qq The qq to set.
+     */
     public void setQq(String qq) {
         this.qq = qq;
     }
-    public int getSourceId() {
+    /**
+     * @return Returns the sourceId.
+     */
+    public String getSourceId() {
         return sourceId;
     }
-    public void setSourceId(int sourceId) {
+    /**
+     * @param sourceId The sourceId to set.
+     */
+    public void setSourceId(String sourceId) {
         this.sourceId = sourceId;
     }
-    public int getStateId() {
+    /**
+     * @return Returns the stateId.
+     */
+    public String getStateId() {
         return stateId;
     }
-    public void setStateId(int stateId) {
+    /**
+     * @param stateId The stateId to set.
+     */
+    public void setStateId(String stateId) {
         this.stateId = stateId;
     }
-    public int getUserId() {
+    /**
+     * @return Returns the userId.
+     */
+    public String getUserId() {
         return userId;
     }
-    public void setUserId(int userId) {
+    /**
+     * @param userId The userId to set.
+     */
+    public void setUserId(String userId) {
         this.userId = userId;
     }
-    public int getCityId() {
+    /**
+     * @return Returns the cityId.
+     */
+    public String getCityId() {
         return cityId;
     }
-    public void setCityId(int cityId) {
+    /**
+     * @param cityId The cityId to set.
+     */
+    public void setCityId(String cityId) {
         this.cityId = cityId;
     }
     
+   
     
     
 }

@@ -16,7 +16,7 @@
 	</select>
 				<!-- 测试分页工具:end -->
 				
-	<select id="findUserByName" parameterType="String" resultType="com.personalitytest.entity.HR_UserBO">
+	<select id="findUserByName" parameterType="String" resultType="hR_UserBO">
 	SELECT
 		USER_ID as userId,
 		USER_NAME as userName,

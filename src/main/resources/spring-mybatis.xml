@@ -37,6 +37,7 @@
 		<property name="dataSource" ref="dataSource"/>
 		<!-- 指定Mapper.xml映射文件: 如使用Mapper接口则不需要 -->
 		<property name="mapperLocations" value="classpath:mappers/*.xml"/>
+		<property name="typeAliasesPackage" value="com.personalitytest.entity" />  
 		<!-- 挂在分页工具 -->
 		<property name="plugins">
         <array>

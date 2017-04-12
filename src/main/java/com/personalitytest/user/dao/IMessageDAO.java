@@ -46,6 +46,14 @@ public interface IMessageDAO {
             + " T.USER_ID AS userId,"
             + " T.CITY_ID AS cityId "
           + " FROM HR_CANDIDATE T WHERE  T.USER_ID = #{userId }")
-    List<HR_CandiDateBO> findCandiDateMessage(@Param("userId")String userId);
+    List<HR_CandiDateBO> findUserIdMessage(@Param("userId")String userId);
     
+    /**
+     * @description： 根据条件查找应试者信息
+     * @param candiDateBO
+     * @return
+     * @author：gehanbiao
+     * @crateDate：2017年4月12日上午8:42:30
+     */
+    List<HR_CandiDateBO> findCandiDateMessage(HR_CandiDateBO candiDateBO);
 }

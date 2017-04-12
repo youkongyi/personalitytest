@@ -15,15 +15,16 @@ public class HR_SourceBO {
     /**
      * 招聘信息来源id
      */
-    private int sourceId;
+    private String sourceId;
     /**
      * 来源信息名称
      */
     private String name;
-    public int getSourceId() {
+    
+    public String getSourceId() {
         return sourceId;
     }
-    public void setSourceId(int sourceId) {
+    public void setSourceId(String sourceId) {
         this.sourceId = sourceId;
     }
     public String getName() {
