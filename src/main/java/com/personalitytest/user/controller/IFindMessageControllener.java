@@ -34,5 +34,12 @@ public interface IFindMessageControllener {
      * @author：gehanbiao
      * @crateDate：2017年4月12日上午9:58:59
      */
-    JsonResult<List<HR_CandiDateBO>> findCandiDateMessage(String userId,String name,String stateId,String mobile);
+    JsonResult<List<HR_CandiDateBO>> findCandiDateMessage(String userId,String name,String mobile,String stateId);
+    
+    JsonResult<Boolean> insertCandiDateMessage(List<HR_CandiDateBO> candiDateList);
+    /**
+     * String name, String gender, String dayOfBirth, String positionId, String mobile, String phone,
+                   String email, String education, String collage, String school, String major, String graduation, String qq, String sourceId,
+                   String stateId, String userId, String cityId
+     */
 }

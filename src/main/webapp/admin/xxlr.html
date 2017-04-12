@@ -11,9 +11,9 @@
     <script type="text/javascript" src="../js/bootstrap.js"></script>
     <!--日历-->
     <link rel="stylesheet" href="../js/date/skin/jedate.css" type="text/css"/>
-    <script type="text/javascript" src="../js/date/jedate.js"></script>
+    <script type="text/javascript" src="../js/cookie_util.js"></script>
     <!-- 自定义Js -->
-    <script type="text/javascript" src="../js/candidate.js"></script>
+    <script type="text/javascript" src="../js/insertcandidate.js"></script>
 </head>
 <body>
 <div class="page-left pull-left">
@@ -104,7 +104,7 @@
             <div class="form-inline">
                 <div class="form-group">
                     <label>应试性别：</label>
-                    <select class="form-control" name="f_Customer_Gender">
+                    <select class="form-control" name="f_Customer_Gender" id="gender">
                         <option value="0">未知</option>
                         <option value="1">男性</option>
                         <option value="2">女性</option>
@@ -116,11 +116,11 @@
                 </div>
                 <div class="form-group">
                     <label>邮箱地址：</label>
-                    <input type="text" class="form-control" name="f_Customer_Email" placeholder="" maxlength="38" />
+                    <input type="text" class="form-control" name="f_Customer_Email" placeholder="" maxlength="38" id="email"/>
                 </div>
                 <div class="form-group">
                     <label>最高学历：</label>
-                    <select class="form-control" name="f_Customer_Education">
+                    <select class="form-control" name="f_Customer_Education" id="education">
                         <option value="0">未知</option>
                         <option value="1">初中</option>
                         <option value="2">高中</option>
@@ -146,7 +146,7 @@
                 </div>
                 <div class="form-group">
                     <label>毕业时间：</label>
-                    <select class="form-control" name="f_Customer_Grade">
+                    <select class="form-control" name="f_Customer_Grade" id="grade">
                         <option value="0">未知</option>
                         <option value="2018">2018年</option>
                         <option value="2017">2017年</option>
@@ -193,11 +193,11 @@
             <div class="form-inline">
                 <div class="form-group">
                     <label>Q Q号码：</label>
-                    <input type="text" class="form-control" name="f_Customer_QQ" placeholder="" maxlength="16" />
+                    <input type="text" id="qq" class="form-control" name="f_Customer_QQ" placeholder="" maxlength="16" />
                 </div>
                 <div class="form-group">
                     <label>信息来源：</label>
-                    <select class="form-control" name="f_Customer_Source">
+                    <select class="form-control" name="f_Customer_Source" id="source">
                         <option value="0">未知</option>
                         <option value="1">智联招聘</option>
                         <option value="2">前程无忧</option>
@@ -212,7 +212,7 @@
                 </div>
                 <div class="form-group">
                     <label>所在城市：</label>
-                    <select class="form-control" name="f_Customer_City">
+                    <select class="form-control" name="f_Customer_City" id="city">
                         <option value="0">未知</option>
                         <option value="1">浙江杭州</option>
                         <option value="2">浙江湖州</option>
@@ -631,7 +631,7 @@
                 </div>
                 <div class="form-group">
                     <label>目前状态：</label>
-                    <select class="form-control" name="f_Customer_State1">
+                    <select class="form-control" name="f_Customer_State1" id="state">
                         <option value="0">未知</option>
                         <option value="1">在职</option>
                         <option value="2">离职</option>
@@ -654,13 +654,6 @@
 </div>
 
 <script type="text/javascript">
-    //日历
-    jeDate({
-        dateCell: '#indate',
-        isinitVal: false,
-        festival: true,
-        format: 'YYYY-MM-DD'
-    });
 
     //验证
     function yanzheng(text, id) {

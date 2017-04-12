@@ -48,5 +48,20 @@ public class CandiDateServiceImpl implements ICandiDateService {
     public List<HR_CandiDateBO> findCandiDateMessage(HR_CandiDateBO candiDateBO) {
         return messageDAO.findCandiDateMessage(candiDateBO);
     }
+    /**
+     * @description：  添加应试者信息
+     * @see com.personalitytest.user.service.ICandiDateService#insertCandiDateMessage(com.personalitytest.entity.HR_CandiDateBO)
+     * @author：gehanbiao
+     * @crateDate：2017年4月12日下午2:30:21
+     */
+    @Override
+    @Transactional
+    public boolean insertCandiDateMessage(HR_CandiDateBO candiDateBO) {
+        int num = messageDAO.insertCandiDateMessage(candiDateBO);
+        if(num<1){
+            return false;
+        }
+        return true;
+    }
 
 }

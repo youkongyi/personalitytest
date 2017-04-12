@@ -39,7 +39,30 @@
     </if>
 	</select>
 				
-	
+	<insert id="insertCandiDateMessage" parameterType="hR_CandiDateBO" useGeneratedKeys="true" keyProperty="CANDIDATE_ID">
+		INSERT INTO HR_CANDIDATE 
+		(NAME,GENDER,DAY_OF_BIRTH,POSITION_ID,MOBILE,PHONE,EMAIL,EDUCATION,COLLAGE,SCHOOL,MAJOR,GRADUATION,QQ,SOURCE_ID,STATE_ID,USER_ID,CITY_ID) 
+		VALUES
+		(
+		#{name },
+		#{gender },
+		#{dayOfBirth },
+		#{positionId },
+		#{mobile },
+		#{phone },
+		#{email },
+		#{education },
+		#{collage },
+		#{school },
+		#{major },
+		#{graduation },
+		#{qq },
+		#{sourceId },
+		#{stateId },
+		#{userId },
+		#{cityId }
+		)
+	</insert>
 	
 	
 	

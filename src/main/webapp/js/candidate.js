@@ -10,7 +10,7 @@ $(function() {
 })
 
 function loadCandiDateMessage() {
-	var url = '/personalitytest/message/userId.do';
+	var url = '/personalitytest/message/findUserIdMessage.do';
 	var data = {
 		userId : getCookie('userId')
 	};
@@ -56,12 +56,12 @@ function findCandiDateMessage(){
 	var mobile = $("#mobile").val();
 	var stateId = $("#stateId").val();
 	var paramter = {
-			'userId' : getCookie('userId'),
-			'name' : name,
-			'mobile' : mobile,
-			'stateId' : stateId
+			"userId" : getCookie("userId"),
+			"name" : name,
+			"mobile" : mobile,
+			"stateId" : stateId
 		}
-	var url = '/personalitytest/message/candiDate.do';
+	var url = '/personalitytest/message/findCandiDateMessage.do';
 	$.getJSON(url, paramter, function(result) {
 		if (result.state == SUCCESS) {
 			$("#message").children("tr").remove();
@@ -98,9 +98,7 @@ function findCandiDateMessage(){
 
 		}
 	})
-	
 }
-
 
 
 
