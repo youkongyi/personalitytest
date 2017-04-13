@@ -7,21 +7,21 @@
 package com.personalitytest.entity;
 
 /**
- *  用户信息表
+ *  HR管理员信息表
  * @author gehanbiao
  * @version 2017年4月5日
  */
 public class HR_UserBO {
     /**
-     * 用户ID
+     * ID
      */
     private String userId;
     /**
-     * 用户名称
+     * 名称
      */
     private String userName;
     /**
-     * 用户密码
+     * 密码
      */
     private String userPassword;
     /**

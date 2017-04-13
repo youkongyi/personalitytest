@@ -7,6 +7,7 @@
 package com.personalitytest.user.controller.impl;
 
 
+import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
 
@@ -86,6 +87,35 @@ public class UserControllerImpl implements IUserController {
             BeanUtils.copyProperties(userBO, paramMap);
             boolean flag = userService.insertUser(userBO);
             jsonResult.setData(flag);
+            jsonResult.setState(StateInforMation.STATUS_SUCCESS);
+            jsonResult.setMessage(StateInforMation.STATUS_SUCCESS_MESSAGE);
+        } catch(Exception e){
+            e.printStackTrace();
+            jsonResult.setState(StateInforMation.STATUS_ERROR);
+            jsonResult.setMessage(StateInforMation.STATUS_ERROR_MESSAGE);
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+        }
+        return jsonResult;
+    }
+
+    /**
+     * @description：  查找当前HR管理员下所有HR管理员
+     * @see com.personalitytest.user.controller.IUserController#findRoleId(java.util.Map)
+     * @author：gehanbiao
+     * @crateDate：2017年4月13日下午4:22:20
+     */
+    @Override
+    public JsonResult<List<HR_UserBO>> findHRUser(Map<String, Object> paramMap) {
+        JsonResult<List<HR_UserBO>> jsonResult = new JsonResult<List<HR_UserBO>>();
+        String userId = String.valueOf(paramMap.get("userId"));
+        if(StringUtils.isNull(userId)){
+            jsonResult.setState(StateInforMation.STATUS_PARAMETER_ERROR);
+            jsonResult.setMessage(StateInforMation.STATUS_PARAMETER_ERROR_MESSAGE);
+            return jsonResult;
+        }
+        try {
+            List<HR_UserBO> userList = userService.findHRUser(userId);
+            jsonResult.setData(userList);
             jsonResult.setState(StateInforMation.STATUS_SUCCESS);
             jsonResult.setMessage(StateInforMation.STATUS_SUCCESS_MESSAGE);
         } catch(Exception e){

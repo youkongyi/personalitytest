@@ -7,6 +7,8 @@
 package com.personalitytest.user.service;
 
 
+import java.util.List;
+
 import com.personalitytest.entity.HR_UserBO;
 import com.personalitytest.utils.JsonResult;
 
@@ -26,7 +28,6 @@ public interface IUserService {
      */
     JsonResult<HR_UserBO> userLogin(String userName,String password);
     /**
-     * 
      * @description： 添加HR管理员
      * @param userBO
      * @return
@@ -34,4 +35,12 @@ public interface IUserService {
      * @crateDate：2017年4月13日上午10:38:48
      */
     boolean insertUser(HR_UserBO userBO);
+    /**
+     * @description：根据当前角色ID查找相应的HR管理员
+     * @param RoleId
+     * @return
+     * @author：gehanbiao
+     * @crateDate：2017年4月13日下午4:31:55
+     */
+    List<HR_UserBO> findHRUser(String userId);
 }

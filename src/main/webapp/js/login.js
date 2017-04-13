@@ -45,7 +45,7 @@ function userLogin(){
 				$('.error').hide();
 				var user = result.data;
 				setCookie('userId', user.userId);
-				location.href='admin/menu.html';
+				location.href='/personalitytest/admin/menu.html';
 				return;
 				//返回值状态若为2 则返回帐号错误信息  直接return
 			} else if (result.state == 1) {

@@ -79,7 +79,7 @@ public class MyBatisTestCase {
 	public void test7(){
 	    /* 测试用Mapper接口写入 */
 	    IUserDAO dao = ctx.getBean("IUserDAO",IUserDAO.class);
-        HR_UserBO userbo = dao.findUserByNames(1);
+        HR_UserBO userbo = dao.findUserByNames("1");
         System.out.println(userbo);
 	}
 	
@@ -170,8 +170,19 @@ public class MyBatisTestCase {
        System.out.println(flag);
 	}
 	
+	@Test
+    public void test15(){
+	    IUserDAO dao = ctx.getBean("IUserDAO",IUserDAO.class);
+	    String roleId = dao.findRoleId("1");
+	    System.out.println(roleId);
+	}
 	
-	
+	@Test
+    public void test16(){
+	   IUserService userService = ctx.getBean("userService",IUserService.class); 
+	   List<HR_UserBO> list = userService.findHRUser("1");
+	   System.out.println(list.size());
+	}
 	
 	
 	

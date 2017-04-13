@@ -6,6 +6,8 @@
  */
 package com.personalitytest.user.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -67,6 +69,21 @@ public class UserServiceImpl implements IUserService {
             return true;    
         }
         return false;
+    }
+
+    /**
+     * @description：  查找当前HR管理员下所有HR管理员
+     * @see com.personalitytest.user.service.IUserService#findHRUser(java.lang.String)
+     * @author：gehanbiao
+     * @crateDate：2017年4月13日下午4:36:51
+     */
+    @Override
+    public List<HR_UserBO> findHRUser(String userId) {
+        String roleId = userDAO.findRoleId(userId);
+        if(StringUtils.isNotNull(roleId)){
+            return userDAO.findHRUser(roleId);
+        }
+        return null;
     }
 
 }

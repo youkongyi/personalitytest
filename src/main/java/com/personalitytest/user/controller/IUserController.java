@@ -7,6 +7,7 @@
 package com.personalitytest.user.controller;
 
 
+import java.util.List;
 import java.util.Map;
 
 import com.personalitytest.entity.HR_UserBO;
@@ -35,4 +36,12 @@ public interface IUserController {
      * @crateDate：2017年4月13日上午10:25:29
      */
     JsonResult<Boolean> insertUser(Map<String,Object> paramMap);
+    /**
+     * @description： 查找当前HR管理员下所有HR管理员
+     * @param paramMap
+     * @return
+     * @author：gehanbiao
+     * @crateDate：2017年4月13日下午4:22:34
+     */
+    JsonResult<List<HR_UserBO>> findHRUser(Map<String,Object> paramMap);
 }

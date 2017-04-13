@@ -43,8 +43,8 @@ public interface IUserDAO {
      * @author：gehanbiao
      * @crateDate：2017年4月11日下午2:14:53
      */
-    @Select("SELECT USER_ID AS USERID FROM HR_USER WHERE USER_ID = #{userId }")
-    HR_UserBO findUserByNames(@Param("userId")int userId);
+    @Select("SELECT USER_ID AS userid FROM HR_USER WHERE USER_ID = #{userId }")
+    HR_UserBO findUserByNames(@Param("userId")String userId);
     /**
      * @description： 添加HR管理员
      * @param userBO
@@ -53,4 +53,31 @@ public interface IUserDAO {
      * @crateDate：2017年4月13日上午10:44:33
      */
     int insertUser(HR_UserBO userBO);
+    /**
+     * @description：根据当前HR管理员ID查找角色roleid
+     * @param userId
+     * @return
+     * @author：gehanbiao
+     * @crateDate：2017年4月13日下午4:32:12
+     */
+    @Select("SELECT ROLE_ID AS roleId FROM HR_USER WHERE USER_ID = #{userId }")
+    String findRoleId(String userId);
+    /**
+     * 
+     * @description：根据角色ID查找相应的HR管理员
+     * @param roleId
+     * @return
+     * @author：gehanbiao
+     * @crateDate：2017年4月13日下午4:05:47
+     */
+    @Select(" SELECT "
+            + " USER_ID AS userid,"
+            + " USER_NAME AS userName,"
+            + " USER_SURE_NAME AS userSureName,"
+            + " USER_MOBILE AS userMobile,"
+            + " USER_EMAIL AS userEmail,"
+            + " ROLE_ID AS roleId,"
+            + " `COLUMN_` AS `column` "
+           + " FROM HR_USER WHERE ROLE_ID >= #{roleId }")
+    List<HR_UserBO> findHRUser(@Param("roleId")String roleId);
 }

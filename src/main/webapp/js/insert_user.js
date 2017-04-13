@@ -1,4 +1,5 @@
-    $(function(){
+var SUSCCESS = 0;
+$(function(){
         $('.add-hr').click(addHr);
         $('.table-cont').on('click', '.edit-hr', editHr);
         $("#btn_sure_add").click(submitHr);
@@ -56,8 +57,10 @@
             dataType:'json',
             data: json,  
             success: function(result){
-                console.log(json);
-                console.log(JSON.stringify(json));
+                if(result.state == SUSCCESS){
+                	location.href='/personalitytest/admin/tjhr.html';
+                	return;
+                }
             },
             error: function(){
             	
