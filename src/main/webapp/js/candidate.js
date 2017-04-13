@@ -62,6 +62,9 @@ function findCandiDateMessage(){
 			"stateId" : stateId
 		}
 	var url = '/personalitytest/message/findCandiDateMessage.do';
+	
+	console.log(JSON.stringify(paramter));
+	console.log(paramter)
 	$.getJSON(url, paramter, function(result) {
 		if (result.state == SUCCESS) {
 			$("#message").children("tr").remove();

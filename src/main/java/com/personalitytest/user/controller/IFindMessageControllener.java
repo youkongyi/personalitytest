@@ -7,6 +7,7 @@
 package com.personalitytest.user.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import com.personalitytest.entity.HR_CandiDateBO;
 import com.personalitytest.utils.JsonResult;
@@ -34,12 +35,15 @@ public interface IFindMessageControllener {
      * @author：gehanbiao
      * @crateDate：2017年4月12日上午9:58:59
      */
-    JsonResult<List<HR_CandiDateBO>> findCandiDateMessage(String userId,String name,String mobile,String stateId);
+    JsonResult<List<HR_CandiDateBO>> findCandiDateMessage(Map<String,Object> name);
     
-    JsonResult<Boolean> insertCandiDateMessage(List<HR_CandiDateBO> candiDateList);
     /**
-     * String name, String gender, String dayOfBirth, String positionId, String mobile, String phone,
-                   String email, String education, String collage, String school, String major, String graduation, String qq, String sourceId,
-                   String stateId, String userId, String cityId
+     * @description： 添加应试者信息
+     * @param params
+     * @return
+     * @author：gehanbiao
+     * @crateDate：2017年4月13日上午9:00:18
      */
+
+    JsonResult<Boolean> insertCandiDateMessage(HR_CandiDateBO candiDateList);
 }
