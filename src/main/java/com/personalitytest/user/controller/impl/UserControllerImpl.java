@@ -105,7 +105,9 @@ public class UserControllerImpl implements IUserController {
      * @crateDate：2017年4月13日下午4:22:20
      */
     @Override
-    public JsonResult<List<HR_UserBO>> findHRUser(Map<String, Object> paramMap) {
+    @RequestMapping("/findHRUser.do")
+    @ResponseBody
+    public JsonResult<List<HR_UserBO>> findHRUser(@RequestParam Map<String, Object> paramMap) {
         JsonResult<List<HR_UserBO>> jsonResult = new JsonResult<List<HR_UserBO>>();
         String userId = String.valueOf(paramMap.get("userId"));
         if(StringUtils.isNull(userId)){

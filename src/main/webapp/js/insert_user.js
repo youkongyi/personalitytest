@@ -1,10 +1,52 @@
-var SUSCCESS = 0;
+var SUCCESS = 0;
 $(function(){
+		findHRUser();
         $('.add-hr').click(addHr);
         $('.table-cont').on('click', '.edit-hr', editHr);
         $("#btn_sure_add").click(submitHr);
     });
-    
+
+function findHRUser(){
+	var url = '/personalitytest/user/findHRUser.do';
+	var data = { userId : getCookie('userId') };
+	$.getJSON(url, data, function(result) {
+		if (result.state == SUCCESS) {
+			var list = result.data;
+			if (list.length != 0) {
+				for (var i = 0; i < list.length; i++) {
+					$("#hr_user").append(
+							"<tr align='center'>"
+	                        +"<td>"+list[i].userId+"</td>"
+	                        +"<td>"+list[i].userSureName+"</td>"
+	                        +"<td>"+list[i].userMobile+"</td>"
+	                        +"<td><p class='email-num'>"+list[i].userEmail+"</p></td>"
+	                        +"<td><p class='max-td1'>北京</p></td>"
+	                        +"<td><p class='max-td1'>海淀</p></td>"
+	                        +"<td><p class='max-td1'>魏公村分中心</p></td>"
+	                        +"<td>"+list[i].roleId+"</td>"
+	                        +"<td><input type='button' class='btn btn-small edit-hr'  value=' 修  改  '>" 
+	                        +    "<input type='button' class='btn btn-small' value=' 删 除  ' data-toggle='modal' data-target='#open_tips'></td>"
+	                       +"</tr>"
+							);
+				}
+			} else {
+				$("#hr_user").append(
+                +'<tr style="display: none;">'
+                    +'<td colspan="9">'
+                        +'<div class="empty">'
+                            +'<img src="../images/empty_1.png" alt=""/>'
+                        +'</div>'
+                    +'</td>'
+                +'</tr>'
+                );
+			}
+
+		}
+	})
+}
+
+
+
     function addHr(){
         //打开对话框
         $('#open_tjhr .modal-title').html('添加HR');
@@ -57,7 +99,7 @@ $(function(){
             dataType:'json',
             data: json,  
             success: function(result){
-                if(result.state == SUSCCESS){
+                if(result.state == SUCCESS){
                 	location.href='/personalitytest/admin/tjhr.html';
                 	return;
                 }
@@ -66,25 +108,4 @@ $(function(){
             	
             }
         });
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
     }
