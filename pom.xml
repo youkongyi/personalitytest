@@ -140,11 +140,13 @@
        <artifactId>slf4j-log4j12</artifactId>  
        <version>${slf4j.version}</version>  
    </dependency>
+   <!-- mybatis分页jar包-->
    <dependency>
     <groupId>com.github.pagehelper</groupId>
     <artifactId>pagehelper</artifactId>
     <version>5.0.0</version>
 	</dependency>
+	<!-- javaBean转换Mapjar包 -->
    <dependency>
   	<groupId>commons-beanutils</groupId>
   	<artifactId>commons-beanutils</artifactId>
@@ -155,6 +157,12 @@
   	<artifactId>commons-logging</artifactId>
   	<version>1.2</version>
   </dependency>
+  <!-- 字符串转换拼音jar包 -->
+  <dependency>
+  <groupId>com.belerweb</groupId>
+  <artifactId>pinyin4j</artifactId>
+  <version>2.5.1</version>
+</dependency>
   
   </dependencies>
   <build>

@@ -46,7 +46,6 @@ public class FindMessageControllenerImpl implements IFindMessageControllener {
     @ResponseBody
     public JsonResult<List<HR_CandiDateBO>> findUserIdMessage(String userId) {
         JsonResult<List<HR_CandiDateBO>> jsonResult = new JsonResult<List<HR_CandiDateBO>>();
-       
         if(StringUtils.isNull(userId)){
             jsonResult.setState(StateInforMation.STATUS_PARAMETER_ERROR);
             jsonResult.setMessage(StateInforMation.STATUS_PARAMETER_ERROR_MESSAGE);

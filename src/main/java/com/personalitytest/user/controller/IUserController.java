@@ -44,4 +44,5 @@ public interface IUserController {
      * @crateDate：2017年4月13日下午4:22:34
      */
     JsonResult<List<HR_UserBO>> findHRUser(Map<String,Object> paramMap);
+    
 }

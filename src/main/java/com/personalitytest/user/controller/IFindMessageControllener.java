@@ -44,6 +44,5 @@ public interface IFindMessageControllener {
      * @author：gehanbiao
      * @crateDate：2017年4月13日上午9:00:18
      */
-
     JsonResult<Boolean> insertCandiDateMessage(HR_CandiDateBO candiDateList);
 }
