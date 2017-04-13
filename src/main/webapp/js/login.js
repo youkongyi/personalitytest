@@ -13,11 +13,11 @@ $(function(){
 	/**
 	 * 用户登录
 	 */
-	$("#login_btn").click(loginCheck);
+	$("#login_btn").click(userLogin);
 });
 
 
-function loginCheck(){
+function userLogin(){
 	var login = userNameCheck()+passwordCheck();
 	if(login != 2){
 		console.log("账号密码不对");
@@ -31,7 +31,7 @@ function loginCheck(){
 	};
 	$.ajax({
 		//请求页面
-		url : '/personalitytest/user/login.do',
+		url : '/personalitytest/user/userLogin.do',
 		//请求参数
 		data : paramter,
 		//返回的数据类型

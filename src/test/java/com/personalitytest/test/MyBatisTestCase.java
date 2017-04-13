@@ -140,8 +140,35 @@ public class MyBatisTestCase {
         System.out.println(i);
     }
 	
+	@Test
+	public void test13(){
+	    IUserDAO dao = ctx.getBean("IUserDAO",IUserDAO.class);
+	    HR_UserBO userBO = new HR_UserBO();
+	    userBO.setUserName("xiaoyuekexin");
+	    userBO.setUserPassword("xiaoyuekexin");
+	    userBO.setUserSureName("舒服");
+	    userBO.setUserMobile("15548544854");
+	    userBO.setUserEmail("askjhdsf@fsd.com");
+	    userBO.setRoleId("2");
+	    userBO.setColumn("阿斯顿");
+	    int num = dao.insertUser(userBO);
+	    System.out.println(num);
+	}
 	
-	
+	@Test
+    public void test14(){
+	    IUserService userService = ctx.getBean("userService",IUserService.class);
+	    HR_UserBO userBO = new HR_UserBO();
+        userBO.setUserName("xiaoyuekexin");
+        userBO.setUserPassword("xiaoyuekexin");
+        userBO.setUserSureName("舒服");
+        userBO.setUserMobile("15548544854");
+        userBO.setUserEmail("askjhdsf@fsd.com");
+        userBO.setRoleId("2");
+        userBO.setColumn("阿斯顿");
+       boolean flag = userService.insertUser(userBO);
+       System.out.println(flag);
+	}
 	
 	
 	

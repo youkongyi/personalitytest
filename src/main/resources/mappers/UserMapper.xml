@@ -12,7 +12,8 @@
     		LEVEL as level,
     		PARENT_ID as parentId,
     		LIST as list
-    	 from hr_district where district_id 
+    	from 
+    	 	hr_district 
 	</select>
 				<!-- 测试分页工具:end -->
 				
@@ -25,14 +26,35 @@
 		USER_MOBILE as userMobile,
 		USER_EMAIL as userEmail,
 		ROLE_ID as roleId,
-		"Column" as "column"
+		"COLUMN_" as "column"
 	FROM
 		HR_USER
 	WHERE
 		USER_NAME = #{userName }
 	</select>
 				
-	
+	<insert id="insertUser" parameterType="hR_UserBO" useGeneratedKeys="true" keyProperty="USER_ID">
+	INSERT INTO HR_USER
+	(
+		USER_NAME ,
+		USER_PASSWORD ,
+		USER_SURE_NAME ,
+		USER_MOBILE ,
+		USER_EMAIL ,
+		ROLE_ID ,
+		`COLUMN_`
+	)
+	VALUES
+	(
+		#{userName },
+		#{userPassword },
+		#{userSureName },
+		#{userMobile },
+		#{userEmail },
+		#{roleId },
+		#{column }
+	)
+	</insert>
 	
 	
 	

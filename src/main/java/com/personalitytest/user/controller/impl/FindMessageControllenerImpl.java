@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+
+import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -73,23 +75,15 @@ public class FindMessageControllenerImpl implements IFindMessageControllener {
     @ResponseBody
     public JsonResult<List<HR_CandiDateBO>> findCandiDateMessage(@RequestParam Map<String,Object> paramMap) {
         JsonResult<List<HR_CandiDateBO>> jsonResult = new JsonResult<List<HR_CandiDateBO>>();
-        if(StringUtils.isNull(paramMap)){
+        String userId = String.valueOf(paramMap.get("userId"));
+        if(StringUtils.isNull(userId)){
             jsonResult.setState(StateInforMation.STATUS_PARAMETER_ERROR);
             jsonResult.setMessage(StateInforMation.STATUS_PARAMETER_ERROR_MESSAGE);
             return jsonResult;
         }
         try{
             HR_CandiDateBO candiDateBO = new HR_CandiDateBO();
-//            candiDateBO.setUserId(userId);
-//            if(StringUtils.isNotNull(name)){
-//                candiDateBO.setName(name);
-//            }
-//            if(StringUtils.isNotNull(stateId)){
-//                candiDateBO.setStateId(stateId);
-//            }
-//            if(StringUtils.isNotNull(mobile)){
-//                candiDateBO.setStateId(mobile);
-//            }
+            BeanUtils.copyProperties(candiDateBO, paramMap);
             List<HR_CandiDateBO> candiDateList = candiDateService.findCandiDateMessage(candiDateBO);
             jsonResult.setData(candiDateList);
             jsonResult.setState(StateInforMation.STATUS_SUCCESS);
@@ -118,8 +112,10 @@ public class FindMessageControllenerImpl implements IFindMessageControllener {
             return jsonResult;
         }
         try{
-             boolean falg = candiDateService.insertCandiDateMessage(candiDateBO);
-             jsonResult.setData(falg);
+            /* 改进 */
+//            candiDateBO.setGraduation("2012-02-14");
+            boolean falg = candiDateService.insertCandiDateMessage(candiDateBO);
+            jsonResult.setData(falg);
             jsonResult.setState(StateInforMation.STATUS_SUCCESS);
             jsonResult.setMessage(StateInforMation.STATUS_SUCCESS_MESSAGE);
         } catch (Exception e){

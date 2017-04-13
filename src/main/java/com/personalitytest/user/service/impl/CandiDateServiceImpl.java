@@ -58,10 +58,10 @@ public class CandiDateServiceImpl implements ICandiDateService {
     @Transactional
     public boolean insertCandiDateMessage(HR_CandiDateBO candiDateBO) {
         int num = messageDAO.insertCandiDateMessage(candiDateBO);
-        if(num<1){
-            return false;
+        if(num > 0){
+            return true;
         }
-        return true;
+        return false;
     }
 
 }

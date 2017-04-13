@@ -45,4 +45,12 @@ public interface IUserDAO {
      */
     @Select("SELECT USER_ID AS USERID FROM HR_USER WHERE USER_ID = #{userId }")
     HR_UserBO findUserByNames(@Param("userId")int userId);
+    /**
+     * @description： 添加HR管理员
+     * @param userBO
+     * @return
+     * @author：gehanbiao
+     * @crateDate：2017年4月13日上午10:44:33
+     */
+    int insertUser(HR_UserBO userBO);
 }

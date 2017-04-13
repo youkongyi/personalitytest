@@ -6,17 +6,32 @@
  */
 package com.personalitytest.user.service;
 
+
 import com.personalitytest.entity.HR_UserBO;
 import com.personalitytest.utils.JsonResult;
 
 /**
- * 用户操作接口
+ * HR管理员操作接口
  * @author gehanbiao
  * @version 2017年4月5日
  */
 public interface IUserService {
-    /*
-     * 用户登录接口
+    /**
+     * @description： 用户登录接口
+     * @param userName
+     * @param password
+     * @return
+     * @author：gehanbiao
+     * @crateDate：2017年4月13日上午10:38:56
      */
     JsonResult<HR_UserBO> userLogin(String userName,String password);
+    /**
+     * 
+     * @description： 添加HR管理员
+     * @param userBO
+     * @return
+     * @author：gehanbiao
+     * @crateDate：2017年4月13日上午10:38:48
+     */
+    boolean insertUser(HR_UserBO userBO);
 }

@@ -54,4 +54,19 @@ public class UserServiceImpl implements IUserService {
         return jsonResult;
     }
 
+    /**
+     * @description： 添加HR管理员
+     * @see com.personalitytest.user.service.IUserService#insertUser(com.personalitytest.entity.HR_UserBO)
+     * @author：gehanbiao
+     * @crateDate：2017年4月13日上午10:41:34
+     */
+    @Override
+    public boolean insertUser(HR_UserBO userBO) {
+        int num = userDAO.insertUser(userBO);
+        if(num > 0){
+            return true;    
+        }
+        return false;
+    }
+
 }

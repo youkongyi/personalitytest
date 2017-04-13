@@ -28,13 +28,13 @@
      HR_CANDIDATE T 
     WHERE 
      T.USER_ID = #{userId }
-    <if test="name != null" >
+    <if test="name != null and name != '' " >
      AND T.NAME = #{name }	
     </if> 
-    <if test="mobile != null" >
+    <if test="mobile != null and mobile != '' " >
      AND T.MOBILE = #{mobile }	
     </if>
-    <if test="stateId != null" >
+    <if test="stateId != null and stateId != '' " >
      AND T.STATE_ID = #{stateId }	
     </if>
 	</select>
