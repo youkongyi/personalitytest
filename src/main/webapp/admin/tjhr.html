@@ -7,65 +7,9 @@
     <link rel="stylesheet" href="../css/bootstrap.css" type="text/css"/>
     <link rel="stylesheet" href="../css/css.css" type="text/css"/>
     <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/cookie_util.js"></script>
     <script type="text/javascript" src="../js/bootstrap.js"></script>
-    
-    <script type="text/javascript" >
-    
-    $(function(){
-        $('.add-hr').click(addHr);
-        $('.table-cont').on('click', '.edit-hr', editHr);
-        $("#btn_sure_add").click(submitHr);
-    });
-    
-    function addHr(){
-        //打开对话框
-        $('#open_tjhr .modal-title').html('添加HR');
-        $('#open_tjhr').modal('show');
-    }
-
-    function editHr(){
-         //打开对话框
-        $('#open_tjhr .modal-title').html('修改HR');
-        $('#open_tjhr').modal('show');
-    }
-
-   function submitHr() {
-        var customer_Name = $.trim($('#f_Customer_Name').val());
-        var customer_Tel1 = $.trim($('#f_Customer_Tel1').val());
-        var pemail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/i;
-        var customer_Email = $.trim($('#f_Customer_Email').val());
-
-        if (customer_Name == undefined || customer_Name == "") {
-            $('.tips-text').html("姓名不能为空");
-            return false;
-        } else {
-            $('.tips-text').html("");
-        }
-
-        if (customer_Tel1 == "") {
-            $('.tips-text').html("手机号码不能为空");
-            return false;
-        } else if (!(/^1[3|4|5|7|8]\d{9}$/.test(customer_Tel1))) {
-            $('.tips-text').html("请输入正确的手机号码");
-            return false;
-        } else {
-            $('.tips-text').html("");
-        }
-
-        if (customer_Email == "") {
-            $('.tips-text').html("请填写邮箱");
-            return false;
-        } else if (!pemail.test(customer_Email)) {
-            $('.tips-text').html("邮箱格式不正确");
-            return false;
-        } else {
-            $('.tips-text').html("");
-        }
-    }
-
-     
-    </script>
-    
+    <script type="text/javascript" src="../js/insert_user.js"></script>
 </head>
 
 <div class="page-left pull-left">
@@ -77,7 +21,7 @@
         <dd><a href="menu.html"><span>&nbsp;</span>信息查询</a></dd>
 
         <dt class="title-2"><i>&nbsp;</i>HR信息管理</dt>
-        <dd class="cur"><a href="tjhr.html"><span>&nbsp;</span>信息录入与查询</a></dd>
+        <dd class="cur"><a href="#"><span>&nbsp;</span>信息录入与查询</a></dd>
     </dl>
 </div>
 
@@ -157,233 +101,6 @@
                         <td>超级普通HR</td>
                         <td><input type="button" class="btn btn-small edit-hr"  value=" 修 改 ">　<input type="button" class="btn btn-small" value=" 删 除 " data-toggle="modal" data-target="#open_tips"></td>
                     </tr>
-                    <tr align="center">
-                        <td>9664</td>
-                        <td>卫婧婷</td>
-                        <td>15542747479</td>
-                        <td><p class="email-num">15542747479@126.com</p></td>
-                        <td><p class="max-td1">北京</p></td>
-                        <td><p class="max-td1">海淀</p></td>
-                        <td><p class="max-td1">魏公村分中心</p></td>
-                        <td>普通普通HR</td>
-                        <td><input type="button" class="btn btn-small edit-hr" value=" 修 改 ">　<input type="button" class="btn btn-small" value=" 删 除 " data-toggle="modal" data-target="#open_tips"></td>
-                    </tr>
-
-                    <tr align="center">
-                        <td>9663</td>
-                        <td>游佳勇</td>
-                        <td>15542747479</td>
-                        <td><p class="email-num">15542747479@126.com</p></td>
-                        <td><p class="max-td1">北京</p></td>
-                        <td><p class="max-td1">海淀</p></td>
-                        <td><p class="max-td1">魏公村分中心</p></td>
-                        <td>普通HR</td>
-                        <td><input type="button" class="btn btn-small edit-hr" value=" 修 改 ">　<input type="button" class="btn btn-small" value=" 删 除 " data-toggle="modal" data-target="#open_tips"></td>
-                    </tr>
-
-                    <tr align="center">
-                        <td>9662</td>
-                        <td>王梦佳</td>
-                        <td>15542747479</td>
-                        <td><p class="email-num">15542747479@126.com</p></td>
-                        <td><p class="max-td1">北京</p></td>
-                        <td><p class="max-td1">海淀</p></td>
-                        <td><p class="max-td1">魏公村分中心</p></td>
-                        <td>普通HR</td>
-                        <td><input type="button" class="btn btn-small edit-hr" value=" 修 改 ">　<input type="button" class="btn btn-small" value=" 删 除 " data-toggle="modal" data-target="#open_tips"></td>
-                    </tr>
-
-                    <tr align="center">
-                        <td>9661</td>
-                        <td>李先生</td>
-                        <td>15542747479</td>
-                        <td><p class="email-num">15542747479@126.com</p></td>
-                        <td><p class="max-td1">北京</p></td>
-                        <td><p class="max-td1">海淀</p></td>
-                        <td><p class="max-td1">魏公村分中心</p></td>
-                        <td>普通HR</td>
-                        <td><input type="button" class="btn btn-small edit-hr" value=" 修 改 ">　<input type="button" class="btn btn-small" value=" 删 除 " data-toggle="modal" data-target="#open_tips"></td>
-                    </tr>
-
-                    <tr align="center">
-                        <td>9660</td>
-                        <td>徐恒基</td>
-                        <td>15542747479</td>
-                        <td><p class="email-num">15542747479@126.com</p></td>
-                        <td><p class="max-td1">北京</p></td>
-                        <td><p class="max-td1">海淀</p></td>
-                        <td><p class="max-td1">魏公村分中心</p></td>
-                        <td>普通HR</td>
-                        <td><input type="button" class="btn btn-small edit-hr" value=" 修 改 ">　<input type="button" class="btn btn-small" value=" 删 除 " data-toggle="modal" data-target="#open_tips"></td>
-                    </tr>
-
-                    <tr align="center">
-                        <td>9659</td>
-                        <td>姚妹茜</td>
-                        <td>15542747479</td>
-                        <td><p class="email-num">15542747479@126.com</p></td>
-                        <td><p class="max-td1">北京</p></td>
-                        <td><p class="max-td1">海淀</p></td>
-                        <td><p class="max-td1">魏公村分中心</p></td>
-                        <td>普通HR</td>
-                        <td><input type="button" class="btn btn-small edit-hr" value=" 修 改 ">　<input type="button" class="btn btn-small" value=" 删 除 " data-toggle="modal" data-target="#open_tips"></td>
-                    </tr>
-
-                    <tr align="center">
-                        <td>9658</td>
-                        <td>朱秀洁</td>
-                        <td>15542747479</td>
-                        <td><p class="email-num">15542747479@126.com</p></td>
-                        <td><p class="max-td1">北京</p></td>
-                        <td><p class="max-td1">海淀</p></td>
-                        <td><p class="max-td1">魏公村分中心</p></td>
-                        <td>普通HR</td>
-                        <td><input type="button" class="btn btn-small edit-hr" value=" 修 改 ">　<input type="button" class="btn btn-small" value=" 删 除 " data-toggle="modal" data-target="#open_tips"></td>
-                    </tr>
-
-                    <tr align="center">
-                        <td>9657</td>
-                        <td>范嘉思</td>
-                        <td>15542747479</td>
-                        <td><p class="email-num">15542747479@126.com</p></td>
-                        <td><p class="max-td1">北京</p></td>
-                        <td><p class="max-td1">海淀</p></td>
-                        <td><p class="max-td1">魏公村分中心</p></td>
-                        <td>普通HR</td>
-                        <td><input type="button" class="btn btn-small edit-hr" value=" 修 改 ">　<input type="button" class="btn btn-small" value=" 删 除 " data-toggle="modal" data-target="#open_tips"></td>
-                    </tr>
-
-                    <tr align="center">
-                        <td>9656</td>
-                        <td>闫鑫鑫</td>
-                        <td>15542747479</td>
-                        <td><p class="email-num">15542747479@126.com</p></td>
-                        <td><p class="max-td1">北京</p></td>
-                        <td><p class="max-td1">海淀</p></td>
-                        <td><p class="max-td1">魏公村分中心</p></td>
-                        <td>普通HR</td>
-                        <td><input type="button" class="btn btn-small edit-hr" value=" 修 改 ">　<input type="button" class="btn btn-small" value=" 删 除 " data-toggle="modal" data-target="#open_tips"></td>
-                    </tr>
-
-                    <tr align="center">
-                        <td>9655</td>
-                        <td>刘佳</td>
-                        <td>15542747479</td>
-                        <td><p class="email-num">15542747479@126.com</p></td>
-                        <td><p class="max-td1">北京</p></td>
-                        <td><p class="max-td1">海淀</p></td>
-                        <td><p class="max-td1">魏公村分中心</p></td>
-                        <td>普通HR</td>
-                        <td><input type="button" class="btn btn-small edit-hr" value=" 修 改 ">　<input type="button" class="btn btn-small" value=" 删 除 " data-toggle="modal" data-target="#open_tips"></td>
-                    </tr>
-
-                    <tr align="center">
-                        <td>9654</td>
-                        <td>黄先生</td>
-                        <td>15542747479</td>
-                        <td><p class="email-num">15542747479@126.com</p></td>
-                        <td><p class="max-td1">北京</p></td>
-                        <td><p class="max-td1">海淀</p></td>
-                        <td><p class="max-td1">魏公村分中心</p></td>
-                        <td>普通HR</td>
-                        <td><input type="button" class="btn btn-small edit-hr" value=" 修 改 ">　<input type="button" class="btn btn-small" value=" 删 除 " data-toggle="modal" data-target="#open_tips"></td>
-                    </tr>
-
-                    <tr align="center">
-                        <td>9653</td>
-                        <td>付婷艳</td>
-                        <td>15542747479</td>
-                        <td><p class="email-num">15542747479@126.com</p></td>
-                        <td><p class="max-td1">北京</p></td>
-                        <td><p class="max-td1">海淀</p></td>
-                        <td><p class="max-td1">魏公村分中心</p></td>
-                        <td>普通HR</td>
-                        <td><input type="button" class="btn btn-small edit-hr" value=" 修 改 ">　<input type="button" class="btn btn-small" value=" 删 除 " data-toggle="modal" data-target="#open_tips"></td>
-                    </tr>
-
-                    <tr align="center">
-                        <td>9652</td>
-                        <td>杨爽</td>
-                        <td>15542747479</td>
-                        <td><p class="email-num">15542747479@126.com</p></td>
-                        <td><p class="max-td1">北京</p></td>
-                        <td><p class="max-td1">海淀</p></td>
-                        <td><p class="max-td1">魏公村分中心</p></td>
-                        <td>普通HR</td>
-                        <td><input type="button" class="btn btn-small edit-hr" value=" 修 改 ">　<input type="button" class="btn btn-small" value=" 删 除 " data-toggle="modal" data-target="#open_tips"></td>
-                    </tr>
-
-                    <tr align="center">
-                        <td>9651</td>
-                        <td>李向向</td>
-                        <td>15542747479</td>
-                        <td><p class="email-num">15542747479@126.com</p></td>
-                        <td><p class="max-td1">北京</p></td>
-                        <td><p class="max-td1">海淀</p></td>
-                        <td><p class="max-td1">魏公村分中心</p></td>
-                        <td>普通HR</td>
-                        <td><input type="button" class="btn btn-small edit-hr" value=" 修 改 ">　<input type="button" class="btn btn-small" value=" 删 除 " data-toggle="modal" data-target="#open_tips"></td>
-                    </tr>
-
-                    <tr align="center">
-                        <td>9650</td>
-                        <td>钟信</td>
-                        <td>15542747479</td>
-                        <td><p class="email-num">15542747479@126.com</p></td>
-                        <td><p class="max-td1">北京</p></td>
-                        <td><p class="max-td1">海淀</p></td>
-                        <td><p class="max-td1">魏公村分中心</p></td>
-                        <td>普通HR</td>
-                        <td><input type="button" class="btn btn-small edit-hr" value=" 修 改 ">　<input type="button" class="btn btn-small" value=" 删 除 " data-toggle="modal" data-target="#open_tips"></td>
-                    </tr>
-
-                    <tr align="center">
-                        <td>9649</td>
-                        <td>黄菲</td>
-                        <td>15542747479</td>
-                        <td><p class="email-num">15542747479@126.com</p></td>
-                        <td><p class="max-td1">北京</p></td>
-                        <td><p class="max-td1">海淀</p></td>
-                        <td><p class="max-td1">魏公村分中心</p></td>
-                        <td>普通HR</td>
-                        <td><input type="button" class="btn btn-small edit-hr" value=" 修 改 ">　<input type="button" class="btn btn-small" value=" 删 除 " data-toggle="modal" data-target="#open_tips"></td>
-                    </tr>
-
-                    <tr align="center">
-                        <td>9648</td>
-                        <td>张敏青</td>
-                        <td>15542747479</td>
-                        <td><p class="email-num">15542747479@126.com</p></td>
-                        <td><p class="max-td1">北京</p></td>
-                        <td><p class="max-td1">海淀</p></td>
-                        <td><p class="max-td1">魏公村分中心</p></td>
-                        <td>普通HR</td>
-                        <td><input type="button" class="btn btn-small edit-hr" value=" 修 改 ">　<input type="button" class="btn btn-small" value=" 删 除 " data-toggle="modal" data-target="#open_tips"></td>
-                    </tr>
-
-                    <tr align="center">
-                        <td>9647</td>
-                        <td>沈洁</td>
-                        <td>15542747479</td>
-                        <td><p class="email-num">15542747479@126.com</p></td>
-                        <td><p class="max-td1">北京</p></td>
-                        <td><p class="max-td1">海淀</p></td>
-                        <td><p class="max-td1">魏公村分中心</p></td>
-                        <td>普通HR</td>
-                        <td><input type="button" class="btn btn-small edit-hr" value=" 修 改 ">　<input type="button" class="btn btn-small" value=" 删 除 " data-toggle="modal" data-target="#open_tips"></td>
-                    </tr>
-
-                    <tr align="center">
-                        <td>9646</td>
-                        <td>熊青</td>
-                        <td>15542747479</td>
-                        <td><p class="email-num">15542747479@126.com</p></td>
-                        <td><p class="max-td1">北京</p></td>
-                        <td><p class="max-td1">海淀</p></td>
-                        <td><p class="max-td1">魏公村分中心</p></td>
-                        <td>普通HR</td>
-                        <td><input type="button" class="btn btn-small edit-hr" value=" 修 改 ">　<input type="button" class="btn btn-small" value=" 删 除 " data-toggle="modal" data-target="#open_tips"></td>
-                    </tr>
                 </tbody>
             </table>
 
@@ -421,9 +138,9 @@
                 <button type="button" class="btn">确定</button>
                 <button type="button" class="btn" data-dismiss="modal">取消</button>
             </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+        </div>
+    </div>
+</div>
 <!--添加HR-->
 <div class="modal fade open_tjhr" id="open_tjhr">
     <div class="modal-dialog">
@@ -450,10 +167,10 @@
                         </div>
                         <div class="form-group">
                             <label>角色：</label>
-                            <select class="form-control">
-                                <option value="0">普通HR</option>
-                                <option value="1">普通普通HR</option>
-                                <option value="2">超级普通HR</option>
+                            <select class="form-control" id="roleId">
+                                <option value="1">超级管理员</option>
+                                <option value="2">高级管理员</option>
+                                <option value="3">管理员</option>
                             </select>
                         </div>
                     </div>
@@ -483,10 +200,5 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
-
-
-<script>
-</script>
 </body>
 </html>

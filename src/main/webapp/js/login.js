@@ -25,7 +25,7 @@ function userLogin(){
 	}
 	var userName = $('#f_UserName').val();
 	var password = $('#f_UserPassword').val();
-	var paramter = {
+	var json = {
 		'userName' : userName,
 		'password' : password
 	};
@@ -33,7 +33,7 @@ function userLogin(){
 		//请求页面
 		url : '/personalitytest/user/userLogin.do',
 		//请求参数
-		data : paramter,
+		data : json,
 		//返回的数据类型
 		dataType : 'json',
 		//请求类型

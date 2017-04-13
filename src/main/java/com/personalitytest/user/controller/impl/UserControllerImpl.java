@@ -73,7 +73,10 @@ public class UserControllerImpl implements IUserController {
     public JsonResult<Boolean> insertUser(@RequestParam Map<String, Object> paramMap) {
         JsonResult<Boolean> jsonResult = new JsonResult<Boolean>();
         String userId = String.valueOf(paramMap.get("userId"));
-        if(StringUtils.isNull(userId)){
+        String userName = String.valueOf(paramMap.get("userName"));
+        String userMobile = String.valueOf(paramMap.get("userMobile"));
+        String roleId = String.valueOf(paramMap.get("roleId"));
+        if(StringUtils.isNull(userId)||StringUtils.isNull(userName)||StringUtils.isNull(userMobile)||StringUtils.isNull(roleId)){
             jsonResult.setState(StateInforMation.STATUS_PARAMETER_ERROR);
             jsonResult.setMessage(StateInforMation.STATUS_PARAMETER_ERROR_MESSAGE);
             return jsonResult;
