@@ -3,10 +3,14 @@ package com.personalitytest.test;
 
 import static org.junit.Assert.assertEquals;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.sql.DataSource;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Before;
 import org.junit.Test;
@@ -34,7 +38,7 @@ public class MyBatisTestCase {
 	public void init(){
 	    /* 只测试mybatis/SQL语句 */
 //	    ctx = new ClassPathXmlApplicationContext("spring-mybatis.xml");
-//		ctx = new ClassPathXmlApplicationContext("spring-web.xml","spring-service.xml","spring-mybatis.xml");
+		ctx = new ClassPathXmlApplicationContext("spring-web.xml","spring-service.xml","spring-mybatis.xml");
 	}
 	
 	@Test
@@ -196,8 +200,30 @@ public class MyBatisTestCase {
         System.out.println(pinyin);
 	}
 	
-	
-	
+	@Test
+    public void test18(){
+	    IUserDAO dao = ctx.getBean("IUserDAO",IUserDAO.class);
+	    HR_UserBO userBO = new HR_UserBO();
+	    userBO.setUserId("3");
+        userBO.setUserPassword("liuluoguo");
+        userBO.setUserSureName("刘罗锅");
+        userBO.setUserEmail("a87988235@qq.com");
+        userBO.setUserMobile("15527204233");
+	    int num = dao.updateUser(userBO);
+	    System.out.println(num);
+	}
+
+   @Test
+    public void test19(){
+       IUserService userService = ctx.getBean("userService",IUserService.class); 
+       HR_UserBO userBO = new HR_UserBO();
+       userBO.setUserId("3");
+       userBO.setUserPassword("liuluoguo");
+       userBO.setUserSureName("刘罗锅");
+       userBO.setUserEmail("a87988235@qq.com");
+       userBO.setUserMobile("15527204233");
+       userService.updateUser(userBO);
+   }
 	
 	
 	

@@ -28,4 +28,12 @@ produces:    指定返回的内容类型，仅当request请求头中的(Accept)�
 params： 指定request中必须包含某些参数值是，才让该方法处理。
 headers： 指定request中必须包含某些指定的header值，才能让该方法处理请求。
 
+本项目参考以下资料博客:
+mybatis官方文档
+http://www.mybatis.org/mybatis-3/zh/dynamic-sql.html
+一个web项目web.xml的配置中<context-param>配置作用
 http://blog.csdn.net/sxbjffsg163/article/details/9955479
+Mybatis下mapper映射文件配置之insert、update、delete
+http://blog.csdn.net/summer_yuxia/article/details/53171794
+on条件与where条件的区别
+http://blog.csdn.net/xc008/article/details/2872310
