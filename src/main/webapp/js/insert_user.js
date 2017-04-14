@@ -60,13 +60,13 @@ function findHRUser(){
     }
 
    function submitHr() {
-        var userName = $.trim($('#f_Customer_Name').val());
+        var userSureName = $.trim($('#f_Customer_Name').val());
         var userMobile = $.trim($('#f_Customer_Tel1').val());
         var pemail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/i;
         var userEmail = $.trim($('#f_Customer_Email').val());
         var roleId = $("#roleId").val();
         var userId = getCookie("userId");
-        if (userName == undefined || userName == "") {
+        if (userSureName == undefined || userSureName == "") {
             $('.tips-text').html("姓名不能为空");
             return false;
         }
@@ -88,7 +88,7 @@ function findHRUser(){
         }
         var json = {
         		userId : userId,
-        		userName : userName,
+        		userSureName : userSureName,
         		userMobile : userMobile,
         		userEmail : userEmail,
         		roleId : roleId

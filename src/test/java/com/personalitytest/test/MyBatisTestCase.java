@@ -22,6 +22,9 @@ import com.personalitytest.user.dao.IUserDAO;
 import com.personalitytest.user.service.ICandiDateService;
 import com.personalitytest.user.service.IUserService;
 import com.personalitytest.utils.JsonResult;
+import com.personalitytest.utils.Pinyin4jUtil;
+
+import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 
 
 
@@ -31,7 +34,7 @@ public class MyBatisTestCase {
 	public void init(){
 	    /* 只测试mybatis/SQL语句 */
 //	    ctx = new ClassPathXmlApplicationContext("spring-mybatis.xml");
-		ctx = new ClassPathXmlApplicationContext("spring-web.xml","spring-service.xml","spring-mybatis.xml");
+//		ctx = new ClassPathXmlApplicationContext("spring-web.xml","spring-service.xml","spring-mybatis.xml");
 	}
 	
 	@Test
@@ -183,8 +186,15 @@ public class MyBatisTestCase {
 	   List<HR_UserBO> list = userService.findHRUser("1");
 	   System.out.println(list.size());
 	}
-	
-	
+	//测试字符串转换拼音jar包
+	@Test
+    public void test17() throws BadHanyuPinyinOutputFormatCombination{
+	    String str = "纪晓岚";  
+	    String pinyin = Pinyin4jUtil.converterToSpell(str);
+	    System.out.println(pinyin);
+	    pinyin = pinyin.substring(pinyin.lastIndexOf(",")+1);
+        System.out.println(pinyin);
+	}
 	
 	
 	

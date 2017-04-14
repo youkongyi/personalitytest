@@ -16,6 +16,7 @@ import com.personalitytest.entity.HR_UserBO;
 import com.personalitytest.user.dao.IUserDAO;
 import com.personalitytest.user.service.IUserService;
 import com.personalitytest.utils.JsonResult;
+import com.personalitytest.utils.Pinyin4jUtil;
 import com.personalitytest.utils.StateInforMation;
 import com.personalitytest.utils.StringUtils;
     
@@ -64,6 +65,11 @@ public class UserServiceImpl implements IUserService {
      */
     @Override
     public boolean insertUser(HR_UserBO userBO) {
+        String userName = userBO.getUserSureName();
+        String pinyin = Pinyin4jUtil.converterToSpell(userName);
+        pinyin = pinyin.substring(pinyin.lastIndexOf(",")+1);
+        userBO.setUserName(pinyin);
+        userBO.setUserPassword(pinyin);
         int num = userDAO.insertUser(userBO);
         if(num > 0){
             return true;    
