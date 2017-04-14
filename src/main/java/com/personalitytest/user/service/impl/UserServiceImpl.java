@@ -92,4 +92,19 @@ public class UserServiceImpl implements IUserService {
         return null;
     }
 
+    /**
+     * @description：  更新当前HR管理员信息
+     * @see com.personalitytest.user.service.IUserService#updateUser(com.personalitytest.entity.HR_UserBO)
+     * @author：gehanbiao
+     * @crateDate：2017年4月14日上午9:14:35
+     */
+    @Override
+    public boolean updateUser(HR_UserBO userBO) {
+        int num = userDAO.updateUser(userBO);
+        if(num > 0 ){
+           return true;    
+        }
+        return false;
+    }
+
 }

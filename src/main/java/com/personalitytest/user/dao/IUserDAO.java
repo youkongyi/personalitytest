@@ -63,7 +63,6 @@ public interface IUserDAO {
     @Select("SELECT ROLE_ID AS roleId FROM HR_USER WHERE USER_ID = #{userId }")
     String findRoleId(String userId);
     /**
-     * 
      * @description：根据角色ID查找相应的HR管理员
      * @param roleId
      * @return
@@ -80,4 +79,22 @@ public interface IUserDAO {
             + " `COLUMN_` AS `column` "
            + " FROM HR_USER WHERE ROLE_ID >= #{roleId }")
     List<HR_UserBO> findHRUser(@Param("roleId")String roleId);
+    /**
+     * @description： 更新当前HR管理员信息
+     * @param userBO
+     * @return
+     * @author：gehanbiao
+     * @crateDate：2017年4月14日上午9:23:06
+     */
+    int updateUser(HR_UserBO userBO); 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

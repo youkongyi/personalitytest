@@ -56,7 +56,26 @@
 	)
 	</insert>
 	
-	
+	<update id="updateUser" parameterType="hR_UserBO">
+	UPDATE 
+		HR_USER 
+	<trim prefix="SET" suffixOverrides=",">
+		<if test="userSureName != null and userSureName != '' ">
+			USER_SURE_NAME = #{userSureName },
+		</if>
+		<if test="userMobile != null and userMobile != '' ">
+			USER_MOBILE = #{userMobile },
+		</if>
+		<if test="userEmail != null and userEmail != '' ">
+			USER_EMAIL = #{userEmail },
+		</if>
+		<if test="userPassword != null and userPassword != '' ">
+			USER_PASSWORD = #{userPassword },
+		</if>
+	</trim>
+	WHERE 
+	 	 USER_ID = #{userId };
+	</update>
 	
 	
 	

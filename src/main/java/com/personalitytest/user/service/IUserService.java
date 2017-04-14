@@ -43,4 +43,12 @@ public interface IUserService {
      * @crateDate：2017年4月13日下午4:31:55
      */
     List<HR_UserBO> findHRUser(String userId);
+    /**
+     * @description： 更新当前HR管理员信息
+     * @param userBO
+     * @return
+     * @author：gehanbiao
+     * @crateDate：2017年4月14日上午9:14:23
+     */
+    boolean updateUser(HR_UserBO userBO);
 }

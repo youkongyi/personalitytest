@@ -129,6 +129,37 @@ public class UserControllerImpl implements IUserController {
         return jsonResult;
     }
 
+    /**
+     * @description： 更新当前HR管理员信息
+     * @see com.personalitytest.user.controller.IUserController#updateUser(java.util.Map)
+     * @author：gehanbiao
+     * @crateDate：2017年4月14日上午9:11:52
+     */
+    @Override
+    public JsonResult<Boolean> updateUser(Map<String, Object> paramMap) {
+        JsonResult<Boolean> jsonResult = new JsonResult<Boolean>();
+        String userId = String.valueOf(paramMap.get("userId"));
+        if(StringUtils.isNull(userId)){
+            jsonResult.setState(StateInforMation.STATUS_PARAMETER_ERROR);
+            jsonResult.setMessage(StateInforMation.STATUS_PARAMETER_ERROR_MESSAGE);
+            return jsonResult;
+        }
+        try {
+            HR_UserBO userBO = new HR_UserBO();
+            BeanUtils.copyProperties(userBO, paramMap);
+            boolean flag = userService.insertUser(userBO);
+            jsonResult.setData(flag);
+            jsonResult.setState(StateInforMation.STATUS_SUCCESS);
+            jsonResult.setMessage(StateInforMation.STATUS_SUCCESS_MESSAGE);
+        } catch(Exception e){
+            e.printStackTrace();
+            jsonResult.setState(StateInforMation.STATUS_ERROR);
+            jsonResult.setMessage(StateInforMation.STATUS_ERROR_MESSAGE);
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+        }
+        return jsonResult;
+    }
+
     
     
 }
