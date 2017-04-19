@@ -7,7 +7,7 @@ $(function() {
 
 function insertCandiDateMessage(){
 	
-	var userId = getCookie("userId");
+	var userId = JSON.parse(getCookie('user')).userId;
 	var name = $("#f_Customer_Name").val();
 	var positionId = $("#f_Customer_Position").val();
 	var mobile = $("#f_Customer_Tel1").val();

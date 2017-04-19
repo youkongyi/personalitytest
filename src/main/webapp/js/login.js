@@ -44,7 +44,11 @@ function userLogin(){
 			if (result.state == 0) {
 				$('.error').hide();
 				var user = result.data;
-				setCookie('userId', user.userId);
+				setCookie('user', JSON.stringify(user) );
+				var url = 'http://chaxun.1616.net/s.php?type=ip&output=json&callback=?&_=' + Math.random();
+			     $.getJSON(url, function (data) {
+			         setCookie('ip',data.Ip);
+			     });
 				location.href='/personalitytest/admin/menu.html';
 				return;
 				//返回值状态若为2 则返回帐号错误信息  直接return

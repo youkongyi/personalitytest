@@ -12,7 +12,7 @@ $(function() {
 function loadCandiDateMessage() {
 	var url = '/personalitytest/message/findUserIdMessage.do';
 	var data = {
-		userId : getCookie('userId')
+		userId : JSON.parse(getCookie('user')).userId
 	};
 	$.getJSON(url, data, function(result) {
 		if (result.state == SUCCESS) {
@@ -56,7 +56,7 @@ function findCandiDateMessage(){
 	var mobile = $("#mobile").val();
 	var stateId = $("#stateId").val();
 	var paramter = {
-			"userId" : getCookie("userId"),
+			"userId" : JSON.parse(getCookie('user')).userId,
 			"name" : name,
 			"mobile" : mobile,
 			"stateId" : stateId

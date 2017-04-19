@@ -5,7 +5,7 @@
  });
 
 function update_user(){
-	var userId = getCookie("userId");
+	var userId = JSON.parse(getCookie('user')).userId;
 	var userSureName = $("#f_Customer_Name").val();
 	var userMobile = $("#f_Customer_Tel1").val();
 	var userEmail = $("#f_Customer_Email").val();

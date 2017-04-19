@@ -9,8 +9,8 @@
     <script type="text/javascript" src="../js/jquery.js"></script>
     <script type="text/javascript" src="../js/cookie_util.js"></script>
     <script type="text/javascript" src="../js/bootstrap.js"></script>
+    <!-- 自定义开始 -->
     <script type="text/javascript" src="../js/update_user.js"></script>
-    
 </head>
 <div class="page-left pull-left">
     <div class="logo"><img src="../images/logo_1.png" alt=""/></div>
@@ -27,16 +27,6 @@
 
 <div class="page-right">
     <div class="page-top">
-        <span id="name" class="name pull-rigth" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">陈杰(招聘总监)&nbsp;<i
-                class="caret"></i></span>
-        <div class="down-cont">
-            <p>登录时间：2016-09-20 14:25:25</p>
-            <p>登录IP：201.154.222.145</p>
-            <div class="foot">
-                <a href="../login.html" class="out pull-rigth" ><i>&nbsp;</i>退出</a>
-                <a href="grzx.html" class="center"  ><i>&nbsp;</i>个人中心</a>
-            </div>
-        </div>
     </div>
 
     <div class="page-cont page-cont2">
@@ -94,5 +84,17 @@
         </div>
     </div>
 </div>
+ <script type="text/javascript">
+    $(".page-top").append(
+			'<span id="userName" class="name pull-rigth" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+JSON.parse(getCookie('user')).userName+'&nbsp;<i class="caret"></i></span>'
+		+'<div class="down-cont">'
+		+'<p>登录时间：2016-09-20 14:25:25</p>'
+		+'<p>登录IP：'+getCookie('ip')+'</p>'
+		+'<div class="foot">'
+		 +   '<a href="../login.html" class="out pull-rigth" ><i>&nbsp;</i>退出</a>'
+		 +   '<a href="grzx.html" class="center" ><i>&nbsp;</i>个人中心</a>'
+		+'</div>'
+		+'</div>');
+    </script>
 </body>
 </html>

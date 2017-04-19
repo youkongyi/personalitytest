@@ -8,7 +8,7 @@ $(function(){
 
 function findHRUser(){
 	var url = '/personalitytest/user/findHRUser.do';
-	var data = { userId : getCookie('userId') };
+	var data = { userId : JSON.parse(getCookie('user')).userId };
 	$.getJSON(url, data, function(result) {
 		if (result.state == SUCCESS) {
 			var list = result.data;
@@ -65,7 +65,7 @@ function findHRUser(){
         var pemail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/i;
         var userEmail = $.trim($('#f_Customer_Email').val());
         var roleId = $("#roleId").val();
-        var userId = getCookie("userId");
+        var userId = JSON.parse(getCookie('user')).userId;
         if (userSureName == undefined || userSureName == "") {
             $('.tips-text').html("姓名不能为空");
             return false;
