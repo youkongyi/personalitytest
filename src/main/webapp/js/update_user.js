@@ -26,7 +26,6 @@ function update_user(){
         return false;
     } else {
         $('.tips-text').html("");
-        
     }
     if (userEmail == "") {
         $('.tips-text').html("请填写邮箱");
