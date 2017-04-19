@@ -49,6 +49,8 @@ function userLogin(){
 			     $.getJSON(url, function (data) {
 			         setCookie('ip',data.Ip);
 			     });
+			     var loginDate = new Date();
+			     setCookie('loginDate', loginDate.toLocaleString());
 				location.href='/personalitytest/admin/menu.html';
 				return;
 				//返回值状态若为2 则返回帐号错误信息  直接return

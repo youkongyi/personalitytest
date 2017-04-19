@@ -231,7 +231,7 @@
     $(".page-top").append(
 			'<span id="userName" class="name pull-rigth" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+JSON.parse(getCookie('user')).userSureName+'&nbsp;<i class="caret"></i></span>'
 		+'<div class="down-cont">'
-		+'<p>登录时间：2016-09-20 14:25:25</p>'
+		+'<p>登录时间：'+getCookie('loginDate')+'</p>'
 		+'<p>登录IP：'+getCookie('ip')+'</p>'
 		+'<div class="foot">'
 		 +   '<a href="../login.html" class="out pull-rigth" ><i>&nbsp;</i>退出</a>'
