@@ -10,6 +10,7 @@ package com.personalitytest.user.controller.impl;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.stereotype.Controller;
@@ -45,7 +46,7 @@ public class UserControllerImpl implements IUserController {
     @Override
     @RequestMapping("/userLogin.do")
     @ResponseBody
-    public JsonResult<HR_UserBO> userLogin(String userName, String password) {
+    public JsonResult<HR_UserBO> userLogin(String userName, String password,HttpServletRequest req) {
         JsonResult<HR_UserBO> jsonResult = new JsonResult<HR_UserBO>();
         if(StringUtils.isNull(userName) || StringUtils.isNull(password)){
             jsonResult.setState(StateInforMation.STATUS_PARAMETER_ERROR);
@@ -54,6 +55,10 @@ public class UserControllerImpl implements IUserController {
         }
         try {
             jsonResult = userService.userLogin(userName, password);
+            HR_UserBO userBO = jsonResult.getData();
+            if(StateInforMation.STATUS_SUCCESS == jsonResult.getState()){
+                req.getSession().setAttribute("userName", userBO.getUserName());
+            }
         } catch(Exception e){
             e.printStackTrace();
             jsonResult.setState(StateInforMation.STATUS_ERROR);

@@ -28,6 +28,21 @@ produces:    指定返回的内容类型，仅当request请求头中的(Accept)�
 params： 指定request中必须包含某些参数值是，才让该方法处理。
 headers： 指定request中必须包含某些指定的header值，才能让该方法处理请求。
 
+
+1、拦截器是基于java的反射机制的，而过滤器是基于函数回调 
+2、过滤器依赖与servlet容器，而拦截器不依赖与servlet容器 
+3、拦截器只能对action请求起作用，而过滤器则可以对几乎所有的请求起作用 
+4、拦截器可以访问action上下文、值栈里的对象，而过滤器不能 
+5、在action的生命周期中，拦截器可以多次被调用，而过滤器只能在容器初始化时被调用一次 
+
+拦截器 ：是在面向切面编程的就是在你的service或者一个方法，前调用一个方法，或者在方法后调用一个方法比如动态代理就是拦截器的简单实现，在你调用方法前打印出字符串（或者做其它业务逻辑的操作），
+也可以在你调用方法后打印出字符串，甚至在你抛出异常的时候做业务逻辑的操作。 
+
+
+
+
+
+
 本项目参考以下资料博客:
 mybatis官方文档
 http://www.mybatis.org/mybatis-3/zh/dynamic-sql.html
@@ -41,3 +56,23 @@ js(jQuery)获取时间的方法及常用时间类
 http://www.cnblogs.com/LiuJL/p/5417685.html
 js获取本地ip和地区
 http://www.qdfuns.com/notes/39969/29a48897e9c6d6d070393e483877ab6b.html
+Java中的Filter过滤器
+http://www.cnblogs.com/coderland/p/5902878.html
+Java中Filter、Servlet、Listener的学习
+http://blog.csdn.net/agileclipse/article/details/9014683
+自动登录：Filter,Session,Cookie综合例子
+http://blog.csdn.net/ghbfgb/article/details/53001386
+
+
+
+
+
+
+
+
+
+
+
+
+
+

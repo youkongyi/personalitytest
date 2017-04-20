@@ -10,6 +10,8 @@ package com.personalitytest.user.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.personalitytest.entity.HR_UserBO;
 import com.personalitytest.utils.JsonResult;
 
@@ -27,7 +29,7 @@ public interface IUserController {
      * @author：gehanbiao
      * @crateDate：2017年4月13日上午10:24:54
      */
-    JsonResult<HR_UserBO> userLogin(String userName, String password);
+    JsonResult<HR_UserBO> userLogin(String userName, String password,HttpServletRequest req);
     /**
      * @description： 添加HR管理员
      * @param paramMap

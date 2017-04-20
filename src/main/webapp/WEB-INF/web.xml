@@ -1,33 +1,67 @@
-<?xml version="1.0" encoding="UTF-8"?>  
-   
-<web-app  
-        version="3.0"  
-        xmlns="http://java.sun.com/xml/ns/javaee"  
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
-        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"> 
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
   <display-name>personalitytest</display-name>
-	<servlet>
-    	<servlet-name>mvc</servlet-name>
-    	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    	<init-param>
-     	 <param-name>contextConfigLocation</param-name>
-     	 <param-value></param-value>
-   		</init-param>
-    	<load-on-startup>1</load-on-startup>
-  	</servlet>
-  	
-  	<servlet-mapping>
- 	   	<servlet-name>mvc</servlet-name>
-   	 	<url-pattern>*.do</url-pattern>
-  	</servlet-mapping>
-  	
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>classpath:spring-*.xml</param-value>
-	</context-param>
-	  	
+  <servlet>
+    <servlet-name>mvc</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value></param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>mvc</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:spring-*.xml</param-value>
+  </context-param>
+  
+  <filter>
+  	<filter-name>ACFilter</filter-name>
+  	<filter-class>com.personalitytest.aop.AcFilter</filter-class>
+  	<!-- 对登录页面不进行过滤 -->
+  	<init-param>
+  		<param-name>logonStrings</param-name>
+  		<param-value>/personalitytest/login.html;userLogin.do</param-value>
+  	</init-param>
+  	<!-- 只对指定过滤参数后缀进行过滤 -->
+  	<init-param>
+        <param-name>includeStrings</param-name>
+        <param-value>.do;.html</param-value>
+    </init-param>
+    <!-- 未通过跳转到登录界面 -->
+  	<init-param>
+  		<param-name>redirectPath</param-name>
+  		<param-value>/login.html</param-value>
+  	</init-param>
+  	<!--用来指定一个具体的字符集-->
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>UTF-8</param-value>
+  	</init-param>
+  	<!--true：无论request是否指定了字符集，都是用encoding；false：如果request已指定一个字符集，则不使用encoding-->
+  	<init-param>
+  		<param-name>forceEncoding</param-name>
+  		<param-value>false</param-value>
+  	</init-param>
+  	<!-- Y:过滤无效 -->
+  	<init-param>
+        <param-name>disabletestfilter</param-name>
+        <param-value>N</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>ACFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  
+  
+  
 </web-app>
-
