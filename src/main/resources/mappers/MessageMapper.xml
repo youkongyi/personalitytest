@@ -6,36 +6,48 @@
 <!-- 	动态查询应试者信息				 -->
 	<select id="findCandiDateMessage" parameterType="hR_CandiDateBO" resultType="hR_CandiDateBO">
 	SELECT                                             
-	 T.CANDIDATE_ID AS candidateId,                   
-	 T.NAME AS name,                                  
-	 T.GENDER AS gender,                              
-	 T.DAY_OF_BIRTH AS dayOfBirth,                    
-	 T.POSITION_ID AS positionId,                     
-	 T.MOBILE AS mobile,                              
-	 T.PHONE AS phone,                                
-	 T.EMAIL AS email,                                
-	 T.EDUCATION AS education,                        
-	 T.COLLAGE AS collage,                            
-	 T.SCHOOL AS school,                              
-	 T.MAJOR AS major,                                
-	 T.GRADUATION AS graduation,                      
-	 T.QQ AS qq,                                      
-	 T.SOURCE_ID AS sourceId,                         
-	 T.STATE_ID AS stateId,                           
-	 T.USER_ID AS userId,                             
-	 T.CITY_ID AS cityId                              
+		 T.CANDIDATE_ID AS candidateId,                   
+		 T.NAME AS name,                                  
+		 T.GENDER AS gender,                              
+		 T.DAY_OF_BIRTH AS dayOfBirth,                    
+		 T3.NAME AS positionId,                     
+		 T.MOBILE AS mobile,                              
+		 T.PHONE AS phone,                                
+		 T.EMAIL AS email,                                
+		 T.EDUCATION AS education,                        
+		 T.COLLAGE AS collage,                            
+		 T.SCHOOL AS school,                              
+		 T.MAJOR AS major,                                
+		 T.GRADUATION AS graduation,                      
+		 T.QQ AS qq,                                      
+		 T.SOURCE_ID AS sourceId,                         
+		 T4.STATE_NAME AS stateId,                           
+		 T.USER_ID AS userId,                             
+		 T2.DISTRICT_NAME AS cityId                              
     FROM 
-     HR_CANDIDATE T 
+    	 HR_CANDIDATE T 
+    INNER JOIN 
+    	 HR_DISTRICT T2
+    ON
+    	 T2.DISTRICT_ID = T.CITY_ID
+    INNER JOIN   
+   	 	 HR_POSITION T3
+    ON
+   	  	 T3.POSITION_ID = T.POSITION_ID
+    INNER JOIN
+     	 HR_STATE T4
+    ON
+     	 T4.STATE_ID = T.STATE_ID
     WHERE 
-     T.USER_ID = #{userId }
+     	 T.USER_ID = #{userId }
     <if test="name != null and name != '' " >
-     AND T.NAME = #{name }	
+     	 AND T.NAME = #{name }	
     </if> 
     <if test="mobile != null and mobile != '' " >
-     AND T.MOBILE = #{mobile }	
+     	 AND T.MOBILE = #{mobile }	
     </if>
     <if test="stateId != null and stateId != '' " >
-     AND T.STATE_ID = #{stateId }	
+     	 AND T.STATE_ID = #{stateId }	
     </if>
 	</select>
 				
