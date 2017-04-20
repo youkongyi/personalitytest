@@ -6,6 +6,7 @@
  */
 package com.personalitytest.user.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,18 +79,18 @@ public class UserServiceImpl implements IUserService {
     }
 
     /**
-     * @description：  查找当前HR管理员下所有HR管理员
+     * @description：  根据角色ID查找相应的HR管理员
      * @see com.personalitytest.user.service.IUserService#findHRUser(java.lang.String)
      * @author：gehanbiao
      * @crateDate：2017年4月13日下午4:36:51
      */
     @Override
-    public List<HR_UserBO> findHRUser(String userId) {
+    public List<HR_UserBO> findRoleIdHRUser(String userId) {
         String roleId = userDAO.findRoleId(userId);
         if(StringUtils.isNotNull(roleId)){
-            return userDAO.findHRUser(roleId);
+            return userDAO.findRoleIdHRUser(roleId);
         }
-        return null;
+        return new ArrayList<HR_UserBO>();
     }
 
     /**
@@ -105,6 +106,22 @@ public class UserServiceImpl implements IUserService {
            return true;    
         }
         return false;
+    }
+
+    /**
+     * @description：  根据相关条件查找相应的HR管理员
+     * @see com.personalitytest.user.service.IUserService#findHRUser(com.personalitytest.entity.HR_UserBO)
+     * @author：gehanbiao
+     * @crateDate：2017年4月20日上午9:01:15
+     */
+    @Override
+    public List<HR_UserBO> findHRUser(HR_UserBO userBO) {
+        String roleId = userDAO.findRoleId(userBO.getUserId());
+        if(StringUtils.isNotNull(roleId)){
+            userBO.setRoleId(roleId);
+            return userDAO.findHRUser(userBO);
+        }
+        return new ArrayList<HR_UserBO>();
     }
 
 }

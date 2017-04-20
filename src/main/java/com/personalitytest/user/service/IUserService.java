@@ -36,13 +36,13 @@ public interface IUserService {
      */
     boolean insertUser(HR_UserBO userBO);
     /**
-     * @description：根据当前角色ID查找相应的HR管理员
+     * @description：根据角色ID查找相应的HR管理员
      * @param RoleId
      * @return
      * @author：gehanbiao
      * @crateDate：2017年4月13日下午4:31:55
      */
-    List<HR_UserBO> findHRUser(String userId);
+    List<HR_UserBO> findRoleIdHRUser(String userId);
     /**
      * @description： 更新当前HR管理员信息
      * @param userBO
@@ -51,4 +51,12 @@ public interface IUserService {
      * @crateDate：2017年4月14日上午9:14:23
      */
     boolean updateUser(HR_UserBO userBO);
+    /**
+     * @description： 根据相关条件查找相应的HR管理员
+     * @param userBO
+     * @return
+     * @author：gehanbiao
+     * @crateDate：2017年4月20日上午9:00:30
+     */
+     List<HR_UserBO> findHRUser(HR_UserBO userBO);
 }

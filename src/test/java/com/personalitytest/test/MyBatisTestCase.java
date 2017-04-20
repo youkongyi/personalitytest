@@ -187,7 +187,7 @@ public class MyBatisTestCase {
 	@Test
     public void test16(){
 	   IUserService userService = ctx.getBean("userService",IUserService.class); 
-	   List<HR_UserBO> list = userService.findHRUser("1");
+	   List<HR_UserBO> list = userService.findRoleIdHRUser("1");
 	   System.out.println(list.size());
 	}
 	//测试字符串转换拼音jar包
@@ -226,7 +226,14 @@ public class MyBatisTestCase {
    }
 	
 	
-	
+   @Test
+   public void test20(){
+      IUserService userService = ctx.getBean("userService",IUserService.class);
+      HR_UserBO userBO = new HR_UserBO();
+      userBO.setUserId("1");
+      List<HR_UserBO> list = userService.findHRUser(userBO);
+      System.out.println(list);
+   }
 	
 	
 	

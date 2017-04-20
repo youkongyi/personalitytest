@@ -1,13 +1,13 @@
 var SUCCESS = 0;
 $(function(){
-		findHRUser();
+	findRoleIdHRUser();
         $('.add-hr').click(addHr);
         $('.table-cont').on('click', '.edit-hr', editHr);
         $("#btn_sure_add").click(submitHr);
     });
 
-function findHRUser(){
-	var url = '/personalitytest/user/findHRUser.do';
+function findRoleIdHRUser(){
+	var url = '/personalitytest/user/findRoleIdHRUser.do';
 	var data = { userId : JSON.parse(getCookie('user')).userId };
 	$.getJSON(url, data, function(result) {
 		if (result.state == SUCCESS) {

@@ -37,13 +37,13 @@ public interface IUserController {
      */
     JsonResult<Boolean> insertUser(Map<String,Object> paramMap);
     /**
-     * @description： 查找当前HR管理员下所有HR管理员
+     * @description： 根据角色ID查找相应的HR管理员
      * @param paramMap
      * @return
      * @author：gehanbiao
      * @crateDate：2017年4月13日下午4:22:34
      */
-    JsonResult<List<HR_UserBO>> findHRUser(Map<String,Object> paramMap);
+    JsonResult<List<HR_UserBO>> findRoleIdHRUser(Map<String,Object> paramMap);
     /**
      * @description： 更新当前HR管理员信息
      * @param paramMap
@@ -52,5 +52,12 @@ public interface IUserController {
      * @crateDate：2017年4月14日上午9:11:18
      */
     JsonResult<Boolean> updateUser(Map<String,Object> paramMap);
-    
+    /**
+     * @description： 根据相关条件查找相应的HR管理员
+     * @param userBO
+     * @return
+     * @author：gehanbiao
+     * @crateDate：2017年4月20日上午9:00:30
+     */
+    JsonResult<List<HR_UserBO>> findHRUser(Map<String,Object> paramMap);
 }

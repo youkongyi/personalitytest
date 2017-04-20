@@ -99,15 +99,15 @@ public class UserControllerImpl implements IUserController {
     }
 
     /**
-     * @description：  查找当前HR管理员下所有HR管理员
+     * @description：  根据角色ID查找相应的HR管理员
      * @see com.personalitytest.user.controller.IUserController#findRoleId(java.util.Map)
      * @author：gehanbiao
      * @crateDate：2017年4月13日下午4:22:20
      */
     @Override
-    @RequestMapping("/findHRUser.do")
+    @RequestMapping("/findRoleIdHRUser.do")
     @ResponseBody
-    public JsonResult<List<HR_UserBO>> findHRUser(@RequestParam Map<String, Object> paramMap) {
+    public JsonResult<List<HR_UserBO>> findRoleIdHRUser(@RequestParam Map<String, Object> paramMap) {
         JsonResult<List<HR_UserBO>> jsonResult = new JsonResult<List<HR_UserBO>>();
         String userId = String.valueOf(paramMap.get("userId"));
         if(StringUtils.isNull(userId)){
@@ -116,7 +116,7 @@ public class UserControllerImpl implements IUserController {
             return jsonResult;
         }
         try {
-            List<HR_UserBO> userList = userService.findHRUser(userId);
+            List<HR_UserBO> userList = userService.findRoleIdHRUser(userId);
             jsonResult.setData(userList);
             jsonResult.setState(StateInforMation.STATUS_SUCCESS);
             jsonResult.setMessage(StateInforMation.STATUS_SUCCESS_MESSAGE);
@@ -124,7 +124,6 @@ public class UserControllerImpl implements IUserController {
             e.printStackTrace();
             jsonResult.setState(StateInforMation.STATUS_ERROR);
             jsonResult.setMessage(StateInforMation.STATUS_ERROR_MESSAGE);
-            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
         }
         return jsonResult;
     }
@@ -158,6 +157,38 @@ public class UserControllerImpl implements IUserController {
             jsonResult.setState(StateInforMation.STATUS_ERROR);
             jsonResult.setMessage(StateInforMation.STATUS_ERROR_MESSAGE);
             TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+        }
+        return jsonResult;
+    }
+
+    /**
+     * @description：  根据相关条件查找相应的HR管理员
+     * @see com.personalitytest.user.controller.IUserController#findHRUser(java.util.Map)
+     * @author：gehanbiao
+     * @crateDate：2017年4月20日上午9:01:10
+     */
+    @Override
+    @RequestMapping("/findHRUser.do")
+    @ResponseBody
+    public JsonResult<List<HR_UserBO>> findHRUser(@RequestParam Map<String, Object> paramMap) {
+        JsonResult<List<HR_UserBO>> jsonResult = new JsonResult<List<HR_UserBO>>();
+        String userId = String.valueOf(paramMap.get("userId"));
+        if(StringUtils.isNull(userId)){
+            jsonResult.setState(StateInforMation.STATUS_PARAMETER_ERROR);
+            jsonResult.setMessage(StateInforMation.STATUS_PARAMETER_ERROR_MESSAGE);
+            return jsonResult;
+        }
+        try {
+            HR_UserBO userBO = new HR_UserBO();
+            BeanUtils.copyProperties(userBO, paramMap);
+            List<HR_UserBO> userList = userService.findHRUser(userBO);
+            jsonResult.setData(userList);
+            jsonResult.setState(StateInforMation.STATUS_SUCCESS);
+            jsonResult.setMessage(StateInforMation.STATUS_SUCCESS_MESSAGE);
+        } catch(Exception e){
+            e.printStackTrace();
+            jsonResult.setState(StateInforMation.STATUS_ERROR);
+            jsonResult.setMessage(StateInforMation.STATUS_ERROR_MESSAGE);
         }
         return jsonResult;
     }

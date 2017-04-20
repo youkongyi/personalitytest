@@ -76,8 +76,34 @@
 	WHERE 
 	 	 USER_ID = #{userId };
 	</update>
-	
-	
+	<!-- 动态查询HR管理员信息 -->
+	<select id="findHRUser" parameterType="hR_UserBO" resultType="hR_UserBO">
+	SELECT
+		T.USER_ID as userId,
+		T.USER_NAME as userName,
+		T.USER_SURE_NAME as userSureName,
+		T.USER_MOBILE as userMobile,
+		T.USER_EMAIL as userEmail,
+		T2.ROLE_NAME as roleId,
+		T.`COLUMN_` as `column`
+	FROM
+		HR_USER T
+	INNER JOIN
+		HR_ROLE T2	
+	ON
+		T.ROLE_ID = T2.ROLE_ID	
+	WHERE
+		T.ROLE_ID >= #{roleId }
+	<if test="userSureName != null and userSureName != '' ">
+		AND T.USER_SURE_NAME = #{userSureName }
+	</if>
+	<if test="userMobile != null and userMobile != '' ">
+		AND T.USER_MOBILE = #{userMobile }
+	</if>
+	<if test="userEmail != null and userEmail != '' ">
+		AND T.USER_EMAIL = #{userEmail }
+	</if>
+	</select>
 	
 	
 	

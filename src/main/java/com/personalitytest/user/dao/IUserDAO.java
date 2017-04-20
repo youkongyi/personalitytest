@@ -70,15 +70,18 @@ public interface IUserDAO {
      * @crateDate：2017年4月13日下午4:05:47
      */
     @Select(" SELECT "
-            + " USER_ID AS userid,"
-            + " USER_NAME AS userName,"
-            + " USER_SURE_NAME AS userSureName,"
-            + " USER_MOBILE AS userMobile,"
-            + " USER_EMAIL AS userEmail,"
-            + " ROLE_ID AS roleId,"
-            + " `COLUMN_` AS `column` "
-           + " FROM HR_USER WHERE ROLE_ID >= #{roleId }")
-    List<HR_UserBO> findHRUser(@Param("roleId")String roleId);
+            + " T.USER_ID AS userid,"
+            + " T.USER_NAME AS userName,"
+            + " T.USER_SURE_NAME AS userSureName,"
+            + " T.USER_MOBILE AS userMobile,"
+            + " T.USER_EMAIL AS userEmail,"
+            + " T2.ROLE_NAME AS roleId,"
+            + " T.`COLUMN_` AS `column` "
+           + " FROM HR_USER T "
+           + " INNER JOIN HR_ROLE T2 "
+           + " ON T.ROLE_ID = T2.ROLE_ID "
+           + " WHERE T.ROLE_ID >= #{roleId }")
+    List<HR_UserBO> findRoleIdHRUser(@Param("roleId")String roleId);
     /**
      * @description： 更新当前HR管理员信息
      * @param userBO
@@ -87,7 +90,14 @@ public interface IUserDAO {
      * @crateDate：2017年4月14日上午9:23:06
      */
     int updateUser(HR_UserBO userBO); 
-    
+   /**
+    * @description： 根据相关条件查找相应的HR管理员
+    * @param userBO
+    * @return
+    * @author：gehanbiao
+    * @crateDate：2017年4月20日上午9:00:30
+    */
+    List<HR_UserBO> findHRUser(HR_UserBO userBO);
     
     
     

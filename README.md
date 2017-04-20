@@ -37,3 +37,7 @@ Mybatis下mapper映射文件配置之insert、update、delete
 http://blog.csdn.net/summer_yuxia/article/details/53171794
 on条件与where条件的区别
 http://blog.csdn.net/xc008/article/details/2872310
+js(jQuery)获取时间的方法及常用时间类
+http://www.cnblogs.com/LiuJL/p/5417685.html
+js获取本地ip和地区
+http://www.qdfuns.com/notes/39969/29a48897e9c6d6d070393e483877ab6b.html
