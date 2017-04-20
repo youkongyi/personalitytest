@@ -43,25 +43,25 @@ headers： 指定request中必须包含某些指定的header值，才能让该�
 
 
 
-本项目参考以下资料博客:
-mybatis官方文档
-http://www.mybatis.org/mybatis-3/zh/dynamic-sql.html
-一个web项目web.xml的配置中<context-param>配置作用
-http://blog.csdn.net/sxbjffsg163/article/details/9955479
-Mybatis下mapper映射文件配置之insert、update、delete
-http://blog.csdn.net/summer_yuxia/article/details/53171794
-on条件与where条件的区别
-http://blog.csdn.net/xc008/article/details/2872310
-js(jQuery)获取时间的方法及常用时间类
-http://www.cnblogs.com/LiuJL/p/5417685.html
-js获取本地ip和地区
-http://www.qdfuns.com/notes/39969/29a48897e9c6d6d070393e483877ab6b.html
-Java中的Filter过滤器
-http://www.cnblogs.com/coderland/p/5902878.html
-Java中Filter、Servlet、Listener的学习
-http://blog.csdn.net/agileclipse/article/details/9014683
-自动登录：Filter,Session,Cookie综合例子
-http://blog.csdn.net/ghbfgb/article/details/53001386
+本项目参考以下资料博客:<br>
+mybatis官方文档<br>
+http://www.mybatis.org/mybatis-3/zh/dynamic-sql.html<br>
+一个web项目web.xml的配置中<context-param>配置作用<br>
+http://blog.csdn.net/sxbjffsg163/article/details/9955479<br>
+Mybatis下mapper映射文件配置之insert、update、delete<br>
+http://blog.csdn.net/summer_yuxia/article/details/53171794<br>
+on条件与where条件的区别<br>
+http://blog.csdn.net/xc008/article/details/2872310<br>
+js(jQuery)获取时间的方法及常用时间类<br>
+http://www.cnblogs.com/LiuJL/p/5417685.html<br>
+js获取本地ip和地区<br>
+http://www.qdfuns.com/notes/39969/29a48897e9c6d6d070393e483877ab6b.html<br>
+Java中的Filter过滤器<br>
+http://www.cnblogs.com/coderland/p/5902878.html<br>
+Java中Filter、Servlet、Listener的学习<br>
+http://blog.csdn.net/agileclipse/article/details/9014683<br>
+自动登录：Filter,Session,Cookie综合例子<br>
+http://blog.csdn.net/ghbfgb/article/details/53001386<br>
 
 
 
