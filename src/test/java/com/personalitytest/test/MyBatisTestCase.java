@@ -3,20 +3,13 @@ package com.personalitytest.test;
 
 import static org.junit.Assert.assertEquals;
 
-import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import javax.sql.DataSource;
-
-import org.apache.commons.beanutils.BeanUtils;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Before;
 import org.junit.Test;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import com.github.pagehelper.PageHelper;
 import com.personalitytest.entity.HR_CandiDateBO;
 import com.personalitytest.entity.HR_DistrictBO;
