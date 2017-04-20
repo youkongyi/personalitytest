@@ -89,11 +89,7 @@ function findCandiDateMessage(){
 				}
 			} else {
 				//查询无内容
-				$("#message").append(
-						'<tr id="empty">' + '<td colspan="14">'
-								+ '<div class="empty">'
-								+ '<img src="../images/empty_1.png" alt=""/>'
-								+ '</div>' + '</td>' + '</tr>');
+				$("#message").append('<tr id="empty"><td colspan="14"><div class="empty"><img src="../images/empty_1.png" alt=""/></div></td></tr>');
 			}
 
 		}

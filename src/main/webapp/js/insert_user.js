@@ -1,9 +1,13 @@
 var SUCCESS = 0;
 $(function(){
-	findRoleIdHRUser();
+		/* 查找所有HR */
+		findRoleIdHRUser();
         $('.add-hr').click(addHr);
         $('.table-cont').on('click', '.edit-hr', editHr);
+        /* 添加HR */
         $("#btn_sure_add").click(submitHr);
+        /* 根据条件查找对应的HR信息  */
+        $("#search_btn").click(findHRUser);
     });
 
 function findRoleIdHRUser(){
@@ -109,3 +113,51 @@ function findRoleIdHRUser(){
             }
         });
     }
+   
+function findHRUser(){
+	var url = '/personalitytest/user/findHRUser.do';
+	var userSureName = $("#name").val();
+	var userMobile = $("#mobile").val();
+	var userEmail = $("#email").val();
+	var data = {
+		userId : JSON.parse(getCookie('user')).userId,
+		userSureName : userSureName,
+		userMobile : userMobile,
+		userEmail : userEmail
+	};
+	$.getJSON(url, data, function(result) {
+		if (result.state == SUCCESS) {
+			$("#hr_user").children("tr").remove();
+			var list = result.data;
+			if (list.length != 0) {
+				for (var i = 0; i < list.length; i++) {
+					$("#hr_user").append(
+							"<tr align='center'>"
+	                        +"<td>"+list[i].userId+"</td>"
+	                        +"<td>"+list[i].userSureName+"</td>"
+	                        +"<td>"+list[i].userMobile+"</td>"
+	                        +"<td><p class='email-num'>"+list[i].userEmail+"</p></td>"
+	                        +"<td><p class='max-td1'>北京</p></td>"
+	                        +"<td><p class='max-td1'>海淀</p></td>"
+	                        +"<td><p class='max-td1'>魏公村分中心</p></td>"
+	                        +"<td>"+list[i].roleId+"</td>"
+	                        +"<td><input type='button' class='btn btn-small edit-hr'  value=' 修  改  '>" 
+	                        +    "<input type='button' class='btn btn-small' value=' 删  除  ' data-toggle='modal' data-target='#open_tips'></td>"
+	                       +"</tr>"
+							);
+				}
+			} else {
+				$("#hr_user").append(
+                +'<tr style="display: none;">'
+                    +'<td colspan="9">'
+                        +'<div class="empty">'
+                            +'<img src="../images/empty_1.png" alt=""/>'
+                        +'</div>'
+                    +'</td>'
+                +'</tr>'
+                );
+			}
+		}
+	})
+}   
+   
