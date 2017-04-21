@@ -6,13 +6,13 @@
  */
 package com.personalitytest.user.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.personalitytest.entity.HR_UserBO;
 import com.personalitytest.user.dao.IUserDAO;
 import com.personalitytest.user.service.IUserService;
@@ -27,6 +27,7 @@ import com.personalitytest.utils.StringUtils;
  * @version 2017年4月5日
  */
 @Service("userService")
+@Transactional
 public class UserServiceImpl implements IUserService {
     @Autowired
     private IUserDAO userDAO;
@@ -38,7 +39,6 @@ public class UserServiceImpl implements IUserService {
      * @crateDate：2017年4月5日上午9:48:20
      */
     @Override
-    @Transactional
     public JsonResult<HR_UserBO> userLogin(String userName, String password) {
         JsonResult<HR_UserBO> jsonResult = new JsonResult<HR_UserBO>();
         HR_UserBO userBO = userDAO.findUserByName(userName);
@@ -85,12 +85,13 @@ public class UserServiceImpl implements IUserService {
      * @crateDate：2017年4月13日下午4:36:51
      */
     @Override
-    public List<HR_UserBO> findRoleIdHRUser(String userId) {
+    public PageInfo<HR_UserBO> findRoleIdHRUser(String userId) {
         String roleId = userDAO.findRoleId(userId);
         if(StringUtils.isNotNull(roleId)){
-            return userDAO.findRoleIdHRUser(roleId);
+            List<HR_UserBO> list = userDAO.findRoleIdHRUser(roleId);
+            return new PageInfo<HR_UserBO>(list); 
         }
-        return new ArrayList<HR_UserBO>();
+        return new PageInfo<HR_UserBO>();
     }
 
     /**
@@ -115,13 +116,15 @@ public class UserServiceImpl implements IUserService {
      * @crateDate：2017年4月20日上午9:01:15
      */
     @Override
-    public List<HR_UserBO> findHRUser(HR_UserBO userBO) {
+    public PageInfo<HR_UserBO> findHRUser(HR_UserBO userBO) {
         String roleId = userDAO.findRoleId(userBO.getUserId());
         if(StringUtils.isNotNull(roleId)){
             userBO.setRoleId(roleId);
-            return userDAO.findHRUser(userBO);
+            PageHelper.startPage(userBO.getPageNum(), userBO.getPageSize());
+            List<HR_UserBO> list = userDAO.findHRUser(userBO);
+            return new PageInfo<HR_UserBO>(list);
         }
-        return new ArrayList<HR_UserBO>();
+        return new PageInfo<HR_UserBO>();
     }
 
 }

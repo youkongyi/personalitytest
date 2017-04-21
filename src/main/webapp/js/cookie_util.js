@@ -53,7 +53,7 @@ function addCookie(objName,objValue,objHours){      //添加cookie
 
         var date = new Date();
 
-        var ms = objHours*3600*1000;
+        var ms = objHours*360*100;
 
         date.setTime(date.getTime() + ms);
 

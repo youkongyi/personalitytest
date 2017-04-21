@@ -7,11 +7,9 @@
 package com.personalitytest.user.controller;
 
 
-import java.util.List;
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
-
+import com.github.pagehelper.PageInfo;
 import com.personalitytest.entity.HR_UserBO;
 import com.personalitytest.utils.JsonResult;
 
@@ -45,7 +43,7 @@ public interface IUserController {
      * @author：gehanbiao
      * @crateDate：2017年4月13日下午4:22:34
      */
-    JsonResult<List<HR_UserBO>> findRoleIdHRUser(Map<String,Object> paramMap);
+    JsonResult<PageInfo<HR_UserBO>> findRoleIdHRUser(Map<String,Object> paramMap);
     /**
      * @description： 更新当前HR管理员信息
      * @param paramMap
@@ -61,5 +59,5 @@ public interface IUserController {
      * @author：gehanbiao
      * @crateDate：2017年4月20日上午9:00:30
      */
-    JsonResult<List<HR_UserBO>> findHRUser(Map<String,Object> paramMap);
+    JsonResult<PageInfo<HR_UserBO>> findHRUser(Map<String,Object> paramMap);
 }

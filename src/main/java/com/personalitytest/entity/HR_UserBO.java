@@ -44,7 +44,27 @@ public class HR_UserBO {
      * 备注
      */
     private String column;
+    /**
+     * 当前页的页号
+     */
+    private int pageNum = 1;
+    /**
+     * 当前页显示条目数
+     */
+    private int pageSize = 5;
     
+    public int getPageNum() {
+        return pageNum;
+    }
+    public void setPageNum(int pageNum) {
+        this.pageNum = pageNum;
+    }
+    public int getPageSize() {
+        return pageSize;
+    }
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
+    }
     public void setUserId(String userId) {
         this.userId = userId;
     }

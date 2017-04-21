@@ -1,8 +1,5 @@
 package com.personalitytest.test;
 
-
-import static org.junit.Assert.assertEquals;
-
 import java.util.List;
 import javax.sql.DataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -10,7 +7,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.personalitytest.entity.HR_CandiDateBO;
 import com.personalitytest.entity.HR_DistrictBO;
 import com.personalitytest.entity.HR_UserBO;
@@ -73,7 +72,11 @@ public class MyBatisTestCase {
 	    IUserDAO dao = ctx.getBean("IUserDAO",IUserDAO.class);
         PageHelper.startPage(2, 16);
         List<HR_DistrictBO> list = dao.selectAll();
-        assertEquals("湖北省", list.get(0).getDistrictName());
+        PageInfo<HR_DistrictBO> page = new PageInfo<HR_DistrictBO>(list);
+        System.out.println(list);
+        System.out.println(list.get(0).getDistrictName());
+        System.out.println(page);
+        System.out.println(page.getList().get(0).getDistrictName());
 	}
 	@Test
 	public void test7(){
@@ -180,8 +183,8 @@ public class MyBatisTestCase {
 	@Test
     public void test16(){
 	   IUserService userService = ctx.getBean("userService",IUserService.class); 
-	   List<HR_UserBO> list = userService.findRoleIdHRUser("1");
-	   System.out.println(list.size());
+	   PageInfo<HR_UserBO> list = userService.findRoleIdHRUser("1");
+	   System.out.println(list);
 	}
 	//测试字符串转换拼音jar包
 	@Test
@@ -224,7 +227,7 @@ public class MyBatisTestCase {
       IUserService userService = ctx.getBean("userService",IUserService.class);
       HR_UserBO userBO = new HR_UserBO();
       userBO.setUserId("1");
-      List<HR_UserBO> list = userService.findHRUser(userBO);
+      PageInfo<HR_UserBO> list = userService.findHRUser(userBO);
       System.out.println(list);
    }
 	

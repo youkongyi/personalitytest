@@ -16,33 +16,33 @@ function findRoleIdHRUser(){
 	$.getJSON(url, data, function(result) {
 		if (result.state == SUCCESS) {
 			var list = result.data;
-			if (list.length != 0) {
-				for (var i = 0; i < list.length; i++) {
+			console.log(list);
+			var length = list.list.length;
+			if (length != 0) {
+				for (var i = 0; i < length; i++) {
 					$("#hr_user").append(
-							"<tr align='center'>"
-	                        +"<td>"+list[i].userId+"</td>"
-	                        +"<td>"+list[i].userSureName+"</td>"
-	                        +"<td>"+list[i].userMobile+"</td>"
-	                        +"<td><p class='email-num'>"+list[i].userEmail+"</p></td>"
+							"<tr align='center' id='userMessage'>"
+	                        +"<td>"+list.list[i].userId+"</td>"
+	                        +"<td>"+list.list[i].userSureName+"</td>"
+	                        +"<td>"+list.list[i].userMobile+"</td>"
+	                        +"<td><p class='email-num'>"+list.list[i].userEmail+"</p></td>"
 	                        +"<td><p class='max-td1'>北京</p></td>"
 	                        +"<td><p class='max-td1'>海淀</p></td>"
 	                        +"<td><p class='max-td1'>魏公村分中心</p></td>"
-	                        +"<td>"+list[i].roleId+"</td>"
+	                        +"<td>"+list.list[i].roleId+"</td>"
 	                        +"<td><input type='button' class='btn btn-small edit-hr'  value=' 修  改  '>" 
 	                        +    "<input type='button' class='btn btn-small' value=' 删 除  ' data-toggle='modal' data-target='#open_tips'></td>"
 	                       +"</tr>"
 							);
 				}
+				$(".foot").append(
+				'<ul class="pagination">'+
+                '<li class="active"><a href="#">1<span class="sr-only">(current)</span></a></li>'+
+            '</ul>'+
+            '<p>共<span>'+list.total+'</span>条记录，每页<span>'+list.list[0].pageSize+'</span>条</p>'
+				);
 			} else {
-				$("#hr_user").append(
-                +'<tr style="display: none;">'
-                    +'<td colspan="9">'
-                        +'<div class="empty">'
-                            +'<img src="../images/empty_1.png" alt=""/>'
-                        +'</div>'
-                    +'</td>'
-                +'</tr>'
-                );
+				$("#not").show();
 			}
 
 		}
@@ -127,35 +127,36 @@ function findHRUser(){
 	};
 	$.getJSON(url, data, function(result) {
 		if (result.state == SUCCESS) {
-			$("#hr_user").children("tr").remove();
+			$("#hr_user").children("#userMessage").remove();
 			var list = result.data;
-			if (list.length != 0) {
-				for (var i = 0; i < list.length; i++) {
+			var length = list.list.length
+			if (length != 0) {
+				$("#not").hide();
+				for (var i = 0; i < length ; i++) {
 					$("#hr_user").append(
-							"<tr align='center'>"
-	                        +"<td>"+list[i].userId+"</td>"
-	                        +"<td>"+list[i].userSureName+"</td>"
-	                        +"<td>"+list[i].userMobile+"</td>"
-	                        +"<td><p class='email-num'>"+list[i].userEmail+"</p></td>"
+							"<tr align='center' id='userMessage'>"
+	                        +"<td>"+list.list[i].userId+"</td>"
+	                        +"<td>"+list.list[i].userSureName+"</td>"
+	                        +"<td>"+list.list[i].userMobile+"</td>"
+	                        +"<td><p class='email-num'>"+list.list[i].userEmail+"</p></td>"
 	                        +"<td><p class='max-td1'>北京</p></td>"
 	                        +"<td><p class='max-td1'>海淀</p></td>"
 	                        +"<td><p class='max-td1'>魏公村分中心</p></td>"
-	                        +"<td>"+list[i].roleId+"</td>"
+	                        +"<td>"+list.list[i].roleId+"</td>"
 	                        +"<td><input type='button' class='btn btn-small edit-hr'  value=' 修  改  '>" 
 	                        +    "<input type='button' class='btn btn-small' value=' 删  除  ' data-toggle='modal' data-target='#open_tips'></td>"
 	                       +"</tr>"
 							);
 				}
+				$(".foot").children().remove();
+				$(".foot").append(
+						'<ul class="pagination">'+
+		                '<li class="active"><a href="#">1<span class="sr-only">(current)</span></a></li>'+
+		            '</ul>'+
+		            '<p>共<span>'+list.total+'</span>条记录，每页<span>'+list.list[0].pageSize+'</span>条</p>'
+						);
 			} else {
-				$("#hr_user").append(
-                +'<tr style="display: none;">'
-                    +'<td colspan="9">'
-                        +'<div class="empty">'
-                            +'<img src="../images/empty_1.png" alt=""/>'
-                        +'</div>'
-                    +'</td>'
-                +'</tr>'
-                );
+				$("#not").show();
 			}
 		}
 	})

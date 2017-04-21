@@ -7,8 +7,7 @@
 package com.personalitytest.user.service;
 
 
-import java.util.List;
-
+import com.github.pagehelper.PageInfo;
 import com.personalitytest.entity.HR_UserBO;
 import com.personalitytest.utils.JsonResult;
 
@@ -42,7 +41,7 @@ public interface IUserService {
      * @author：gehanbiao
      * @crateDate：2017年4月13日下午4:31:55
      */
-    List<HR_UserBO> findRoleIdHRUser(String userId);
+    PageInfo<HR_UserBO> findRoleIdHRUser(String userId);
     /**
      * @description： 更新当前HR管理员信息
      * @param userBO
@@ -58,5 +57,5 @@ public interface IUserService {
      * @author：gehanbiao
      * @crateDate：2017年4月20日上午9:00:30
      */
-     List<HR_UserBO> findHRUser(HR_UserBO userBO);
+    PageInfo<HR_UserBO> findHRUser(HR_UserBO userBO);
 }

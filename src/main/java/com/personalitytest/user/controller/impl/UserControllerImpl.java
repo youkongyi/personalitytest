@@ -7,17 +7,16 @@
 package com.personalitytest.user.controller.impl;
 
 
-import java.util.List;
 import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import com.github.pagehelper.PageInfo;
 import com.personalitytest.entity.HR_UserBO;
 import com.personalitytest.user.controller.IUserController;
 import com.personalitytest.user.service.IUserService;
@@ -112,8 +111,8 @@ public class UserControllerImpl implements IUserController {
     @Override
     @RequestMapping("/findRoleIdHRUser.do")
     @ResponseBody
-    public JsonResult<List<HR_UserBO>> findRoleIdHRUser(@RequestParam Map<String, Object> paramMap) {
-        JsonResult<List<HR_UserBO>> jsonResult = new JsonResult<List<HR_UserBO>>();
+    public JsonResult<PageInfo<HR_UserBO>> findRoleIdHRUser(@RequestParam Map<String, Object> paramMap) {
+        JsonResult<PageInfo<HR_UserBO>> jsonResult = new JsonResult<PageInfo<HR_UserBO>>();
         String userId = String.valueOf(paramMap.get("userId"));
         if(StringUtils.isNull(userId)){
             jsonResult.setState(StateInforMation.STATUS_PARAMETER_ERROR);
@@ -121,7 +120,8 @@ public class UserControllerImpl implements IUserController {
             return jsonResult;
         }
         try {
-            List<HR_UserBO> userList = userService.findRoleIdHRUser(userId);
+            PageInfo<HR_UserBO> userList = userService.findRoleIdHRUser(userId);
+            System.out.println(userList);
             jsonResult.setData(userList);
             jsonResult.setState(StateInforMation.STATUS_SUCCESS);
             jsonResult.setMessage(StateInforMation.STATUS_SUCCESS_MESSAGE);
@@ -175,8 +175,8 @@ public class UserControllerImpl implements IUserController {
     @Override
     @RequestMapping("/findHRUser.do")
     @ResponseBody
-    public JsonResult<List<HR_UserBO>> findHRUser(@RequestParam Map<String, Object> paramMap) {
-        JsonResult<List<HR_UserBO>> jsonResult = new JsonResult<List<HR_UserBO>>();
+    public JsonResult<PageInfo<HR_UserBO>> findHRUser(@RequestParam Map<String, Object> paramMap) {
+        JsonResult<PageInfo<HR_UserBO>> jsonResult = new JsonResult<PageInfo<HR_UserBO>>();
         String userId = String.valueOf(paramMap.get("userId"));
         if(StringUtils.isNull(userId)){
             jsonResult.setState(StateInforMation.STATUS_PARAMETER_ERROR);
@@ -186,7 +186,7 @@ public class UserControllerImpl implements IUserController {
         try {
             HR_UserBO userBO = new HR_UserBO();
             BeanUtils.copyProperties(userBO, paramMap);
-            List<HR_UserBO> userList = userService.findHRUser(userBO);
+            PageInfo<HR_UserBO> userList = userService.findHRUser(userBO);
             jsonResult.setData(userList);
             jsonResult.setState(StateInforMation.STATUS_SUCCESS);
             jsonResult.setMessage(StateInforMation.STATUS_SUCCESS_MESSAGE);
