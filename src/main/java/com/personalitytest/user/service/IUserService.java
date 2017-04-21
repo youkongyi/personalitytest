@@ -41,7 +41,7 @@ public interface IUserService {
      * @author：gehanbiao
      * @crateDate：2017年4月13日下午4:31:55
      */
-    PageInfo<HR_UserBO> findRoleIdHRUser(String userId);
+    PageInfo<HR_UserBO> findRoleIdHRUser(String userId,int pageNum,int pageSize);
     /**
      * @description： 更新当前HR管理员信息
      * @param userBO

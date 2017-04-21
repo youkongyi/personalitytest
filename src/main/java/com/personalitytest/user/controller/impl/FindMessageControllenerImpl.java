@@ -6,7 +6,6 @@
  */
 package com.personalitytest.user.controller.impl;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -18,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.github.pagehelper.PageInfo;
 import com.personalitytest.entity.HR_CandiDateBO;
 import com.personalitytest.user.controller.IFindMessageControllener;
 import com.personalitytest.user.service.ICandiDateService;
@@ -44,15 +45,15 @@ public class FindMessageControllenerImpl implements IFindMessageControllener {
     @Override
     @RequestMapping("/findUserIdMessage.do")
     @ResponseBody
-    public JsonResult<List<HR_CandiDateBO>> findUserIdMessage(String userId) {
-        JsonResult<List<HR_CandiDateBO>> jsonResult = new JsonResult<List<HR_CandiDateBO>>();
+    public JsonResult<PageInfo<HR_CandiDateBO>> findUserIdMessage(String userId) {
+        JsonResult<PageInfo<HR_CandiDateBO>> jsonResult = new JsonResult<PageInfo<HR_CandiDateBO>>();
         if(StringUtils.isNull(userId)){
             jsonResult.setState(StateInforMation.STATUS_PARAMETER_ERROR);
             jsonResult.setMessage(StateInforMation.STATUS_PARAMETER_ERROR_MESSAGE);
             return jsonResult;
         }
         try{
-            List<HR_CandiDateBO> candiDateList = candiDateService.findUserIdMessage(userId);
+            PageInfo<HR_CandiDateBO> candiDateList = candiDateService.findUserIdMessage(userId);
             jsonResult.setData(candiDateList);
             jsonResult.setState(StateInforMation.STATUS_SUCCESS);
             jsonResult.setMessage(StateInforMation.STATUS_SUCCESS_MESSAGE);
@@ -72,8 +73,8 @@ public class FindMessageControllenerImpl implements IFindMessageControllener {
     @Override
     @RequestMapping("/findCandiDateMessage.do")
     @ResponseBody
-    public JsonResult<List<HR_CandiDateBO>> findCandiDateMessage(@RequestParam Map<String,Object> paramMap) {
-        JsonResult<List<HR_CandiDateBO>> jsonResult = new JsonResult<List<HR_CandiDateBO>>();
+    public JsonResult<PageInfo<HR_CandiDateBO>> findCandiDateMessage(@RequestParam Map<String,Object> paramMap) {
+        JsonResult<PageInfo<HR_CandiDateBO>> jsonResult = new JsonResult<PageInfo<HR_CandiDateBO>>();
         String userId = String.valueOf(paramMap.get("userId"));
         if(StringUtils.isNull(userId)){
             jsonResult.setState(StateInforMation.STATUS_PARAMETER_ERROR);
@@ -83,7 +84,7 @@ public class FindMessageControllenerImpl implements IFindMessageControllener {
         try{
             HR_CandiDateBO candiDateBO = new HR_CandiDateBO();
             BeanUtils.copyProperties(candiDateBO, paramMap);
-            List<HR_CandiDateBO> candiDateList = candiDateService.findCandiDateMessage(candiDateBO);
+            PageInfo<HR_CandiDateBO> candiDateList = candiDateService.findCandiDateMessage(candiDateBO);
             jsonResult.setData(candiDateList);
             jsonResult.setState(StateInforMation.STATUS_SUCCESS);
             jsonResult.setMessage(StateInforMation.STATUS_SUCCESS_MESSAGE);

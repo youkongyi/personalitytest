@@ -6,8 +6,7 @@
  */
 package com.personalitytest.user.service;
 
-import java.util.List;
-
+import com.github.pagehelper.PageInfo;
 import com.personalitytest.entity.HR_CandiDateBO;
 
 /**
@@ -23,7 +22,7 @@ public interface ICandiDateService {
      * @author：gehanbiao
      * @crateDate：2017年4月11日上午11:46:58
      */
-    List<HR_CandiDateBO> findUserIdMessage(String userId);
+    PageInfo<HR_CandiDateBO> findUserIdMessage(String userId);
     /**
      * @description： 根据条件查找应试者信息
      * @param candiDateBO
@@ -31,7 +30,7 @@ public interface ICandiDateService {
      * @author：gehanbiao
      * @crateDate：2017年4月12日上午10:40:45
      */
-    List<HR_CandiDateBO> findCandiDateMessage(HR_CandiDateBO candiDateBO);
+    PageInfo<HR_CandiDateBO> findCandiDateMessage(HR_CandiDateBO candiDateBO);
     /**
      * @description： 添加应试者信息
      * @param candiDateBO

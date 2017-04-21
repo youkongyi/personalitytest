@@ -96,7 +96,7 @@ public class MyBatisTestCase {
 	@Test
 	public void test9(){
 	    ICandiDateService service = ctx.getBean("candiDateService",ICandiDateService.class);
-	    List<HR_CandiDateBO> json = service.findUserIdMessage("1");
+	    PageInfo<HR_CandiDateBO> json = service.findUserIdMessage("1");
 	    System.out.println(json);
 	}
 	
@@ -115,7 +115,7 @@ public class MyBatisTestCase {
         HR_CandiDateBO candiDateBO = new HR_CandiDateBO();
         candiDateBO.setUserId("1");
         candiDateBO.setName("戈汉彪");
-        List<HR_CandiDateBO> json = service.findCandiDateMessage(candiDateBO);
+        PageInfo<HR_CandiDateBO> json = service.findCandiDateMessage(candiDateBO);
         System.out.println(json);
     }
 	@Test
@@ -183,7 +183,7 @@ public class MyBatisTestCase {
 	@Test
     public void test16(){
 	   IUserService userService = ctx.getBean("userService",IUserService.class); 
-	   PageInfo<HR_UserBO> list = userService.findRoleIdHRUser("1");
+	   PageInfo<HR_UserBO> list = userService.findRoleIdHRUser("1",1,2);
 	   System.out.println(list);
 	}
 	//测试字符串转换拼音jar包

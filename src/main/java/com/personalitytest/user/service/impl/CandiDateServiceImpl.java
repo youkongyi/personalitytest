@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.github.pagehelper.PageInfo;
 import com.personalitytest.entity.HR_CandiDateBO;
 import com.personalitytest.user.dao.IMessageDAO;
 import com.personalitytest.user.service.ICandiDateService;
@@ -34,8 +35,10 @@ public class CandiDateServiceImpl implements ICandiDateService {
      */
     @Override
     @Transactional
-    public List<HR_CandiDateBO> findUserIdMessage(String userId) {
-        return messageDAO.findUserIdMessage(userId);
+    public PageInfo<HR_CandiDateBO> findUserIdMessage(String userId) {
+        
+        List<HR_CandiDateBO> list = messageDAO.findUserIdMessage(userId);
+        return new PageInfo<HR_CandiDateBO>(list);
     }
     /**
      * @description： 根据条件查找应试者信息
@@ -45,8 +48,9 @@ public class CandiDateServiceImpl implements ICandiDateService {
      */
     @Override
     @Transactional
-    public List<HR_CandiDateBO> findCandiDateMessage(HR_CandiDateBO candiDateBO) {
-        return messageDAO.findCandiDateMessage(candiDateBO);
+    public PageInfo<HR_CandiDateBO> findCandiDateMessage(HR_CandiDateBO candiDateBO) {
+        List<HR_CandiDateBO> list = messageDAO.findCandiDateMessage(candiDateBO);
+        return new PageInfo<HR_CandiDateBO>(list);
     }
     /**
      * @description：  添加应试者信息

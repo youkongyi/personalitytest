@@ -120,8 +120,9 @@ public class UserControllerImpl implements IUserController {
             return jsonResult;
         }
         try {
-            PageInfo<HR_UserBO> userList = userService.findRoleIdHRUser(userId);
-            System.out.println(userList);
+            int pageNum = 1;
+            int pageSize = 5;
+            PageInfo<HR_UserBO> userList = userService.findRoleIdHRUser(userId,pageNum,pageSize);
             jsonResult.setData(userList);
             jsonResult.setState(StateInforMation.STATUS_SUCCESS);
             jsonResult.setMessage(StateInforMation.STATUS_SUCCESS_MESSAGE);

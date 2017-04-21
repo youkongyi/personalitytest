@@ -85,9 +85,10 @@ public class UserServiceImpl implements IUserService {
      * @crateDate：2017年4月13日下午4:36:51
      */
     @Override
-    public PageInfo<HR_UserBO> findRoleIdHRUser(String userId) {
+    public PageInfo<HR_UserBO> findRoleIdHRUser(String userId,int pageNum,int pageSize) {
         String roleId = userDAO.findRoleId(userId);
         if(StringUtils.isNotNull(roleId)){
+            PageHelper.startPage(pageNum, pageSize);
             List<HR_UserBO> list = userDAO.findRoleIdHRUser(roleId);
             return new PageInfo<HR_UserBO>(list); 
         }
