@@ -1,6 +1,9 @@
 package com.personalitytest.test;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import javax.sql.DataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Before;
@@ -19,6 +22,7 @@ import com.personalitytest.user.service.ICandiDateService;
 import com.personalitytest.user.service.IUserService;
 import com.personalitytest.utils.JsonResult;
 import com.personalitytest.utils.Pinyin4jUtil;
+import com.personalitytest.utils.StringUtils;
 
 import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 
@@ -234,7 +238,23 @@ public class MyBatisTestCase {
 	
 	
 	
-	
+   @Test
+   public void test21(){
+       String str = "$.ajax({asdasd asdasd ,url:'/index/list',type:'json',success:function(){console.log('OK');}});";
+       String pattern = "url:\'(.*?)\'";
+       Matcher matcher = Pattern.compile(pattern).matcher(str);
+       String openid = "";
+       while (matcher.find()) {
+           openid = matcher.group(1);
+       }
+       String http = "http";
+       System.out.println(openid);
+       if(StringUtils.isNotNull(openid)){
+           String sql = "url:'"+http+openid+"'";
+           str = str.replaceAll(pattern, sql);
+       }
+       System.out.println(str);
+   }
 	
 	
 	

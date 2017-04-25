@@ -28,17 +28,25 @@ produces:    指定返回的内容类型，仅当request请求头中的(Accept)�
 params： 指定request中必须包含某些参数值是，才让该方法处理。
 headers： 指定request中必须包含某些指定的header值，才能让该方法处理请求。
 
-
+Filter
 1、拦截器是基于java的反射机制的，而过滤器是基于函数回调 
 2、过滤器依赖与servlet容器，而拦截器不依赖与servlet容器 
 3、拦截器只能对action请求起作用，而过滤器则可以对几乎所有的请求起作用 
 4、拦截器可以访问action上下文、值栈里的对象，而过滤器不能 
 5、在action的生命周期中，拦截器可以多次被调用，而过滤器只能在容器初始化时被调用一次 
-
 拦截器 ：是在面向切面编程的就是在你的service或者一个方法，前调用一个方法，或者在方法后调用一个方法比如动态代理就是拦截器的简单实现，在你调用方法前打印出字符串（或者做其它业务逻辑的操作），
 也可以在你调用方法后打印出字符串，甚至在你抛出异常的时候做业务逻辑的操作。 
 
 
+Servlet初始化过程：
+在启动Web项目时，容器(比如Tomcat)会读web.xml配置文件中的两个节点<listener>和<contex-param>。
+接着容器会创建一个ServletContext(上下文),应用范围内即整个WEB项目都能使用这个上下文。
+接着容器会将读取到<context-param>转化为键值对,并交给ServletContext。
+容器创建<listener></listener>中的类实例,即创建监听（备注：listener定义的类可以是自定义的类但必须需要继承ServletContextListener）。
+在监听的类中会有一个contextInitialized(ServletContextEvent event)初始化方法，在这个方法中可以通过event.getServletContext().getInitParameter("contextConfigLocation") 
+来得到context-param 设定的值。在这个类中还必须有一个contextDestroyed(ServletContextEvent event) 销毁方法.用于关闭应用前释放资源，比如说数据库连接的关闭。
+得到这个context-param的值之后,你就可以做一些操作了.注意,这个时候你的WEB项目还没有完全启动完成.这个动作会比所有的Servlet都要早。
+由上面的初始化过程可知容器对于web.xml的加载过程是context-param >> listener  >> fileter  >> servlet
 
 
 
@@ -62,8 +70,10 @@ Java中Filter、Servlet、Listener的学习<br>
 http://blog.csdn.net/agileclipse/article/details/9014683<br>
 自动登录：Filter,Session,Cookie综合例子<br>
 http://blog.csdn.net/ghbfgb/article/details/53001386<br>
-
-
+Servlet基础知识详解
+http://blog.csdn.net/jpzhu16/article/details/51626495
+监听器（Listener）
+http://blog.csdn.net/hzc543806053/article/details/7450812
 
 
 

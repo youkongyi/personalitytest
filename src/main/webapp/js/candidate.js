@@ -17,19 +17,19 @@ function loadCandiDateMessage() {
 	$.getJSON(url, data, function(result) {
 		if (result.state == SUCCESS) {
 			var list = result.data;
-			if (list.length != 0) {
-				for (var i = 0; i < list.length; i++) {
+			if (list.list.length != 0) {
+				for (var i = 0; i < list.list.length; i++) {
 					$("#message").append(
 							"<tr align='center'>" + "<td>"
-									+ list[i].candidateId + "</td>" + "<td>"
-									+ list[i].name + "</td>" + "<td>"
-									+ list[i].gender + "</td>" + "<td>"
-									+ list[i].mobile + "</td>"
+									+ list.list[i].candidateId + "</td>" + "<td>"
+									+ list.list[i].name + "</td>" + "<td>"
+									+ list.list[i].gender + "</td>" + "<td>"
+									+ list.list[i].mobile + "</td>"
 									+ "<td><p class='email-num'>"
-									+ list[i].email + "</p></td>" + "<td>"
-									+ list[i].cityId + "</td>" + "<td>"
-									+ list[i].positionId + "</td>" + "<td>"
-									+ list[i].stateId + "</td>"
+									+ list.list[i].email + "</p></td>" + "<td>"
+									+ list.list[i].cityId + "</td>" + "<td>"
+									+ list.list[i].positionId + "</td>" + "<td>"
+									+ list.list[i].stateId + "</td>"
 									+ "<td>未答题</td>"
 									+ "<td><span class='color1'>11</span>"
 									+ "<span class='color2'>7</span>"
@@ -70,15 +70,15 @@ function findCandiDateMessage(){
 				for (var i = 0; i < list.length; i++) {
 					$("#message").append(
 							"<tr align='center'>" + "<td>"
-									+ list[i].candidateId + "</td>" + "<td>"
-									+ list[i].name + "</td>" + "<td>"
-									+ list[i].gender + "</td>" + "<td>"
-									+ list[i].mobile + "</td>"
+									+ list.list[i].candidateId + "</td>" + "<td>"
+									+ list.list[i].name + "</td>" + "<td>"
+									+ list.list[i].gender + "</td>" + "<td>"
+									+ list.list[i].mobile + "</td>"
 									+ "<td><p class='email-num'>"
-									+ list[i].email + "</p></td>" + "<td>"
-									+ list[i].cityId + "</td>" + "<td>"
-									+ list[i].positionId + "</td>" + "<td>"
-									+ list[i].stateId + "</td>"
+									+ list.list[i].email + "</p></td>" + "<td>"
+									+ list.list[i].cityId + "</td>" + "<td>"
+									+ list.list[i].positionId + "</td>" + "<td>"
+									+ list.list[i].stateId + "</td>"
 									+ "<td>未答题</td>"
 									+ "<td><span class='color1'>11</span>"
 									+ "<span class='color2'>7</span>"
