@@ -76,6 +76,12 @@ http://blog.csdn.net/jpzhu16/article/details/51626495
 http://blog.csdn.net/hzc543806053/article/details/7450812
 
 
+学习:
+Java反射机制详解
+http://baike.xsoftlab.net/view/209.html#1
+
+
+
 
 
 
