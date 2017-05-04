@@ -8,12 +8,14 @@ package com.personalitytest.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 /**
  * 应试者信息表
  * @author gehanbiao
  * @version 2017年4月7日
  */
+@Accessors(chain = true)
 @Getter
 @Setter
 public class HR_CandiDateBO {

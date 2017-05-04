@@ -125,24 +125,24 @@ public class MyBatisTestCase {
 	@Test
     public void test12(){
 	    IMessageDAO dao = ctx.getBean("IMessageDAO",IMessageDAO.class); 
-        HR_CandiDateBO candiDateBO = new HR_CandiDateBO();
-        candiDateBO.setName("天天");
-        candiDateBO.setGender("女");
-        candiDateBO.setDayOfBirth("2017-01-02");
-        candiDateBO.setPositionId("30");
-        candiDateBO.setMobile("1554485521");
-        candiDateBO.setPhone("1554412541");
-        candiDateBO.setEmail("1335322520@qq.com");
-        candiDateBO.setEducation("硕士");
-        candiDateBO.setCollage("文学院");
-        candiDateBO.setSchool("清华北大");
-        candiDateBO.setMajor("园林园艺");
-        candiDateBO.setGraduation("2017-06-08");
-        candiDateBO.setQq("1335322520");
-        candiDateBO.setSourceId("4");
-        candiDateBO.setStateId("4");
-        candiDateBO.setUserId("1");
-        candiDateBO.setCityId("86");
+        HR_CandiDateBO candiDateBO = new HR_CandiDateBO()
+               .setName("天天")
+               .setGender("女")
+               .setDayOfBirth("2017-01-02")
+               .setPositionId("30")
+               .setMobile("1554485521")
+               .setPhone("1554412541")
+               .setEmail("1335322520@qq.com")
+               .setEducation("硕士")
+               .setCollage("文学院")
+               .setSchool("清华北大")
+               .setMajor("园林园艺")
+               .setGraduation("2017-06-08")
+               .setQq("1335322520")
+               .setSourceId("4")
+               .setStateId("4")
+               .setUserId("1")
+               .setCityId("86");
         int i = dao.insertCandiDateMessage(candiDateBO);
         System.out.println(i);
     }

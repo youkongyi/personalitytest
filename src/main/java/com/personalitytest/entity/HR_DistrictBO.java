@@ -7,12 +7,14 @@
 package com.personalitytest.entity;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 /**
  * 城市地区信息表BO
  * @author gehanbiao
  * @version 2017年4月11日
  */
+@Accessors(chain = true)
 @Setter
 @Getter
 public class HR_DistrictBO {
@@ -36,5 +38,5 @@ public class HR_DistrictBO {
      * list
      */
     private String list;
-   
+    
 }
