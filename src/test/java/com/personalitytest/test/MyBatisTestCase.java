@@ -78,9 +78,9 @@ public class MyBatisTestCase {
         List<HR_DistrictBO> list = dao.selectAll();
         PageInfo<HR_DistrictBO> page = new PageInfo<HR_DistrictBO>(list);
         System.out.println(list);
-        System.out.println(list.get(0).getDistrictName());
+        System.out.println(list.get(0));
         System.out.println(page);
-        System.out.println(page.getList().get(0).getDistrictName());
+        System.out.println(page.getList().get(0));
 	}
 	@Test
 	public void test7(){

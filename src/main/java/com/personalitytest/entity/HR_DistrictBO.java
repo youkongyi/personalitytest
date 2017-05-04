@@ -5,12 +5,16 @@
  *     1. [2017年4月11日]创建文件 by gehanbiao
  */
 package com.personalitytest.entity;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * 城市地区信息表BO
  * @author gehanbiao
  * @version 2017年4月11日
  */
+@Setter
+@Getter
 public class HR_DistrictBO {
     /**
      * 城市ID
@@ -32,37 +36,5 @@ public class HR_DistrictBO {
      * list
      */
     private String list;
-
-    public String getDistrictId() {
-        return districtId;
-    }
-    public void setDistrictId(String districtId) {
-        this.districtId = districtId;
-    }
-    public String getDistrictName() {
-        return districtName;
-    }
-    public void setDistrictName(String districtName) {
-        this.districtName = districtName;
-    }
-    public String getLevel() {
-        return level;
-    }
-    public void setLevel(String level) {
-        this.level = level;
-    }
-    public String getParentId() {
-        return parentId;
-    }
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
-    }
-    public String getList() {
-        return list;
-    }
-    public void setList(String list) {
-        this.list = list;
-    }
-    
    
 }

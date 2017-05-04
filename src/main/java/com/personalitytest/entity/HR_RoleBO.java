@@ -6,11 +6,16 @@
  */
 package com.personalitytest.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * 角色表
  * @author gehanbiao
  * @version 2017年4月10日
  */
+@Getter
+@Setter
 public class HR_RoleBO {
     /**
      * 角色ID
@@ -20,18 +25,5 @@ public class HR_RoleBO {
      * 角色名称
      */
     private String roleName;
-    
-    public String getRoleId() {
-        return roleId;
-    }
-    public void setRoleId(String roleId) {
-        this.roleId = roleId;
-    }
-    public String getRoleName() {
-        return roleName;
-    }
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
-    }
     
 }

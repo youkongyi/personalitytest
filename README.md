@@ -74,8 +74,8 @@ Servlet基础知识详解
 http://blog.csdn.net/jpzhu16/article/details/51626495
 监听器（Listener）
 http://blog.csdn.net/hzc543806053/article/details/7450812
-
-
+lombok使用
+http://blog.csdn.net/ghsau/article/details/52334762
 学习:
 Java反射机制详解
 http://baike.xsoftlab.net/view/209.html#1

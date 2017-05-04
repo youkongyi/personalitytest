@@ -6,11 +6,16 @@
  */
 package com.personalitytest.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  *  HR管理员信息表
  * @author gehanbiao
  * @version 2017年4月5日
  */
+@Getter
+@Setter
 public class HR_UserBO {
     /**
      * ID
@@ -53,66 +58,6 @@ public class HR_UserBO {
      */
     private int pageSize = 5;
     
-    public int getPageNum() {
-        return pageNum;
-    }
-    public void setPageNum(int pageNum) {
-        this.pageNum = pageNum;
-    }
-    public int getPageSize() {
-        return pageSize;
-    }
-    public void setPageSize(int pageSize) {
-        this.pageSize = pageSize;
-    }
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-    public void setRoleId(String roleId) {
-        this.roleId = roleId;
-    }
-    public String getUserName() {
-        return userName;
-    }
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-    public String getUserPassword() {
-        return userPassword;
-    }
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
-    }
-    public String getUserSureName() {
-        return userSureName;
-    }
-    public void setUserSureName(String userSureName) {
-        this.userSureName = userSureName;
-    }
-    public String getUserMobile() {
-        return userMobile;
-    }
-    public void setUserMobile(String userMobile) {
-        this.userMobile = userMobile;
-    }
-    public String getUserEmail() {
-        return userEmail;
-    }
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
-    }
-    public String getColumn() {
-        return column;
-    }
-    public String getUserId() {
-        return userId;
-    }
-    public String getRoleId() {
-        return roleId;
-    }
-    public void setColumn(String column) {
-        this.column = column;
-    }
-    
+   
     
 }

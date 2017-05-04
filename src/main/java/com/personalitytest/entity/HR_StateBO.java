@@ -6,11 +6,16 @@
  */
 package com.personalitytest.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * 状态信息表BO
  * @author gehanbiao
  * @version 2017年4月10日
  */
+@Getter
+@Setter
 public class HR_StateBO {
     /**
      * 状态ID
@@ -20,17 +25,5 @@ public class HR_StateBO {
      * 状态信息
      */
     private String stateName;
-    public String getStateId() {
-        return stateId;
-    }
-    public void setStateId(String stateId) {
-        this.stateId = stateId;
-    }
-    public String getStateName() {
-        return stateName;
-    }
-    public void setStateName(String stateName) {
-        this.stateName = stateName;
-    }
     
 }

@@ -6,11 +6,16 @@
  */
 package com.personalitytest.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * 招聘信息来源表BO 
  * @author gehanbiao
  * @version 2017年4月10日
  */
+@Getter
+@Setter
 public class HR_SourceBO {
     /**
      * 招聘信息来源id
@@ -20,18 +25,4 @@ public class HR_SourceBO {
      * 来源信息名称
      */
     private String name;
-    
-    public String getSourceId() {
-        return sourceId;
-    }
-    public void setSourceId(String sourceId) {
-        this.sourceId = sourceId;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    
 }

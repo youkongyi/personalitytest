@@ -9,6 +9,7 @@ package test;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -20,14 +21,14 @@ import java.util.ArrayList;
  * @version 2017年4月26日
  */
 public class DemoTest 
-//implements Serializable
+implements Serializable
                             {
 
-//    private static final long serialVersionUID = 1L;
-//    
-//    private String var = "hello";
-//    
-//    public int num = 5;
+    private static final long serialVersionUID = 1L;
+    
+    private String var = "hello";
+    
+    public int num = 5;
 
     /**
      * 通过一个对象获得完整的包名和类名
@@ -103,7 +104,9 @@ public class DemoTest
 //        // cons[0] (java.lang.String)
 //        // cons[1] (int,java.lang.String)
 //        // cons[2] ()
-//        user = (User) cons[1].newInstance("Rollen");
+//        user = (User) cons[2].newInstance("Rollen");
+//        System.out.println(user);
+//        user = (User) cons[1].newInstance(20, "Rollen","Rollen");
 //        System.out.println(user);
 //        // 结果 User [age=0, name=Rollen]
 //        user = (User) cons[0].newInstance(20, "Rollen");
@@ -120,6 +123,13 @@ public class DemoTest
 //        public User(String name) {
 //            super();
 //            this.name = name;
+//        }
+//        
+//        public User(int age, String name, String names) {
+//            super();
+//            this.age = age;
+//            this.name = name;
+//            this.name = names;
 //        }
 //        public User(int age, String name) {
 //            super();
@@ -147,32 +157,32 @@ public class DemoTest
     /**
      * 获取某个类的全部属性
      */
-//        public static void main(String[] args) throws Exception {
-//            Class<?> clazz = Class.forName("test.DemoTest");
-//            System.out.println("===============本类属性===============");
-//            // 取得本类的全部属性
-//            Field[] field = clazz.getDeclaredFields();
-//            for (int i = 0; i < field.length; i++) {
-//                // 权限修饰符
-//                int mo = field[i].getModifiers();
-//                String priv = Modifier.toString(mo);
-//                // 属性类型
-//                Class<?> type = field[i].getType();
-//                System.out.println(priv + " " + type.getName() + " " + field[i].getName() + ";");
-//            }
-//             
-//            System.out.println("==========实现的接口或者父类的属性==========");
-//            // 取得实现的接口或者父类的属性
-//            Field[] filed1 = clazz.getFields();
-//            for (int j = 0; j < filed1.length; j++) {
-//                // 权限修饰符
-//                int mo = filed1[j].getModifiers();
-//                String priv = Modifier.toString(mo);
-//                // 属性类型
-//                Class<?> type = filed1[j].getType();
-//                System.out.println(priv + " " + type.getName() + " " + filed1[j].getName() + ";");
-//            }
-//        }
+        public static void main(String[] args) throws Exception {
+            Class<?> clazz = Class.forName("test.DemoTest");
+            System.out.println("===============本类属性===============");
+            // 取得本类的全部属性
+            Field[] field = clazz.getDeclaredFields();
+            for (int i = 0; i < field.length; i++) {
+                // 权限修饰符
+                int mo = field[i].getModifiers();
+                String priv = Modifier.toString(mo);
+                // 属性类型
+                Class<?> type = field[i].getType();
+                System.out.println(priv + " " + type.getName() + " " + field[i].getName() + ";");
+            }
+             
+            System.out.println("==========实现的接口或者父类的属性==========");
+            // 取得实现的接口或者父类的属性
+            Field[] filed1 = clazz.getFields();
+            for (int j = 0; j < filed1.length; j++) {
+                // 权限修饰符
+                int mo = filed1[j].getModifiers();
+                String priv = Modifier.toString(mo);
+                // 属性类型
+                Class<?> type = filed1[j].getType();
+                System.out.println(priv + " " + type.getName() + " " + filed1[j].getName() + ";");
+            }
+        }
     
     /**
      * 获取某个类的全部方法
