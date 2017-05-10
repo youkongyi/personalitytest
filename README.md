@@ -70,15 +70,15 @@ Java中Filter、Servlet、Listener的学习<br>
 http://blog.csdn.net/agileclipse/article/details/9014683<br>
 自动登录：Filter,Session,Cookie综合例子<br>
 http://blog.csdn.net/ghbfgb/article/details/53001386<br>
-Servlet基础知识详解
-http://blog.csdn.net/jpzhu16/article/details/51626495
-监听器（Listener）
-http://blog.csdn.net/hzc543806053/article/details/7450812
-lombok使用
-http://blog.csdn.net/ghsau/article/details/52334762
-学习:
-Java反射机制详解
-http://baike.xsoftlab.net/view/209.html#1
+Servlet基础知识详解<br>
+http://blog.csdn.net/jpzhu16/article/details/51626495<br>
+监听器（Listener）<br>
+http://blog.csdn.net/hzc543806053/article/details/7450812<br>
+lombok使用<br>
+http://blog.csdn.net/ghsau/article/details/52334762<br>
+学习:<br>
+Java反射机制详解<br>
+http://baike.xsoftlab.net/view/209.html#1<br>
 
 
 
